@@ -23,7 +23,13 @@ import javax.swing.text.DefaultCaret;
  * @author aaron
  */
 public class CarBeeperV2 extends JFrame {
-    // Buttons
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private final int TIMER_INTERVAL = 500;
+	// Buttons
     private final JButton lockButton;
     private final JButton windowButton;
     private final JButton powerButton;
@@ -105,7 +111,7 @@ public class CarBeeperV2 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent me) {
                 //System.out.println("\nInside mouseClicked...");
-                Integer timerinterval = (Integer)Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
+                //Integer timerinterval = (Integer)Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
                 if (me.getClickCount() == 2) {
                     singleClick = false;
                     doubleClick = true;
@@ -113,26 +119,8 @@ public class CarBeeperV2 extends JFrame {
                     singleClick = true;
                     doubleClick = false;
                 }
-                Timer timer = new Timer(timerinterval, evt -> {
-                    System.out.println("Timer for Lock Button started.");
-                    if (singleClick) {
-                        //System.out.println("Single click");
-                        lock_Unlock();
-                        getLockState();
-                    } else if (doubleClick) {
-                        //System.out.println("Double click");
-                        lock_UnlockAll();
-                        getLockState();
-                    }
-                    singleClick = false;
-                    doubleClick = false;
-                });
-                timer.setRepeats(false);
-                timer.start();
-//                if (me.getID() == 500) {
-//                    System.out.println("Timer for Lock Button stopped.");
-//                    timer.stop();
-//                }
+                System.out.println("Timer for Lock Button started.");
+                this.timer.start();
             }
         });
         // Window Button Functionality
@@ -141,7 +129,7 @@ public class CarBeeperV2 extends JFrame {
         powerButton.addMouseListener(new MouseClickHandler() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                System.out.println(me.getComponent());
+                //System.out.println(me.getComponent());
                 if (me.getSource() == powerButton && carState.equals(State.OFF)) {
                     carState = State.ON;
                     textArea.append("Car is " + carState + "\n");
@@ -151,6 +139,8 @@ public class CarBeeperV2 extends JFrame {
                     textArea.append("Car is " + carState + "\n");
                     getPowerState();
                 }
+                this.timer.stop();
+                System.out.println("timer is : " + this.timer.isRunning());
             }
         });
         // Car Trunk Functionality
@@ -229,7 +219,28 @@ public class CarBeeperV2 extends JFrame {
     }
     
     private class MouseClickHandler extends MouseAdapter { //implements ActionListener {
-        public MouseClickHandler() {}
+        protected Timer timer = null;
+    	public MouseClickHandler() {
+    		
+    		timer = new Timer(TIMER_INTERVAL, evt -> {
+                if (singleClick) {
+                    //System.out.println("Single click");
+                    lock_Unlock();
+                    getLockState();
+                } else if (doubleClick) {
+                    //System.out.println("Double click");
+                    lock_UnlockAll();
+                    getLockState();
+                }
+                singleClick = false;
+                doubleClick = false;
+                System.out.println("Timer's event set for ");
+            });
+    		timer.setRepeats(false);
+            timer.setDelay(TIMER_INTERVAL + TIMER_INTERVAL);
+            timer.start();
+            System.out.println("timer is : " + this.timer.isRunning());
+    	}
         @Override
         public void mouseEntered(MouseEvent me) {}
         @Override
@@ -253,7 +264,7 @@ public class CarBeeperV2 extends JFrame {
      * Inside actionPerformed...
      */
     private class WindowButtonHandler extends MouseAdapter implements ActionListener {
-        private final int TIMER_INTERVAL = (Integer) Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
+        //private final int TIMER_INTERVAL = (Integer) Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
         private final Timer timer;
         private final Timer beingHeld = new Timer(250, actionEvent -> {
             if ((beingHeldTimer < 3 && holding == false) ) { // 0, 1, 2 < 3
@@ -377,9 +388,11 @@ public class CarBeeperV2 extends JFrame {
                     //wasHeld = false;
                 }
             }
+            System.out.println("Timer for Window Button stopped.");
             timer.stop();
-        }
-    }
+        } // end actionPerformed()
+    } // end WindowButtonHandler.class
+    
     // method to set constraints on
     private void addComponent(Component component, int gridy, int gridx, double gwidth, double gheight) {
         constraints.gridx = gridx;
