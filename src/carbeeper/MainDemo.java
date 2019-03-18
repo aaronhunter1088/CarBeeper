@@ -1,5 +1,8 @@
 package carbeeper;
 import javax.swing.JFrame;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 /**
  * PROGRAMMER: Michael Ball 
  
@@ -114,13 +117,17 @@ import javax.swing.JFrame;
  * 
  */
 public class MainDemo {
+	private final static Logger LOGGER = LogManager.getLogger(MainDemo.class);
     public static void main(String[] args) {
-        //CarBeeper beeper = new CarBeeper();
+    	LOGGER.info("Inside main(). Starting MainDemo.");
         CarBeeperV2 beeper = new CarBeeperV2();
+        LOGGER.info("Setting up beeper...");
         beeper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         beeper.setSize(290, 400);
         //beeper.setResizable(false); set in constructor now; left to show my learning
         beeper.setVisible(true);
         beeper.pack();
+        LOGGER.info("Beeper loaded.");
+        LOGGER.info("End main(). End MainDemo.\n");
     }
 }

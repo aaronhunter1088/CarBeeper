@@ -18,6 +18,9 @@ import javax.swing.JTextArea;
 import javax.swing.Timer;
 import javax.swing.text.DefaultCaret;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  *
  * @author aaron
@@ -27,7 +30,7 @@ public class CarBeeperV2 extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	private static final Logger LOGGER = LogManager.getLogger(CarBeeperV2.class);
 	private final int TIMER_INTERVAL = 500;
 	// Buttons
     private final JButton lockButton;
@@ -50,10 +53,6 @@ public class CarBeeperV2 extends JFrame {
     private State passengerDoorLockState;
     private State leftDoorLockState;
     private State rightDoorLockState;
-//    private State masterDoorState = State.CLOSED; // not used in this version
-//    private State passengerDoorState = State.CLOSED;
-//    private State leftDoorState = State.CLOSED;
-//    private State rightDoorState = State.CLOSED;
     private State masterWindowState;
     private State passengerWindowState;
     private State leftWindowState;
@@ -66,17 +65,16 @@ public class CarBeeperV2 extends JFrame {
     // Other Attributes
     private boolean wasHeld = false;
     private boolean holding = false;
-    private boolean singleClick = false, doubleClick = false;
+    private boolean singleClick = false, doubleClick = false, windowStatesPrinted = false;
     private int beingHeldTimer = 0;
     private int counter2 = 0;
     // GUI Component
     public CarBeeperV2() {
         super("Car Beeper");
+        LOGGER.info("Inside CarBeeperV2 constructor.");
         setBeeper();
         setResizable(false);
-//        setVisible(true);
-        layout = new GridBagLayout();
-        setLayout(layout);
+        setLayout(layout = new GridBagLayout());
         constraints = new GridBagConstraints();
         // Buttons
         lockButton = new JButton(lockImage);
@@ -85,7 +83,7 @@ public class CarBeeperV2 extends JFrame {
         trunkButton = new JButton(trunkImage);
         alarmButton = new JButton(alarmImage);
         clearButton = new JButton("Clear");
-        // Adding lockButton
+        LOGGER.info("Adding components.");
         constraints.fill = GridBagConstraints.BOTH;
         addComponent(lockButton, 1, 1, 1, 1); // row, column, size, size
         // Adding windowButton
@@ -106,11 +104,11 @@ public class CarBeeperV2 extends JFrame {
         // Adding jTextArea for verification of actions
         
         addComponent(new JScrollPane(textArea), 5, 1, 3, 1); // row, column, size, size
-        // Lock Button Functionality
+        LOGGER.info("Initializing lock button listener.");
         lockButton.addMouseListener(new MouseClickHandler() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                //System.out.println("\nInside mouseClicked...");
+                LOGGER.info("Inside mouseClicked.");
                 //Integer timerinterval = (Integer)Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
                 if (me.getClickCount() == 2) {
                     singleClick = false;
@@ -119,17 +117,18 @@ public class CarBeeperV2 extends JFrame {
                     singleClick = true;
                     doubleClick = false;
                 }
-                System.out.println("Timer for Lock Button started.");
+                LOGGER.info("Timer for Lock Button started.");
                 this.timer.start();
+                LOGGER.info("End mouseClicked.");
             }
         });
-        // Window Button Functionality
+        LOGGER.info("Initializing window button listener with custom window listener");
         windowButton.addMouseListener(new WindowButtonHandler() {});
-        // Car Power Functionality 100%
+        LOGGER.info("Initializing power button listener.");
         powerButton.addMouseListener(new MouseClickHandler() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                //System.out.println(me.getComponent());
+                LOGGER.info("Inside mouseClicked.");
                 if (me.getSource() == powerButton && carState.equals(State.OFF)) {
                     carState = State.ON;
                     textArea.append("Car is " + carState + "\n");
@@ -139,15 +138,15 @@ public class CarBeeperV2 extends JFrame {
                     textArea.append("Car is " + carState + "\n");
                     getPowerState();
                 }
-                this.timer.stop();
-                System.out.println("timer is : " + this.timer.isRunning());
+                LOGGER.info("End mouseClicked.");
             }
         });
-        // Car Trunk Functionality
+        LOGGER.info("Initializing trunk button listener.");
         trunkButton.addMouseListener(new MouseClickHandler() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                if (me.getSource() == trunkButton && trunkState.equals(State.CLOSED)) {
+            	LOGGER.info("Inside mouseClicked.");
+            	if (me.getSource() == trunkButton && trunkState.equals(State.CLOSED)) {
                     trunkState = State.OPEN;
                     textArea.append("Trunk is " + trunkState + "\n");
                     getTrunkState();
@@ -156,13 +155,15 @@ public class CarBeeperV2 extends JFrame {
                     textArea.append("Trunk is " + trunkState + "\n");
                     getTrunkState();
                 }
+            	LOGGER.info("End mouseClicked.");
             }
         });
-        // Car Alarm Functionality
+        LOGGER.info("Initializing alarm button listener");
         alarmButton.addMouseListener(new MouseClickHandler() {
             @Override
             public void mouseClicked(MouseEvent me) {
-                if (me.getSource() == alarmButton && alarmState.equals(State.OFF)) {
+            	LOGGER.info("Inside mouseClicked.");
+            	if (me.getSource() == alarmButton && alarmState.equals(State.OFF)) {
                     alarmState = State.ON;
                     textArea.append("Alarm is " + alarmState + "\n");
                     getAlarmState();
@@ -171,25 +172,30 @@ public class CarBeeperV2 extends JFrame {
                     textArea.append("Alarm is " + alarmState + "\n");
                     getAlarmState();
                 }
+                LOGGER.info("End mouseClicked.");
             }
         });
         // Clear Button Functionality
         clearButton.addMouseListener(new MouseClickHandler() {
             @Override
             public void mouseClicked(MouseEvent me) {
+            	LOGGER.info("Inside mouseClicked.");
                 if (me.getSource() == clearButton) {
-                    textArea.setText(null);
-                    //System.out.println("Textarea cleared.");
+                    textArea.setText("");
+                    windowStatesPrinted = false;
+                    LOGGER.info("windowStatesPrinted = false. Textarea cleared.");
                 }
+                LOGGER.info("End mouseClicked.");
             }
         });
+        LOGGER.info("End CarBeeperV2 constructor.");
     } // end GUI constructor
     
     /**
      * Displays to the textArea the default values of the states of each button. 
      */
-    public void setBeeper()
-    {
+    public void setBeeper() {
+    	LOGGER.info("Inside setBeeper(). Setting initial states...");
         carState = State.OFF;
         trunkState = State.CLOSED;
         alarmState = State.OFF;
@@ -216,30 +222,32 @@ public class CarBeeperV2 extends JFrame {
         textArea.append("Car is " + carState + ".\n");
         textArea.append("Trunk is " + trunkState + ".\n");
         textArea.append("Alarm is " + alarmState + ".\n\n");
+        LOGGER.info("End setBeeper()");
     }
     
     private class MouseClickHandler extends MouseAdapter { //implements ActionListener {
-        protected Timer timer = null;
+        private final Logger LOGGER = LogManager.getLogger(MouseClickHandler.class);
+    	protected Timer timer = null;
     	public MouseClickHandler() {
-    		
+    		LOGGER.info("Inside MouseClickHandler constructor.");
     		timer = new Timer(TIMER_INTERVAL, evt -> {
                 if (singleClick) {
-                    //System.out.println("Single click");
+                	LOGGER.info("Single click");
                     lock_Unlock();
                     getLockState();
                 } else if (doubleClick) {
-                    //System.out.println("Double click");
+                	LOGGER.info("Double click");
                     lock_UnlockAll();
                     getLockState();
                 }
                 singleClick = false;
                 doubleClick = false;
-                System.out.println("Timer's event set for ");
+                LOGGER.info("Timer's event set for " + TIMER_INTERVAL + " seconds.");
             });
     		timer.setRepeats(false);
             timer.setDelay(TIMER_INTERVAL + TIMER_INTERVAL);
             timer.start();
-            System.out.println("timer is : " + this.timer.isRunning());
+            LOGGER.info("timer is running: " + this.timer.isRunning());
     	}
         @Override
         public void mouseEntered(MouseEvent me) {}
@@ -265,60 +273,96 @@ public class CarBeeperV2 extends JFrame {
      */
     private class WindowButtonHandler extends MouseAdapter implements ActionListener {
         //private final int TIMER_INTERVAL = (Integer) Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
-        private final Timer timer;
+        private final Logger LOGGER = LogManager.getLogger(WindowButtonHandler.class);
+    	private final Timer timer;
         private final Timer beingHeld = new Timer(250, actionEvent -> {
-            if ((beingHeldTimer < 3 && holding == false) ) { // 0, 1, 2 < 3
-                textArea.append(++beingHeldTimer + " Window button not being held...\n");
-            } else if (beingHeldTimer >= 3) {
-                textArea.append(++counter2 + " Window button is being held...\n");
+            LOGGER.info("Inside beingHeld Timer actionEvent.");
+            LOGGER.info("windowStatesPrinted = " + windowStatesPrinted);
+        	if ((beingHeldTimer < 3 && holding == false) ) { // 0, 1, 2 < 3
+                textArea.append(++beingHeldTimer + " Window button held: no\n");
+                LOGGER.info(beingHeldTimer + " Timer is not being held.");
+            } else if (beingHeldTimer == 3) {
+                textArea.append(++counter2 + " Window button held: yes\n");
+                LOGGER.info(counter2 + " Timer is being held.");
                 holding = true;
                 beingHeldTimer++;
+            } else if (beingHeldTimer > 3 && !windowStatesPrinted) {
+            	if (counter2 < 10)
+            		textArea.setText(textArea.getText().substring(0, textArea.getText().length()-26) + ++counter2 + " Window button held: yes\n");
+            	else if (counter2 < 100 && counter2 >= 10) {
+            		textArea.setText(textArea.getText().substring(0, textArea.getText().length()-27) + ++counter2 + " Window button held: yes\n");
+            	} else if (counter2 > 100) {
+            		LOGGER.error("counter2: " + counter2 + " shouldn't go any higher than 100.");
+            	}
+            	LOGGER.info(counter2 + " Timer is being held.");
+            	holding = true;
+            	beingHeldTimer++;
+            } else if (beingHeldTimer > 3 && windowStatesPrinted) {
+            	// or maybe other states have been printed, we just need the entire text area
+            	if (counter2 < 10) {
+            		String temp = textArea.getText(); //.substring(0, textArea.getText().length()-26);
+            		textArea.setText(temp + ++counter2 + " Window button held: yes\n");
+            	} else if (counter2 < 100 && counter2 >= 10) {
+            		textArea.setText(textArea.getText() + ++counter2 + " Window button held: yes\n");
+            	} else if (counter2 > 100) {
+            		LOGGER.error("counter2: " + counter2 + " shouldn't go any higher than 100.");
+            	}
+            	LOGGER.info(counter2 + " Timer is being held.");
+            	windowStatesPrinted = false;
+            	holding = true;
+            	beingHeldTimer++;
             } else {
-                System.out.println("Research unknown error");
+                LOGGER.error("Research unknown error");
             }
+        	LOGGER.info("End beingHeld Timer actionEvent.");
         });
         
         public WindowButtonHandler() {
+        	LOGGER.info("Inside WindowButtonHandler constructor");
             singleClick = false;
             doubleClick = false;
             timer = new Timer(TIMER_INTERVAL, this);
+            LOGGER.info(this);
+            LOGGER.info("End WindowButtonHandler constructor");
         }
         
         @Override
         public void mousePressed(MouseEvent e) {
-            System.out.println("\nInside mousePressed...");
+            LOGGER.info("Inside mousePressed.");
             if (e.getClickCount() == 1) {
-                //System.out.println("Start beingHeld timer for singleClick...");
+                LOGGER.info("Start beingHeld timer for singleClick.");
                 beingHeld.start();
                 singleClick = true;
                 doubleClick = false;
             } else {
-                //System.out.println("Start beingHeld timer for doubleClick...");
+                LOGGER.info("Start beingHeld timer for doubleClick.");
                 beingHeld.start();
                 singleClick = false;
                 doubleClick = true;
             }
+            LOGGER.info("End mousePressed.");
         }
         
         @Override
         public void mouseReleased(MouseEvent e) {
-            System.out.println("Inside mouseReleased...");
+            LOGGER.info("Inside mouseReleased.");
             beingHeld.stop();
+            LOGGER.info("End mouseReleased.");
         }
         
         @Override
         public void mouseClicked(MouseEvent e) {
-            System.out.println("Inside mouseClicked...");
+            LOGGER.info("Inside mouseClicked...");
             if (doubleClick) {
-                //System.out.println("Double click");
+                LOGGER.info("Double clicked");
+                LOGGER.info("holding = " + holding + " | singleClick = " + !singleClick);
                 if (holding == true && !singleClick) {
                     if (wasHeld == true) {
-                        //System.out.println("We double click and held last time...");
+                        LOGGER.info("We double clicked and held last time...");
                         getWindowStates(2, counter2);
                         holding = false;
                     } else {
-                        //System.out.println("Perform logic of holding here...");
-                        //singleClick(previousEvent);
+                        LOGGER.info("We double clicked but we didn't hold it this time...");
                         windowUp_DownAll();
                         getWindowStates(2, counter2);
                         // set wasHeld to true and holding to false
@@ -327,43 +371,42 @@ public class CarBeeperV2 extends JFrame {
                     }
                 } else if (holding == false && !singleClick) {
                     if (wasHeld == true) { // held on last round, clicked this round (reversing states and button logic)
-                        //System.out.println("We double click and held last time...");
-                        //windowUp_DownAll();
+                        LOGGER.info("We double clicked and held last time...");
                         getWindowStates(2, 0);
                         counter2 = 0;
                         beingHeldTimer = 0;
                         wasHeld = false;
+                        windowStatesPrinted = false;
                         // if not holding (clicked) but wasHeld previously (true) (and previous click was a singleClick (true))
                     } else { // not holding this round (click) and didn't hold last round (click)
-                        //System.out.println("Perform logic of double click here...");
+                    	LOGGER.info("We double clicked but didn't hold this time.");
                         windowUp_DownAll();
                         getWindowStates(2, counter2);
                         counter2 = 0;
                         holding = false;
-                        //wasHeld = false;
+                        windowStatesPrinted = false;
                     }
                 }
                 timer.stop();
             } else {
-                System.out.println("Single click");
+            	LOGGER.info("Single click.");
                 timer.restart();
             }
+            LOGGER.info("End mouseClicked.");
         }
         
         @Override
         public void actionPerformed(ActionEvent e){
-            System.out.println("Running actionPerformed...");
+        	LOGGER.info("Running actionPerformed...");
+        	LOGGER.info("holding = " + holding + " | singleClick = " + singleClick);
             if (holding == true && !doubleClick) {
                 if (wasHeld == true) {
-                    //System.out.println("We single click and held last time...");
+                	LOGGER.info("We single click and held last time.");
                     getWindowStates(1, counter2);
                     holding = false;
-                    // if doubleClick == true
-                    // getWindowStates(2, counter2, true);
-                    // holding = false
+                    windowStatesPrinted = false;
                 } else {
-                    //System.out.println("Perform logic of holding here...");
-                    //singleClick(previousEvent);
+                	LOGGER.info("We single clicked and held it this time.");
                     windowUp_Down();
                     getWindowStates(1, counter2);
                     // set wasHeld to true and holding to false
@@ -372,35 +415,47 @@ public class CarBeeperV2 extends JFrame {
                 }
             } else if (holding == false && !doubleClick) {
                 if (wasHeld == true) { // held on last round, clicked this round (reversing states and button logic)
-                    //System.out.println("We single click and held last time...");
+                    LOGGER.info("We single click and held last time.");
                     //windowUp_Down();
                     getWindowStates(1, 0);
                     beingHeldTimer = 0;
                     counter2 = 0;
                     wasHeld = false;
+                    windowStatesPrinted = false;
                     // if not holding (clicked) but wasHeld previously (true) (and previous click was a doubleClick (true))
                 } else { // not holding this round (click) and didn't hold last round (click)
-                    //System.out.println("Perform logic of single click here...");
+                	LOGGER.info("We single clicked and didn't hold it this time.");
                     windowUp_Down();
                     getWindowStates(1, counter2);
                     counter2 = 0;
                     holding = false;
-                    //wasHeld = false;
+                    beingHeldTimer = 0;
+                    windowStatesPrinted = false;
                 }
             }
-            System.out.println("Timer for Window Button stopped.");
+            LOGGER.info("Timer for Window Button stopped.");
             timer.stop();
         } // end actionPerformed()
+        @Override
+        public String toString() {
+        	return "WindowButtonHandler: " + 
+        		   "timer, type of Timer " +
+        		   "beingHeldTimer, type of Timer " +
+        		   "LOGGER, type of Logger.";
+        	
+        }
     } // end WindowButtonHandler.class
     
     // method to set constraints on
     private void addComponent(Component component, int gridy, int gridx, double gwidth, double gheight) {
-        constraints.gridx = gridx;
+        LOGGER.info("Inside addComponent()");
+    	constraints.gridx = gridx;
         constraints.gridy = gridy;
         constraints.gridwidth = (int)Math.ceil(gwidth);
         constraints.gridheight = (int)Math.ceil(gheight);
         layout.setConstraints(component, constraints);
         add(component);
+        LOGGER.info("Component added.");
     } // end addComponent 
     /**
      * This method locks or unlocks the master door,
@@ -461,7 +516,7 @@ public class CarBeeperV2 extends JFrame {
      * @return 
      */
     public State getPowerState() {
-        System.out.printf("Car is: %s\n", carState);
+        LOGGER.info("Car is: " + carState);
         return carState;
     }
     /**
@@ -469,7 +524,7 @@ public class CarBeeperV2 extends JFrame {
      * @return 
      */
     public State getTrunkState() {
-        System.out.printf("Trunk is: %s\n", trunkState);
+    	LOGGER.info("Trunk is: " + trunkState);
         return trunkState;
     }
     /**
@@ -477,32 +532,25 @@ public class CarBeeperV2 extends JFrame {
      * @return 
      */
     public State getAlarmState() {
-        System.out.printf("Alarm is: %s\n", alarmState);
+    	LOGGER.info("Alarm is: " + alarmState);
         return alarmState;
     }
     /**
-     * This method simply returns the current state of all the windows.
-     * @return 
+     * This method simply returns the current state of all the windows.\
      */
-    public PrintStream getLockState() {
+    public void getLockState() {
         textArea.append("\nMaster Door lock is " + masterDoorLockState + "\n");
         textArea.append("Passenger Door lock is " + passengerDoorLockState + "\n");
         textArea.append("Left Door lock is " + leftDoorLockState + "\n");
         textArea.append("Right Door lock is " + rightDoorLockState + "\n");
-        return System.out.printf(""
-            + "Door Lock States:\n"
-            + "Master door lock: \t%s\n"
-            + "Passenger door lock: \t%s\n"
-            + "Left door lock: \t%s\n"
-            + "Right door lock: \t%s\n",
-            masterDoorLockState, passengerDoorLockState, leftDoorLockState, rightDoorLockState);
+        printDoorStates();
     }
     /**
      * This method returns the master door lock state
      * @return
      */
     public State getMasterDoorLockState() {
-        System.out.println("Master door lock state is : " + masterDoorLockState);
+    	LOGGER.info("Master door lock state is : " + masterDoorLockState);
         return masterDoorLockState;
     }
     
@@ -519,7 +567,7 @@ public class CarBeeperV2 extends JFrame {
      * @return 
      */
     public State getPassengerDoorLockState() {
-        System.out.println("Passenger door lock is : " + passengerDoorLockState);
+    	LOGGER.info("Passenger door lock is : " + passengerDoorLockState);
         return passengerDoorLockState;
     }
     
@@ -536,7 +584,7 @@ public class CarBeeperV2 extends JFrame {
      * @return 
      */
     public State getLeftDoorLockState() {
-        System.out.println("Left door lock is : " + leftDoorLockState);
+    	LOGGER.info("Left door lock is : " + leftDoorLockState);
         return leftDoorLockState;
     }
     
@@ -553,7 +601,7 @@ public class CarBeeperV2 extends JFrame {
      * @return 
      */
     public State getRightDoorLockState() {
-        System.out.println("Right door lock is : " + rightDoorLockState);
+    	LOGGER.info("Right door lock is : " + rightDoorLockState);
         return rightDoorLockState;
     }
     
@@ -565,50 +613,66 @@ public class CarBeeperV2 extends JFrame {
         this.rightDoorLockState = state;
     }
     
+    public void printWindowStates(int clicks, int windowCounter) {
+    	if ((clicks == 1 || clicks == 2) && windowCounter == 0) {
+    		LOGGER.info("----- Window States -----");
+            LOGGER.info("Master Window: " + masterWindowState);
+            LOGGER.info("Passenger Window: " + passengerWindowState);
+            LOGGER.info("Back Left Window: " + leftWindowState);
+            LOGGER.info("Back Right Window: " + rightWindowState);
+            LOGGER.info("----- End Window States -----");
+    	} else if (clicks == 1 && windowCounter > 0) {
+    		LOGGER.info("----- Window States -----");
+            LOGGER.info("Master Window is " + windowCounter + "% " +  masterWindowState);
+            LOGGER.info("Passenger Window: " + passengerWindowState);
+            LOGGER.info("Back Left Window: " + leftWindowState);
+            LOGGER.info("Back Right Window: " + rightWindowState);
+            LOGGER.info("----- End Window States -----");
+    	} else {
+    		LOGGER.info("----- Window States -----");
+            LOGGER.info("Master Window is " + windowCounter + "% " +  masterWindowState);
+            LOGGER.info("Passenger Window is " + windowCounter + "% " + passengerWindowState);
+            LOGGER.info("Back Left Window is " + windowCounter + "% " + leftWindowState);
+            LOGGER.info("Back Right Window is " + windowCounter + "% " +  rightWindowState);
+            LOGGER.info("----- End Window States -----");
+    	}
+    	windowStatesPrinted = true;
+    }
+    
+    public void printDoorStates() {
+    	LOGGER.info("----- Door States -----");
+        LOGGER.info("Master door lock: " + masterDoorLockState);
+        LOGGER.info("Passenger door lock: " + passengerDoorLockState);
+        LOGGER.info("Back Left door lock: " + leftDoorLockState);
+        LOGGER.info("Back Right doorLock: " + rightDoorLockState);
+        LOGGER.info("----- End Door States -----");
+    }
+    
     /**
      * This method simply returns the current state of all the windows.
      * @param clicks : integer; one click or two
      * @param windowCounter : counter2
      * @return 
      */
-    public PrintStream getWindowStates(int clicks, int windowCounter) {
+    public void getWindowStates(int clicks, int windowCounter) {
         if ((clicks == 1 || clicks == 2) && windowCounter == 0) { 
             textArea.append("\nMaster window is " + masterWindowState + "\n");
             textArea.append("Passenger window is " + passengerWindowState + "\n");
             textArea.append("Left window is " + leftWindowState + "\n");
-            textArea.append("Right window is " + rightWindowState + "\n");
-            return System.out.printf(
-            "Window States:\n"
-            + "Master Window: \t\t%s\n"
-            + "Passenger Window: \t%s\n"
-            + "Left Window: \t\t%s\n"
-            + "Right Window: \t\t%s\n",
-            masterWindowState, passengerWindowState, leftWindowState, rightWindowState);
+            textArea.append("Right window is " + rightWindowState + "\n\n");
+            printWindowStates(clicks, 0);
         } else if (clicks == 1 && windowCounter > 0) {
             textArea.append("\nMaster window is " + windowCounter + "% " + masterWindowState + "\n");
             textArea.append("Passenger window is " + passengerWindowState + "\n");
             textArea.append("Left window is " + leftWindowState + "\n");
-            textArea.append("Right window is " + rightWindowState + "\n");
-            return System.out.printf(
-            "Window States:\n"
-            + "Master Window is \t%d%% %s\n"
-            + "Passenger Window: \t%s\n"
-            + "Left Window: \t\t%s\n"
-            + "Right Window: \t\t%s\n",
-            windowCounter, masterWindowState, passengerWindowState, leftWindowState, rightWindowState);
+            textArea.append("Right window is " + rightWindowState + "\n\n");
+            printWindowStates(clicks, windowCounter);
         } else { // clicks == 2 && windowCounter > 0
             textArea.append("\nMaster window is " + windowCounter + "% " + masterWindowState + "\n");
             textArea.append("Passenger window is " + windowCounter + "% " + passengerWindowState + "\n");
             textArea.append("Left window is " + windowCounter + "% " + leftWindowState + "\n");
-            textArea.append("Right window is " + windowCounter + "% " + rightWindowState + "\n");
-            return System.out.printf(
-            "Window States:\n"
-            + "Master Window is \t%d%% %s\n"
-            + "Passenger Window is \t%d%% %s\n"
-            + "Left Window is \t\t%d%% %s\n"
-            + "Right Window is \t%d%% %s\n",
-            windowCounter, masterWindowState, windowCounter, passengerWindowState,
-            windowCounter, leftWindowState, windowCounter, rightWindowState);
+            textArea.append("Right window is " + windowCounter + "% " + rightWindowState + "\n\n");
+            printWindowStates(clicks, windowCounter);
         } 
     }
     /**
@@ -616,7 +680,7 @@ public class CarBeeperV2 extends JFrame {
      * @return
      */
     protected State getMasterWindowState() {
-        System.out.println("Master window is : " + masterWindowState);
+    	LOGGER.info("Master window is : " + masterWindowState);
         return masterWindowState;
     }
     
@@ -633,7 +697,7 @@ public class CarBeeperV2 extends JFrame {
      * @return
      */
     public State getPassengerWindowState() {
-        System.out.println("Passenger window is : " + passengerWindowState);
+    	LOGGER.info("Passenger window is : " + passengerWindowState);
         return passengerWindowState;
     }
     
@@ -650,7 +714,7 @@ public class CarBeeperV2 extends JFrame {
      * @return
      */
     public State getLeftWindowState() {
-        System.out.println("Left window is : " + leftWindowState);
+    	LOGGER.info("Left window is : " + leftWindowState);
         return leftWindowState;
     }
     
@@ -667,7 +731,7 @@ public class CarBeeperV2 extends JFrame {
      * @return
      */
     public State getRightWindowState() {
-        System.out.println("Right window is : " + rightWindowState);
+    	LOGGER.info("Right window is : " + rightWindowState);
         return rightWindowState;
     }
     
