@@ -7336,3 +7336,4 @@
 [INFO ] 03-18-2019 12:16:41.609 [printWindowStates] carbeeper.CarBeeperV2:636 - Back Right Window is 21% DOWN
 [INFO ] 03-18-2019 12:16:41.610 [printWindowStates] carbeeper.CarBeeperV2:637 - ----- End Window States -----
 [INFO ] 03-18-2019 12:16:41.611 [mouseClicked] carbeeper.CarBeeperV2.WindowButtonHandler:395 - End mouseClicked.
+[INFO ] 03-18-2019 12:25:54.659 [main] carbeeper.MainDemo:128 - Inside main(). Starting MainDemo.

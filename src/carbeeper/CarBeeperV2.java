@@ -1,14 +1,12 @@
 package carbeeper;
-
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Toolkit;
+//import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.PrintStream;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,19 +15,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.Timer;
 import javax.swing.text.DefaultCaret;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 /**
  *
- * @author aaron
+ * @author aaron hunter
  */
 public class CarBeeperV2 extends JFrame {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LogManager.getLogger(CarBeeperV2.class);
 	private final int TIMER_INTERVAL = 500;
 	// Buttons
@@ -40,11 +33,11 @@ public class CarBeeperV2 extends JFrame {
     private final JButton alarmButton;
     private final JButton clearButton;
     // Images for the Buttons
-    Icon lockImage = new ImageIcon(getClass().getResource("lock.jpg"));
-    Icon windowImage = new ImageIcon(getClass().getResource("window.jpg"));
-    Icon powerImage = new ImageIcon(getClass().getResource("power.jpg"));
-    Icon trunkImage = new ImageIcon(getClass().getResource("trunk2.jpg"));
-    Icon alarmImage = new ImageIcon(getClass().getResource("alarm.jpg"));
+    Icon lockImage = new ImageIcon(getClass().getResource("images/lock.jpg"));
+    Icon windowImage = new ImageIcon(getClass().getResource("images/window.jpg"));
+    Icon powerImage = new ImageIcon(getClass().getResource("images/power.jpg"));
+    Icon trunkImage = new ImageIcon(getClass().getResource("images/trunk2.jpg"));
+    Icon alarmImage = new ImageIcon(getClass().getResource("images/alarm.jpg"));
     // Button States
     private State carState;
     private State trunkState;

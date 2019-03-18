@@ -115,6 +115,12 @@ import org.apache.logging.log4j.Logger;
  *          read the code, or even myself years from now, it will still be 100% legible, even to someone 
  *          inexperienced in coding.
  * 
+ * 			March 18, 2019:
+ * 			Today, in about 3 hours, I fully implemented LOGGING! I have replaced all System.out statements
+ * 			with log statements. During so, I cleaned up the code some. I also replaced the window button timer
+ * 			beingHeld printout to overwrite itself, like a timer should, instead of adding the new time to the 
+ * 			textarea. This makes the simulator easier to read. The logs still print out everything in full.
+ * 			As of today, I am wrapping this project up in CarBeeper-1.1.jar 
  */
 public class MainDemo {
 	private final static Logger LOGGER = LogManager.getLogger(MainDemo.class);
