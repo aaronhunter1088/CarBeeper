@@ -1,0 +1,101 @@
+[INFO ] 03-18-2019 12:48:56.379 [main] carbeeper.MainDemo:128 - Inside main(). Starting MainDemo.
+[INFO ] 03-18-2019 12:48:56.841 [<init>] carbeeper.CarBeeperV2:70 - Inside CarBeeperV2 constructor.
+[INFO ] 03-18-2019 12:48:56.842 [setBeeper] carbeeper.CarBeeperV2:200 - Inside setBeeper(). Setting initial states...
+[INFO ] 03-18-2019 12:48:58.484 [setBeeper] carbeeper.CarBeeperV2:227 - End setBeeper()
+[INFO ] 03-18-2019 12:48:58.485 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:48:58.486 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/lock.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:48:58.486 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:55:57.342 [main] carbeeper.MainDemo:130 - Inside main(). Starting MainDemo.
+[INFO ] 03-18-2019 12:55:57.820 [<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
+[INFO ] 03-18-2019 12:55:57.820 [setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
+[INFO ] 03-18-2019 12:55:59.397 [setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
+[INFO ] 03-18-2019 12:55:59.398 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:55:59.399 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'images/lock.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:55:59.399 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[INFO ] 03-18-2019 13:00:49.936 [main] carbeeper.MainDemo:130 - Inside main(). Starting MainDemo.
+[INFO ] 03-18-2019 13:00:50.385 [<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
+[INFO ] 03-18-2019 13:00:50.386 [setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
+[INFO ] 03-18-2019 13:00:51.969 [setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
+[INFO ] 03-18-2019 13:00:51.970 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 13:00:51.970 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'resources/images/lock.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 13:00:51.971 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[INFO ] 03-18-2019 13:02:56.237 [main] carbeeper.MainDemo:130 - Inside main(). Starting MainDemo.
+[INFO ] 03-18-2019 13:02:56.709 [<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
+[INFO ] 03-18-2019 13:02:56.710 [setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
+[INFO ] 03-18-2019 13:02:58.276 [setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
+[INFO ] 03-18-2019 13:02:58.277 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 13:02:58.278 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'resources/images/lock.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 13:02:58.278 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[INFO ] 03-18-2019 13:04:46.563 [main] carbeeper.MainDemo:130 - Inside main(). Starting MainDemo.
+[INFO ] 03-18-2019 13:04:47.042 [<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
+[INFO ] 03-18-2019 13:04:47.042 [setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
+[INFO ] 03-18-2019 13:04:48.577 [setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
+[INFO ] 03-18-2019 13:04:48.579 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 13:04:48.579 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'resources/images/lock.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 13:04:48.579 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[ERROR] 03-18-2019 13:04:48.706 [createImageIcon] carbeeper.CarBeeperV2:774 - The path 'resources/images/lock.jpg' could not find an image there!
+[INFO ] 03-18-2019 13:04:48.706 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 13:04:48.706 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'resources/images/window.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 13:04:48.707 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[ERROR] 03-18-2019 13:04:48.707 [createImageIcon] carbeeper.CarBeeperV2:774 - The path 'resources/images/window.jpg' could not find an image there!
+[INFO ] 03-18-2019 13:04:48.707 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 13:04:48.708 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'resources/images/power.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 13:04:48.708 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[ERROR] 03-18-2019 13:04:48.708 [createImageIcon] carbeeper.CarBeeperV2:774 - The path 'resources/images/power.jpg' could not find an image there!
+[INFO ] 03-18-2019 13:04:48.708 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 13:04:48.709 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'resources/images/trunk2.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 13:04:48.709 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[ERROR] 03-18-2019 13:04:48.709 [createImageIcon] carbeeper.CarBeeperV2:774 - The path 'resources/images/trunk2.jpg' could not find an image there!
+[INFO ] 03-18-2019 13:04:48.710 [createImageIcon] carbeeper.CarBeeperV2:765 - Inside createImageIcon()
+[INFO ] 03-18-2019 13:04:48.710 [createImageIcon] carbeeper.CarBeeperV2:769 - the path 'resources/images/alarm.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 13:04:48.710 [createImageIcon] carbeeper.CarBeeperV2:770 - End createImageIcon()
+[ERROR] 03-18-2019 13:04:48.711 [createImageIcon] carbeeper.CarBeeperV2:774 - The path 'resources/images/alarm.jpg' could not find an image there!
+[INFO ] 03-18-2019 13:04:48.715 [<init>] carbeeper.CarBeeperV2:89 - Adding components.
+[INFO ] 03-18-2019 13:04:48.715 [addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 03-18-2019 13:04:48.716 [addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 03-18-2019 13:04:48.717 [addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 03-18-2019 13:04:48.717 [addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 03-18-2019 13:04:48.717 [addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 03-18-2019 13:04:48.718 [addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 03-18-2019 13:04:48.718 [addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 03-18-2019 13:04:48.718 [addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 03-18-2019 13:04:48.718 [addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 03-18-2019 13:04:48.719 [addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 03-18-2019 13:04:48.719 [addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 03-18-2019 13:04:48.719 [addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 03-18-2019 13:04:48.725 [addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 03-18-2019 13:04:48.726 [addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 03-18-2019 13:04:48.726 [<init>] carbeeper.CarBeeperV2:110 - Initializing lock button listener.
+[INFO ] 03-18-2019 13:04:48.728 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 13:04:48.729 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 03-18-2019 13:04:48.730 [<init>] carbeeper.CarBeeperV2:128 - Initializing window button listener with custom window listener
+[INFO ] 03-18-2019 13:04:48.732 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:324 - Inside WindowButtonHandler constructor
+[INFO ] 03-18-2019 13:04:48.733 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:328 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 03-18-2019 13:04:48.733 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:329 - End WindowButtonHandler constructor
+[INFO ] 03-18-2019 13:04:48.733 [<init>] carbeeper.CarBeeperV2:130 - Initializing power button listener.
+[INFO ] 03-18-2019 13:04:48.734 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 13:04:48.734 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 03-18-2019 13:04:48.735 [<init>] carbeeper.CarBeeperV2:147 - Initializing trunk button listener.
+[INFO ] 03-18-2019 13:04:48.735 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 13:04:48.736 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 03-18-2019 13:04:48.736 [<init>] carbeeper.CarBeeperV2:164 - Initializing alarm button listener
+[INFO ] 03-18-2019 13:04:48.737 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 13:04:48.737 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 03-18-2019 13:04:48.738 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 13:04:48.738 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 03-18-2019 13:04:48.739 [<init>] carbeeper.CarBeeperV2:194 - End CarBeeperV2 constructor.
+[INFO ] 03-18-2019 13:04:48.739 [main] carbeeper.MainDemo:132 - Setting up beeper...
+[INFO ] 03-18-2019 13:04:48.865 [main] carbeeper.MainDemo:138 - Beeper loaded.
+[INFO ] 03-18-2019 13:04:48.866 [main] carbeeper.MainDemo:139 - End main(). End MainDemo.
+
+[INFO ] 03-18-2019 13:04:49.235 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 13:04:49.237 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 13:04:49.238 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 13:04:49.239 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 13:04:49.239 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 13:05:29.188 [mouseClicked] carbeeper.CarBeeperV2:134 - Inside mouseClicked.
+[INFO ] 03-18-2019 13:05:29.189 [getPowerState] carbeeper.CarBeeperV2:522 - Car is: ON
+[INFO ] 03-18-2019 13:05:29.190 [mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.
+[INFO ] 03-18-2019 13:05:29.987 [mouseClicked] carbeeper.CarBeeperV2:134 - Inside mouseClicked.
+[INFO ] 03-18-2019 13:05:29.988 [getPowerState] carbeeper.CarBeeperV2:522 - Car is: OFF
+[INFO ] 03-18-2019 13:05:29.988 [mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.

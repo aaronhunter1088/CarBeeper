@@ -1,4 +1,6 @@
 package carbeeper;
+import java.io.IOException;
+
 import javax.swing.JFrame;
 
 import org.apache.logging.log4j.LogManager;
@@ -124,7 +126,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class MainDemo {
 	private final static Logger LOGGER = LogManager.getLogger(MainDemo.class);
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
     	LOGGER.info("Inside main(). Starting MainDemo.");
         CarBeeperV2 beeper = new CarBeeperV2();
         LOGGER.info("Setting up beeper...");

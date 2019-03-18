@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -65,7 +66,7 @@ public class CarBeeperV2 extends JFrame {
     private int beingHeldTimer = 0;
     private int counter2 = 0;
     // GUI Component
-    public CarBeeperV2() throws Exception {
+    public CarBeeperV2() throws IOException {
         super("Car Beeper");
         LOGGER.info("Inside CarBeeperV2 constructor.");
         setBeeper();
@@ -73,11 +74,11 @@ public class CarBeeperV2 extends JFrame {
         setLayout(layout = new GridBagLayout());
         constraints = new GridBagConstraints();
         // Images
-        lockImage = createImageIcon("images/lock.jpg");
-        windowImage = createImageIcon("images/window.jpg");
-        powerImage = createImageIcon("images/power.jpg");
-        trunkImage = createImageIcon("images/trunk2.jpg");
-        alarmImage = createImageIcon("images/alarm.jpg");
+        lockImage = createImageIcon("resources/images/lock.jpg");
+        windowImage = createImageIcon("resources/images/window.jpg");
+        powerImage = createImageIcon("resources/images/power.jpg");
+        trunkImage = createImageIcon("resources/images/trunk2.jpg");
+        alarmImage = createImageIcon("resources/images/alarm.jpg");
         // Buttons
         lockButton = new JButton(lockImage);
         windowButton = new JButton(windowImage);
@@ -753,24 +754,25 @@ public class CarBeeperV2 extends JFrame {
         return textArea;
     }
     /** Calls createImageIcon(String path, String description 
-     * @throws Exception */
-    public ImageIcon createImageIcon(String path) throws Exception {
+     * @throws IOException */
+    public ImageIcon createImageIcon(String path) throws IOException {
     	return createImageIcon(path, "No description given.");
     }
     /** Returns an ImageIcon, or null if the path was invalid. 
-     * @throws Exception */
+     * @throws IOException */
     @SuppressWarnings("unused")
-	protected ImageIcon createImageIcon(String path, String description) throws Exception {
+	protected ImageIcon createImageIcon(String path, String description) throws IOException {
         LOGGER.info("Inside createImageIcon()");
         File sourceimage = new File(path);
         //java.net.URL imgURL = getClass().getResource(path);
-        if (sourceimage != null) {
+        try {
     	    LOGGER.info("the path '" + path + "' created an image! the imageicon is being returned...");
     	    LOGGER.info("End createImageIcon()");
     	    return new ImageIcon(ImageIO.read(sourceimage), description);
     	    //return new ImageIcon(imgURL, description);
-        } else {
-        	throw new Exception("The path '" + path + "' could not find an image there!");
+        } catch (IOException c) {
+        	LOGGER.error("The path '" + path + "' could not find an image there!");
         }
+        return null;
     }
 }
