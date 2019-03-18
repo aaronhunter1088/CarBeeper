@@ -124,7 +124,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class MainDemo {
 	private final static Logger LOGGER = LogManager.getLogger(MainDemo.class);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
     	LOGGER.info("Inside main(). Starting MainDemo.");
         CarBeeperV2 beeper = new CarBeeperV2();
         LOGGER.info("Setting up beeper...");

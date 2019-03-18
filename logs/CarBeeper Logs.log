@@ -7337,3 +7337,135 @@
 [INFO ] 03-18-2019 12:16:41.610 [printWindowStates] carbeeper.CarBeeperV2:637 - ----- End Window States -----
 [INFO ] 03-18-2019 12:16:41.611 [mouseClicked] carbeeper.CarBeeperV2.WindowButtonHandler:395 - End mouseClicked.
 [INFO ] 03-18-2019 12:25:54.659 [main] carbeeper.MainDemo:128 - Inside main(). Starting MainDemo.
+[INFO ] 03-18-2019 12:32:14.328 [main] carbeeper.MainDemo:128 - Inside main(). Starting MainDemo.
+[INFO ] 03-18-2019 12:32:15.206 [<init>] carbeeper.CarBeeperV2:70 - Inside CarBeeperV2 constructor.
+[INFO ] 03-18-2019 12:32:15.206 [setBeeper] carbeeper.CarBeeperV2:200 - Inside setBeeper(). Setting initial states...
+[INFO ] 03-18-2019 12:32:18.811 [setBeeper] carbeeper.CarBeeperV2:227 - End setBeeper()
+[INFO ] 03-18-2019 12:32:18.813 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:32:18.816 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/lock.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:32:18.817 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:32:18.911 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:32:18.913 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/window.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:32:18.914 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:32:18.921 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:32:18.922 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/power.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:32:18.923 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:32:18.927 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:32:18.929 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/trunk2.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:32:18.930 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:32:18.943 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:32:18.944 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/alarm.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:32:18.946 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:32:18.957 [<init>] carbeeper.CarBeeperV2:88 - Adding components.
+[INFO ] 03-18-2019 12:32:18.958 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:32:18.964 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:32:18.965 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:32:18.969 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:32:18.971 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:32:18.972 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:32:18.974 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:32:18.975 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:32:18.976 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:32:18.977 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:32:18.978 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:32:18.979 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:32:19.004 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:32:19.004 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:32:19.010 [<init>] carbeeper.CarBeeperV2:109 - Initializing lock button listener.
+[INFO ] 03-18-2019 12:32:19.013 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:32:19.019 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:32:19.021 [<init>] carbeeper.CarBeeperV2:127 - Initializing window button listener with custom window listener
+[INFO ] 03-18-2019 12:32:19.027 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:323 - Inside WindowButtonHandler constructor
+[INFO ] 03-18-2019 12:32:19.029 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:327 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 03-18-2019 12:32:19.030 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:328 - End WindowButtonHandler constructor
+[INFO ] 03-18-2019 12:32:19.031 [<init>] carbeeper.CarBeeperV2:129 - Initializing power button listener.
+[INFO ] 03-18-2019 12:32:19.036 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:32:19.038 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:32:19.039 [<init>] carbeeper.CarBeeperV2:146 - Initializing trunk button listener.
+[INFO ] 03-18-2019 12:32:19.042 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:32:19.043 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:32:19.043 [<init>] carbeeper.CarBeeperV2:163 - Initializing alarm button listener
+[INFO ] 03-18-2019 12:32:19.045 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:32:19.047 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:32:19.052 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:32:19.053 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:32:19.054 [<init>] carbeeper.CarBeeperV2:193 - End CarBeeperV2 constructor.
+[INFO ] 03-18-2019 12:32:19.054 [main] carbeeper.MainDemo:130 - Setting up beeper...
+[INFO ] 03-18-2019 12:32:19.397 [main] carbeeper.MainDemo:136 - Beeper loaded.
+[INFO ] 03-18-2019 12:32:19.403 [main] carbeeper.MainDemo:137 - End main(). End MainDemo.
+
+[INFO ] 03-18-2019 12:32:19.678 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:247 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 12:32:19.679 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:247 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 12:32:19.680 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:247 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 12:32:19.682 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:247 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 12:32:19.689 [lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:247 - Timer's event set for 500 seconds.
+[INFO ] 03-18-2019 12:33:40.860 [<init>] carbeeper.CarBeeperV2:70 - Inside CarBeeperV2 constructor.
+[INFO ] 03-18-2019 12:33:40.870 [setBeeper] carbeeper.CarBeeperV2:200 - Inside setBeeper(). Setting initial states...
+[INFO ] 03-18-2019 12:33:43.905 [setBeeper] carbeeper.CarBeeperV2:227 - End setBeeper()
+[INFO ] 03-18-2019 12:33:43.907 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:33:43.908 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/lock.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:33:43.909 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:33:43.994 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:33:43.995 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/window.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:33:43.995 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:33:43.999 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:33:44.002 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/power.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:33:44.004 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:33:44.009 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:33:44.010 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/trunk2.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:33:44.011 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:33:44.024 [createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[INFO ] 03-18-2019 12:33:44.025 [createImageIcon] carbeeper.CarBeeperV2:768 - the path 'images/alarm.jpg' created an image! the imageicon is being returned...
+[INFO ] 03-18-2019 12:33:44.026 [createImageIcon] carbeeper.CarBeeperV2:769 - End createImageIcon()
+[INFO ] 03-18-2019 12:33:44.042 [<init>] carbeeper.CarBeeperV2:88 - Adding components.
+[INFO ] 03-18-2019 12:33:44.043 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:33:44.049 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:33:44.051 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:33:44.052 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:33:44.053 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:33:44.054 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:33:44.055 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:33:44.061 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:33:44.061 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:33:44.062 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:33:44.063 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:33:44.067 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:33:44.087 [addComponent] carbeeper.CarBeeperV2:453 - Inside addComponent()
+[INFO ] 03-18-2019 12:33:44.088 [addComponent] carbeeper.CarBeeperV2:460 - Component added.
+[INFO ] 03-18-2019 12:33:44.089 [<init>] carbeeper.CarBeeperV2:109 - Initializing lock button listener.
+[INFO ] 03-18-2019 12:33:44.092 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:33:44.094 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:33:44.095 [<init>] carbeeper.CarBeeperV2:127 - Initializing window button listener with custom window listener
+[INFO ] 03-18-2019 12:33:44.103 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:323 - Inside WindowButtonHandler constructor
+[INFO ] 03-18-2019 12:33:44.105 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:327 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 03-18-2019 12:33:44.106 [<init>] carbeeper.CarBeeperV2.WindowButtonHandler:328 - End WindowButtonHandler constructor
+[INFO ] 03-18-2019 12:33:44.107 [<init>] carbeeper.CarBeeperV2:129 - Initializing power button listener.
+[INFO ] 03-18-2019 12:33:44.109 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:33:44.110 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:33:44.111 [<init>] carbeeper.CarBeeperV2:146 - Initializing trunk button listener.
+[INFO ] 03-18-2019 12:33:44.112 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:33:44.113 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:33:44.115 [<init>] carbeeper.CarBeeperV2:163 - Initializing alarm button listener
+[INFO ] 03-18-2019 12:33:44.117 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:33:44.118 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:33:44.120 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:234 - Inside MouseClickHandler constructor.
+[INFO ] 03-18-2019 12:33:44.120 [<init>] carbeeper.CarBeeperV2.MouseClickHandler:252 - timer is running: true
+[INFO ] 03-18-2019 12:33:44.122 [<init>] carbeeper.CarBeeperV2:193 - End CarBeeperV2 constructor.
+[INFO ] 03-18-2019 12:33:44.133 [getMasterWindowState] carbeeper.CarBeeperV2:685 - Master window is : DOWN
+[INFO ] 03-18-2019 12:33:44.133 [getPassengerWindowState] carbeeper.CarBeeperV2:702 - Passenger window is : DOWN
+[INFO ] 03-18-2019 12:33:44.134 [getLeftWindowState] carbeeper.CarBeeperV2:719 - Left window is : DOWN
+[INFO ] 03-18-2019 12:33:44.135 [getRightWindowState] carbeeper.CarBeeperV2:736 - Right window is : DOWN
+[INFO ] 03-18-2019 12:33:44.137 [getMasterDoorLockState] carbeeper.CarBeeperV2:555 - Master door lock state is : UNLOCKED
+[INFO ] 03-18-2019 12:33:44.138 [getMasterWindowState] carbeeper.CarBeeperV2:685 - Master window is : DOWN
+[INFO ] 03-18-2019 12:33:44.140 [getMasterDoorLockState] carbeeper.CarBeeperV2:555 - Master door lock state is : LOCKED
+[INFO ] 03-18-2019 12:33:44.142 [getMasterDoorLockState] carbeeper.CarBeeperV2:555 - Master door lock state is : LOCKED
+[INFO ] 03-18-2019 12:33:44.142 [getPassengerDoorLockState] carbeeper.CarBeeperV2:572 - Passenger door lock is : LOCKED
+[INFO ] 03-18-2019 12:33:44.143 [getLeftDoorLockState] carbeeper.CarBeeperV2:589 - Left door lock is : LOCKED
+[INFO ] 03-18-2019 12:33:44.144 [getRightDoorLockState] carbeeper.CarBeeperV2:606 - Right door lock is : LOCKED
+[INFO ] 03-18-2019 12:33:44.145 [getTrunkState] carbeeper.CarBeeperV2:529 - Trunk is: CLOSED
+[INFO ] 03-18-2019 12:33:44.152 [getMasterDoorLockState] carbeeper.CarBeeperV2:555 - Master door lock state is : UNLOCKED
+[INFO ] 03-18-2019 12:33:44.153 [getPassengerDoorLockState] carbeeper.CarBeeperV2:572 - Passenger door lock is : UNLOCKED
+[INFO ] 03-18-2019 12:33:44.154 [getLeftDoorLockState] carbeeper.CarBeeperV2:589 - Left door lock is : UNLOCKED
+[INFO ] 03-18-2019 12:33:44.156 [getRightDoorLockState] carbeeper.CarBeeperV2:606 - Right door lock is : UNLOCKED
+[INFO ] 03-18-2019 12:33:44.158 [getAlarmState] carbeeper.CarBeeperV2:537 - Alarm is: OFF
+[INFO ] 03-18-2019 12:33:44.159 [getPowerState] carbeeper.CarBeeperV2:521 - Car is: OFF

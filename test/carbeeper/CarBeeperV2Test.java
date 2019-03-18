@@ -14,7 +14,7 @@ public class CarBeeperV2Test {
     }
     
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUpClass() throws Exception {
         beeper = new CarBeeperV2();
     }
     

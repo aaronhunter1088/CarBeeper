@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -33,11 +36,11 @@ public class CarBeeperV2 extends JFrame {
     private final JButton alarmButton;
     private final JButton clearButton;
     // Images for the Buttons
-    Icon lockImage = new ImageIcon(getClass().getResource("images/lock.jpg"));
-    Icon windowImage = new ImageIcon(getClass().getResource("images/window.jpg"));
-    Icon powerImage = new ImageIcon(getClass().getResource("images/power.jpg"));
-    Icon trunkImage = new ImageIcon(getClass().getResource("images/trunk2.jpg"));
-    Icon alarmImage = new ImageIcon(getClass().getResource("images/alarm.jpg"));
+    private Icon lockImage;
+    private Icon windowImage;
+    private Icon powerImage;
+    private Icon trunkImage;
+    private Icon alarmImage;
     // Button States
     private State carState;
     private State trunkState;
@@ -62,13 +65,19 @@ public class CarBeeperV2 extends JFrame {
     private int beingHeldTimer = 0;
     private int counter2 = 0;
     // GUI Component
-    public CarBeeperV2() {
+    public CarBeeperV2() throws Exception {
         super("Car Beeper");
         LOGGER.info("Inside CarBeeperV2 constructor.");
         setBeeper();
         setResizable(false);
         setLayout(layout = new GridBagLayout());
         constraints = new GridBagConstraints();
+        // Images
+        lockImage = createImageIcon("images/lock.jpg");
+        windowImage = createImageIcon("images/window.jpg");
+        powerImage = createImageIcon("images/power.jpg");
+        trunkImage = createImageIcon("images/trunk2.jpg");
+        alarmImage = createImageIcon("images/alarm.jpg");
         // Buttons
         lockButton = new JButton(lockImage);
         windowButton = new JButton(windowImage);
@@ -742,5 +751,26 @@ public class CarBeeperV2 extends JFrame {
      */
     public JTextArea getTextArea() {
         return textArea;
+    }
+    /** Calls createImageIcon(String path, String description 
+     * @throws Exception */
+    public ImageIcon createImageIcon(String path) throws Exception {
+    	return createImageIcon(path, "No description given.");
+    }
+    /** Returns an ImageIcon, or null if the path was invalid. 
+     * @throws Exception */
+    @SuppressWarnings("unused")
+	protected ImageIcon createImageIcon(String path, String description) throws Exception {
+        LOGGER.info("Inside createImageIcon()");
+        File sourceimage = new File(path);
+        //java.net.URL imgURL = getClass().getResource(path);
+        if (sourceimage != null) {
+    	    LOGGER.info("the path '" + path + "' created an image! the imageicon is being returned...");
+    	    LOGGER.info("End createImageIcon()");
+    	    return new ImageIcon(ImageIO.read(sourceimage), description);
+    	    //return new ImageIcon(imgURL, description);
+        } else {
+        	throw new Exception("The path '" + path + "' could not find an image there!");
+        }
     }
 }
