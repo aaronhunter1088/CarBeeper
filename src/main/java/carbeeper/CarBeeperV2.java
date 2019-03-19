@@ -72,11 +72,11 @@ public class CarBeeperV2 extends JFrame {
         setLayout(layout = new GridBagLayout());
         constraints = new GridBagConstraints();
         // Images
-        lockImage = createImageIcon("resource/images/lock.jpg");
-        windowImage = createImageIcon("resource/images/window.jpg");
-        powerImage = createImageIcon("resource/images/power.jpg");
-        trunkImage = createImageIcon("resource/images/trunk2.jpg");
-        alarmImage = createImageIcon("resource/images/alarm.jpg");
+        lockImage = createImageIcon("src/main/resources/images/lock.jpg");
+        windowImage = createImageIcon("src/main/resources/images/window.jpg");
+        powerImage = createImageIcon("src/main/resources/images/power.jpg");
+        trunkImage = createImageIcon("src/main/resources/images/trunk2.jpg");
+        alarmImage = createImageIcon("src/main/resources/images/alarm.jpg");
         // Buttons
         lockButton = new JButton(lockImage);
         windowButton = new JButton(windowImage);
