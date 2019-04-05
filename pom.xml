@@ -5,7 +5,7 @@
     
     <groupId>com.myprojects</groupId>
     <artifactId>CarBeeper</artifactId>
-    <version>1.2</version>
+    <version>1.1</version>
     <name>Car Beeper</name>
     <description>This is a car beeper simulator</description>
     
