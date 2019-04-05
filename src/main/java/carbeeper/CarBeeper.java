@@ -20,7 +20,8 @@ import javax.swing.Timer;
 import javax.swing.text.DefaultCaret;
 
 public class CarBeeper extends JFrame {
-    // Buttons
+    private static final long serialVersionUID = 1L;
+	// Buttons
     private final JButton lockButton;
     private final JButton windowButton;
     private final JButton powerButton;
@@ -138,7 +139,6 @@ public class CarBeeper extends JFrame {
         windowButton.addMouseListener(new MouseClickHandler() {
             boolean singleClick = false;
             boolean doubleClick = false;
-            boolean tripleClick = false;
             boolean held = false;
             //boolean wasHeld = false;
             int counter1 = 0;
@@ -203,114 +203,6 @@ public class CarBeeper extends JFrame {
                     }      
                 }
             });
-            
-            // Used for press twice and hold on window button
-            Timer timer2 = new Timer(250, new ActionListener() {
-                @Override 
-                public void actionPerformed(ActionEvent ae)
-                {
-                    counter1 += 1;
-                    
-                    if (counter1 > 3)
-                    {
-                        if (counter1 == 4) System.out.println("Timer2 Counting");
-                        held = true;
-                        counter2 += 1;
-                        System.out.printf("Counter2: %d\n", counter2);
-                        if (wasHeld == true)
-                        {
-                            if (masterWindowState.equals(State.UP))
-                            {
-                                // Count up
-                                //textArea.append("Window going up\n");
-                                if (masterWindow != 100) {
-                                    masterWindow += 1;
-                                    //passengerWindow = masterWindow;
-                                    //leftWindow = masterWindow;
-                                    //rightWindow = masterWindow;
-                                }
-                                else if (masterWindow >= 100)
-                                    masterWindow = 100;
-                                    //passengerWindow = 100;
-                                    //leftWindow = 100;
-                                    //rightWindow = 100;
-                            } 
-                            else if (masterWindowState.equals(State.DOWN))
-                            {
-                                // Count down
-                                if (masterWindow != 100) {
-                                    masterWindow += 1;
-                                    passengerWindow = masterWindow;
-                                    leftWindow = masterWindow;
-                                    rightWindow = masterWindow;
-                                }
-                                else if (masterWindow >= 100) {
-                                    masterWindow = 100;
-                                    passengerWindow = 100;
-                                    leftWindow = 100;
-                                    rightWindow = 100;
-                                }
-                            }
-                        }
-                        else // wasHeld == false
-                        {
-                            if (masterWindowState.equals(State.UP)) // Up = 0
-                            {
-                                // Change state
-                                //masterWindowState = "Down";
-
-                                // Count up
-                                if (masterWindow != 100) {
-                                    masterWindow += 1;
-                                    passengerWindow = masterWindow;
-                                    leftWindow = masterWindow;
-                                    rightWindow = masterWindow;
-                                }
-                                else if (masterWindow >= 100) {
-                                    masterWindow = 100;
-                                    passengerWindow = 100;
-                                    leftWindow = 100;
-                                    rightWindow = 100;
-                                }
-                            } 
-                            else if (masterWindowState.equals(State.DOWN)) // Down = 100
-                            {
-                                // Change state
-                                masterWindow = 0;
-                                    
-                                // Count down
-                                if (masterWindow != 100) {
-                                    masterWindow += 1;
-                                    passengerWindow = masterWindow;
-                                    leftWindow = masterWindow;
-                                    rightWindow = masterWindow;
-                                }
-                                else if (masterWindow >= 100) {
-                                    masterWindow = 100;
-                                    passengerWindow = 100;
-                                    leftWindow = 100;
-                                    rightWindow = 100;
-                                }
-                            }
-                            
-                            if (masterWindowState.equals(State.UP)) {
-                                masterWindowState = State.DOWN;
-                            }
-                            else
-                                masterWindowState = State.UP;
-                            
-                            wasHeld = true;
-                        }
-                    }
-                    else // counter2 <= 3
-                    {
-                        //held = false;
-                        //wasHeld = false;
-                        System.out.printf("%d not being held\n", counter1);
-                    }      
-                }
-            });
-            
             @Override
             public void mousePressed(MouseEvent me)
             {
@@ -796,17 +688,6 @@ public class CarBeeper extends JFrame {
         return System.out.printf("Trunk is: %s.\n", trunkState);
     }
     
-    /**
-     * This method sets the state of the trunk.
-     */
-    private void setTrunkState()
-    {
-        if (trunkState.equals(State.CLOSED))
-            trunkState = State.OPEN; 
-        else
-            trunkState = State.CLOSED; 
-    }
-    
     // Alarm On/Off Methods
     /**
      * This method returns the state of the alarm.
@@ -819,28 +700,6 @@ public class CarBeeper extends JFrame {
         else
             alarmState = State.ON;
         return System.out.printf("Alarm is: %s.\n", alarmState);
-    }
-    
-    /**
-     * This method sets the state of the alarm.
-     */
-    private void setAlarmMode() {
-        if (alarmState.equals(State.OFF))
-            alarmState = State.ON; 
-        else
-            alarmState = State.OFF;
-    }
-    
-    /**
-     * This method returns the given door's state
-     */
-    
-    /**
-     * This method sets the given door's state.
-     */
-    private void setDoorState(Door door) {
-        if (door.equals(State.LOCKED)) 
-            door.equals(State.UNLOCKED);
     }
 }
 

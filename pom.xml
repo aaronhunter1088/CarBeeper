@@ -4,13 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>com.myprojects</groupId>
-    <artifactId>carbeeper</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>CarBeeper</artifactId>
+    <version>1.2</version>
     <name>Car Beeper</name>
     <description>This is a car beeper simulator</description>
     
     <properties>
-    
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<junit.version>4.12</junit.version>
+    	<log4j2.version>2.11.2</log4j2.version>
     </properties>
     
     <dependencies>
@@ -18,19 +20,19 @@
 	    <dependency>
 	      <groupId>junit</groupId>
 	      <artifactId>junit</artifactId>
-	      <version>4.12</version>
+	      <version>${junit.version}</version>
 	    </dependency>
 	    
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
 	      <artifactId>log4j-core</artifactId>
-	      <version>2.11.2</version>
+	      <version>${log4j2.version}</version>
 	    </dependency>
 	    
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
 	      <artifactId>log4j-api</artifactId>
-	      <version>2.11.2</version>
+	      <version>${log4j2.version}</version>
 	    </dependency>
 	    
     </dependencies>
@@ -39,32 +41,150 @@
     	<sourceDirectory>src/main/java</sourceDirectory>
     	
     	<testSourceDirectory>src/test/java</testSourceDirectory>
-    
+    	
     	<plugins>
+
         	<plugin>
 	        	<artifactId>maven-compiler-plugin</artifactId>
 	        	<version>3.8.0</version>
 		        <configuration>
-		            <source>1.8</source>
+		        	<source>1.8</source>
 		            <target>1.8</target>
 		        </configuration>
             </plugin>
-	        <plugin>
+            
+            <plugin>
+            	<groupId>org.codehaus.mojo</groupId>
+            	<artifactId>properties-maven-plugin</artifactId>
+            	<version>1.0-alpha-2</version>
+            	<executions>
+            		<execution>
+            			<phase>generate-resources</phase>
+            			<goals>
+            				<goal>read-project-properties</goal>
+            			</goals>
+            			<configuration>
+            				<files>
+            					<file>${basedir}/target/filter.properties</file>
+            				</files>
+            				<tasks>
+            					<echo>BuildTime : ${build.time}</echo>
+            				</tasks>
+            			</configuration>
+            		</execution>
+            	</executions>
+            </plugin>
+            
+            <!-- When creating a jar, update MANIFEST.MF file and place JAR in specified outputDirectory -->
+             <plugin>
 		    	<groupId>org.apache.maven.plugins</groupId>
 		    	<artifactId>maven-jar-plugin</artifactId>
 		    	<version>3.1.0</version>
 		    	<configuration>
-		        <archive>
-		            <manifest>
-		              <addClasspath>true</addClasspath>
-		              <classpathPrefix>libs/</classpathPrefix>
-		              <mainClass>
-		                microsoftcalculator.CalculatorMain
-		              </mainClass>
-		             </manifest>
-		           </archive>
-		         </configuration>
+			    	<executions>
+	            		<execution>
+	            			<id>make-a-jar</id>
+	            			<phase>compile</phase>
+	            			<goals>
+	            				<goal>jar</goal>
+	            			</goals>
+	            		</execution>
+	            	</executions>
+		    	    <includes>
+            			<include>**/*.class</include>
+            			<include>*.jpg</include>
+            		</includes>
+		            <archive>
+            			<index>true</index>
+            			<manifest>
+            				<addClasspath>true</addClasspath>
+            			</manifest>
+            			<manifestEntries>
+            				<Implementation-Version>${project.version}</Implementation-Version>
+            				<Creation-Time-Format>MM-dd-YYYY hh:mm:ss</Creation-Time-Format>
+            				<Creation-Time>${build.time}</Creation-Time>
+            				<mainClass>carbeeper.MainDemo</mainClass>
+            			</manifestEntries>
+            		</archive>
+					<outputDirectory>${basedir}/dist</outputDirectory>
+            		<finalName>${project.artifactId}-${project.version}</finalName> <!-- ${project.artifactId}.${project.version} -->
+            	</configuration>
 		    </plugin>
+            
+            <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-antrun-plugin</artifactId>
+            	<executions>
+            		<execution>
+            			<phase>initialize</phase>
+            			<goals>
+            				<goal>run</goal>
+            			</goals>
+            			<configuration>
+            				<tasks>
+            					<mkdir dir="${project.build.directory}"/>
+            					<tstamp>
+            						<format property="last.updated" pattern="MM-dd-YYYY hh:mm:ss"/>
+            					</tstamp>
+            					<echo file="${basedir}/target/filter.properties" message="build.time=${last.updated}"/>
+            				</tasks>
+            			</configuration>
+            		</execution>
+            	</executions>
+            </plugin>
+            
+            <!-- Reference to assembly.xml file -->
+            <!-- <plugin>
+            	<groupId>org.apache.amaven.plugins</groupId>
+            	<artifactId>maven-assembly-plugin</artifactId>
+            	<executions>
+            		<execution>
+            			<id>create-archive</id>
+            			<phase>package</phase>
+            			<goals>
+            				<goals>single</goal>
+            			</goals>
+            			<configuration>
+            				<descriptor>location of assembly.xml like src/assembly.xml </descriptor> 
+            				<finalName></finalName>
+            				<outputDirectory>${basedir}/dist/LOCATION</outputDirectory>
+            			</configuration>
+            		</execution>
+            	</executions>
+            </plugin>-->
+            
+            <plugin>
+                 <artifactId>maven-assembly-plugin</artifactId>
+                 <executions>
+                     <execution>
+                          <phase>package</phase>
+                          <goals>
+                              <goal>single</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+                  <configuration>
+                       <!-- ... -->
+                       <finalName>${project.artifactId}-${project.version}</finalName>
+                       <archive>
+                           <index>>true</index>
+                           <manifest>
+                           		<addClasspath>true</addClasspath>
+                                <mainClass>carbeeper.MainDemo</mainClass>
+                           </manifest>
+                           <manifestEntries>
+            				  <Implementation-Version>${project.version}</Implementation-Version>
+            				  <Creation-Time-Format>MM-dd-YYYY hh:mm:ss</Creation-Time-Format>
+            				  <Creation-Time>${build.time}</Creation-Time>
+            				  <mainClass>carbeeper.MainDemo</mainClass>
+            			  </manifestEntries>
+                       </archive>
+                       <descriptorRefs>
+                           <descriptorRef>jar-with-dependencies</descriptorRef>
+                      </descriptorRefs>
+                      <outputDirectory>${basedir}/dist</outputDirectory>
+                 </configuration>
+             </plugin>
 		    
         </plugins>
         
