@@ -741,10 +741,7 @@ public class CarBeeperV2 extends JFrame {
     public JTextArea getTextArea() {
         return textArea;
     }
-    /** Calls createImageIcon(String path, String description */
-    public ImageIcon createImageIcon(String path) {
-    	return createImageIcon(path, "No description given.");
-    }
+
     /** Returns an ImageIcon, or null if the path was invalid. */
 	protected ImageIcon createImageIcon(String path, String description) {
         LOGGER.info("Inside createImageIcon()");
