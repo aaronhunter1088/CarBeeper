@@ -1,4 +1,4 @@
-[INFO ] 04-04-2019 20:58:34.433 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 20:58:34.433 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 20:58:34.866 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 20:58:34.867 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 20:58:36.624 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -56,16 +56,16 @@
 [INFO ] 04-04-2019 20:58:36.667 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 20:58:36.667 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 20:58:36.667 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 20:58:36.668 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 20:58:36.783 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 20:58:36.784 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 20:58:36.668 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 20:58:36.783 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 20:58:36.784 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 20:58:37.164 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 20:58:37.166 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 20:58:37.167 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 20:58:37.168 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 20:58:37.168 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:00:43.403 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:00:43.403 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:00:43.842 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:00:43.843 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:00:45.487 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -123,16 +123,16 @@
 [INFO ] 04-04-2019 21:00:45.528 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:00:45.529 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 21:00:45.529 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:00:45.529 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:00:45.651 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:00:45.651 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:00:45.529 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:00:45.651 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:00:45.651 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:00:46.022 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:00:46.025 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:00:46.026 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:00:46.028 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:00:46.029 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:04:08.678 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:04:08.678 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:04:09.119 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:04:09.120 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:04:10.865 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -190,16 +190,16 @@
 [INFO ] 04-04-2019 21:04:10.908 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:04:10.909 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 21:04:10.909 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:04:10.909 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:04:11.027 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:04:11.028 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:04:10.909 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:04:11.027 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:04:11.028 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:04:11.403 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:04:11.405 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:04:11.407 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:04:11.408 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:04:11.409 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:09:18.267 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:09:18.267 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:09:18.787 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:09:18.788 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:09:20.571 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -252,16 +252,16 @@
 [INFO ] 04-04-2019 21:09:20.612 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:09:20.613 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 21:09:20.613 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:09:20.613 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:09:20.739 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:09:20.740 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:09:20.613 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:09:20.739 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:09:20.740 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:09:21.105 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:09:21.110 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:09:21.111 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:09:21.112 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:09:21.113 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:10:49.575 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:10:49.575 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:10:50.008 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:10:50.009 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:10:51.781 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -314,16 +314,16 @@
 [INFO ] 04-04-2019 21:10:51.823 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:10:51.823 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 21:10:51.823 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:10:51.824 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:10:51.949 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:10:51.950 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:10:51.824 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:10:51.949 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:10:51.950 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:10:52.316 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:10:52.320 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:10:52.321 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:10:52.322 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:10:52.323 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:12:01.631 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:12:01.631 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:12:02.060 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:12:02.060 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:12:03.720 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -376,16 +376,16 @@
 [INFO ] 04-04-2019 21:12:03.761 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:12:03.762 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 21:12:03.763 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:12:03.763 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:12:03.883 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:12:03.883 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:12:03.763 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:12:03.883 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:12:03.883 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:12:04.252 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:12:04.259 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:12:04.260 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:12:04.261 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:12:04.262 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:14:38.152 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:14:38.152 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:14:38.569 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:14:38.569 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:14:40.110 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -438,16 +438,16 @@
 [INFO ] 04-04-2019 21:14:40.147 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:14:40.148 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 21:14:40.148 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:14:40.148 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:14:40.263 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:14:40.263 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:14:40.148 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:14:40.263 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:14:40.263 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:14:40.638 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:14:40.645 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:14:40.647 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:14:40.647 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:14:40.648 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:17:52.695 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:17:52.695 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:17:53.154 [Method:<init>] carbeeper.CarBeeperV2:69 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:17:53.154 [Method:setBeeper] carbeeper.CarBeeperV2:199 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:17:54.711 [Method:setBeeper] carbeeper.CarBeeperV2:226 - End setBeeper()
@@ -500,16 +500,16 @@
 [INFO ] 04-04-2019 21:17:54.752 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:233 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:17:54.752 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:251 - timer is running: true
 [INFO ] 04-04-2019 21:17:54.752 [Method:<init>] carbeeper.CarBeeperV2:192 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:17:54.753 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:17:54.870 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:17:54.871 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:17:54.753 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:17:54.870 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:17:54.871 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:17:55.245 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:17:55.249 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:17:55.251 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:17:55.252 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:17:55.253 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:246 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:26:29.631 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:26:29.631 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:26:30.074 [Method:<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:26:30.075 [Method:setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:26:32.013 [Method:setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
@@ -557,16 +557,16 @@
 [INFO ] 04-04-2019 21:26:32.080 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:26:32.081 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
 [INFO ] 04-04-2019 21:26:32.081 [Method:<init>] carbeeper.CarBeeperV2:194 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:26:32.081 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:26:32.194 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:26:32.194 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:26:32.081 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:26:32.194 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:26:32.194 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:26:32.579 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:26:32.580 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:26:32.581 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:26:32.582 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:26:32.582 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
-[INFO ] 04-04-2019 21:27:48.622 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:27:48.622 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:27:49.082 [Method:<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:27:49.082 [Method:setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:27:50.989 [Method:setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
@@ -614,9 +614,9 @@
 [INFO ] 04-04-2019 21:27:51.057 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:27:51.057 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
 [INFO ] 04-04-2019 21:27:51.057 [Method:<init>] carbeeper.CarBeeperV2:194 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:27:51.057 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:27:51.183 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:27:51.183 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:27:51.057 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:27:51.183 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:27:51.183 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:27:51.554 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:27:51.555 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
@@ -629,7 +629,7 @@
 [INFO ] 04-04-2019 21:28:02.452 [Method:mouseClicked] carbeeper.CarBeeperV2:168 - Inside mouseClicked.
 [INFO ] 04-04-2019 21:28:02.454 [Method:getAlarmState] carbeeper.CarBeeperV2:538 - Alarm is: OFF
 [INFO ] 04-04-2019 21:28:02.455 [Method:mouseClicked] carbeeper.CarBeeperV2:178 - End mouseClicked.
-[INFO ] 04-04-2019 21:29:53.420 [Method:main] carbeeper.MainDemo:126 - Inside main(). Starting MainDemo.
+[INFO ] 04-04-2019 21:29:53.420 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
 [INFO ] 04-04-2019 21:29:53.845 [Method:<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
 [INFO ] 04-04-2019 21:29:53.846 [Method:setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
 [INFO ] 04-04-2019 21:29:55.335 [Method:setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
@@ -687,9 +687,9 @@
 [INFO ] 04-04-2019 21:29:55.397 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
 [INFO ] 04-04-2019 21:29:55.397 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
 [INFO ] 04-04-2019 21:29:55.397 [Method:<init>] carbeeper.CarBeeperV2:194 - End CarBeeperV2 constructor.
-[INFO ] 04-04-2019 21:29:55.398 [Method:main] carbeeper.MainDemo:128 - Setting up beeper...
-[INFO ] 04-04-2019 21:29:55.512 [Method:main] carbeeper.MainDemo:134 - Beeper loaded.
-[INFO ] 04-04-2019 21:29:55.512 [Method:main] carbeeper.MainDemo:135 - End main(). End MainDemo.
+[INFO ] 04-04-2019 21:29:55.398 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 04-04-2019 21:29:55.512 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 04-04-2019 21:29:55.512 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
 
 [INFO ] 04-04-2019 21:29:55.890 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
 [INFO ] 04-04-2019 21:29:55.895 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
@@ -770,3 +770,309 @@
 [INFO ] 04-04-2019 21:33:45.783 [Method:printDoorStates] carbeeper.CarBeeperV2:650 - Back Right doorLock: UNLOCKED
 [INFO ] 04-04-2019 21:33:45.783 [Method:printDoorStates] carbeeper.CarBeeperV2:651 - ----- End Door States -----
 [INFO ] 04-04-2019 21:33:45.783 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:21:57.003 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
+[INFO ] 12-10-2020 08:21:57.652 [Method:<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
+[INFO ] 12-10-2020 08:21:57.653 [Method:setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
+[INFO ] 12-10-2020 08:21:59.713 [Method:setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
+[INFO ] 12-10-2020 08:21:59.714 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:21:59.715 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/alarm.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:21:59.747 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/alarm.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:21:59.748 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:21:59.748 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:21:59.749 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/window.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:21:59.752 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/window.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:21:59.752 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:21:59.753 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:21:59.753 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/power.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:21:59.756 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/power.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:21:59.756 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:21:59.756 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:21:59.757 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/trunk2.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:21:59.761 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/trunk2.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:21:59.761 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:21:59.761 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:21:59.762 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/lock.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:21:59.764 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/lock.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:21:59.764 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:21:59.771 [Method:<init>] carbeeper.CarBeeperV2:89 - Adding components.
+[INFO ] 12-10-2020 08:21:59.771 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:21:59.773 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:21:59.773 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:21:59.774 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:21:59.775 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:21:59.775 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:21:59.775 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:21:59.776 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:21:59.776 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:21:59.776 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:21:59.777 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:21:59.777 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:21:59.784 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:21:59.785 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:21:59.785 [Method:<init>] carbeeper.CarBeeperV2:110 - Initializing lock button listener.
+[INFO ] 12-10-2020 08:21:59.786 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:21:59.788 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:21:59.789 [Method:<init>] carbeeper.CarBeeperV2:128 - Initializing window button listener with custom window listener
+[INFO ] 12-10-2020 08:21:59.791 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:324 - Inside WindowButtonHandler constructor
+[INFO ] 12-10-2020 08:21:59.792 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:328 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 12-10-2020 08:21:59.793 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:329 - End WindowButtonHandler constructor
+[INFO ] 12-10-2020 08:21:59.793 [Method:<init>] carbeeper.CarBeeperV2:130 - Initializing power button listener.
+[INFO ] 12-10-2020 08:21:59.794 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:21:59.795 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:21:59.796 [Method:<init>] carbeeper.CarBeeperV2:147 - Initializing trunk button listener.
+[INFO ] 12-10-2020 08:21:59.796 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:21:59.797 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:21:59.797 [Method:<init>] carbeeper.CarBeeperV2:164 - Initializing alarm button listener
+[INFO ] 12-10-2020 08:21:59.798 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:21:59.798 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:21:59.799 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:21:59.799 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:21:59.799 [Method:<init>] carbeeper.CarBeeperV2:194 - End CarBeeperV2 constructor.
+[INFO ] 12-10-2020 08:21:59.800 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 12-10-2020 08:21:59.923 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 12-10-2020 08:21:59.924 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
+
+[INFO ] 12-10-2020 08:22:00.292 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:22:00.296 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:22:00.298 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:22:00.299 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:22:00.299 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:26:11.779 [Method:mouseClicked] carbeeper.CarBeeperV2:185 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:11.782 [Method:mouseClicked] carbeeper.CarBeeperV2:189 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:26:11.782 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - End mouseClicked.
+[INFO ] 12-10-2020 08:26:14.010 [Method:mouseClicked] carbeeper.CarBeeperV2:134 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:14.011 [Method:getPowerState] carbeeper.CarBeeperV2:522 - Car is: ON
+[INFO ] 12-10-2020 08:26:14.012 [Method:mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.
+[INFO ] 12-10-2020 08:26:15.739 [Method:mouseClicked] carbeeper.CarBeeperV2:134 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:15.741 [Method:getPowerState] carbeeper.CarBeeperV2:522 - Car is: OFF
+[INFO ] 12-10-2020 08:26:15.741 [Method:mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.
+[INFO ] 12-10-2020 08:26:20.620 [Method:mouseClicked] carbeeper.CarBeeperV2:151 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:20.622 [Method:getTrunkState] carbeeper.CarBeeperV2:530 - Trunk is: OPEN
+[INFO ] 12-10-2020 08:26:20.623 [Method:mouseClicked] carbeeper.CarBeeperV2:161 - End mouseClicked.
+[INFO ] 12-10-2020 08:26:22.381 [Method:mouseClicked] carbeeper.CarBeeperV2:151 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:22.383 [Method:getTrunkState] carbeeper.CarBeeperV2:530 - Trunk is: CLOSED
+[INFO ] 12-10-2020 08:26:22.384 [Method:mouseClicked] carbeeper.CarBeeperV2:161 - End mouseClicked.
+[INFO ] 12-10-2020 08:26:34.829 [Method:mouseClicked] carbeeper.CarBeeperV2:114 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:34.830 [Method:mouseClicked] carbeeper.CarBeeperV2:123 - Timer for Lock Button started.
+[INFO ] 12-10-2020 08:26:34.831 [Method:mouseClicked] carbeeper.CarBeeperV2:125 - End mouseClicked.
+[INFO ] 12-10-2020 08:26:35.332 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:238 - Single click
+[INFO ] 12-10-2020 08:26:35.336 [Method:printDoorStates] carbeeper.CarBeeperV2:646 - ----- Door States -----
+[INFO ] 12-10-2020 08:26:35.337 [Method:printDoorStates] carbeeper.CarBeeperV2:647 - Master door lock: LOCKED
+[INFO ] 12-10-2020 08:26:35.339 [Method:printDoorStates] carbeeper.CarBeeperV2:648 - Passenger door lock: UNLOCKED
+[INFO ] 12-10-2020 08:26:35.340 [Method:printDoorStates] carbeeper.CarBeeperV2:649 - Back Left door lock: UNLOCKED
+[INFO ] 12-10-2020 08:26:35.340 [Method:printDoorStates] carbeeper.CarBeeperV2:650 - Back Right doorLock: UNLOCKED
+[INFO ] 12-10-2020 08:26:35.341 [Method:printDoorStates] carbeeper.CarBeeperV2:651 - ----- End Door States -----
+[INFO ] 12-10-2020 08:26:35.342 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:26:39.145 [Method:mouseClicked] carbeeper.CarBeeperV2:114 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:39.146 [Method:mouseClicked] carbeeper.CarBeeperV2:123 - Timer for Lock Button started.
+[INFO ] 12-10-2020 08:26:39.147 [Method:mouseClicked] carbeeper.CarBeeperV2:125 - End mouseClicked.
+[INFO ] 12-10-2020 08:26:39.650 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:238 - Single click
+[INFO ] 12-10-2020 08:26:39.653 [Method:printDoorStates] carbeeper.CarBeeperV2:646 - ----- Door States -----
+[INFO ] 12-10-2020 08:26:39.653 [Method:printDoorStates] carbeeper.CarBeeperV2:647 - Master door lock: UNLOCKED
+[INFO ] 12-10-2020 08:26:39.654 [Method:printDoorStates] carbeeper.CarBeeperV2:648 - Passenger door lock: UNLOCKED
+[INFO ] 12-10-2020 08:26:39.655 [Method:printDoorStates] carbeeper.CarBeeperV2:649 - Back Left door lock: UNLOCKED
+[INFO ] 12-10-2020 08:26:39.655 [Method:printDoorStates] carbeeper.CarBeeperV2:650 - Back Right doorLock: UNLOCKED
+[INFO ] 12-10-2020 08:26:39.656 [Method:printDoorStates] carbeeper.CarBeeperV2:651 - ----- End Door States -----
+[INFO ] 12-10-2020 08:26:39.656 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:26:52.392 [Method:mouseClicked] carbeeper.CarBeeperV2:185 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:26:52.394 [Method:mouseClicked] carbeeper.CarBeeperV2:189 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:26:52.394 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - End mouseClicked.
+[INFO ] 12-10-2020 08:27:03.564 [Method:mouseClicked] carbeeper.CarBeeperV2:168 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:27:03.566 [Method:getAlarmState] carbeeper.CarBeeperV2:538 - Alarm is: ON
+[INFO ] 12-10-2020 08:27:03.566 [Method:mouseClicked] carbeeper.CarBeeperV2:178 - End mouseClicked.
+[INFO ] 12-10-2020 08:46:38.368 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
+[INFO ] 12-10-2020 08:46:38.823 [Method:<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
+[INFO ] 12-10-2020 08:46:38.824 [Method:setBeeper] carbeeper.CarBeeperV2:201 - Inside setBeeper(). Setting initial states...
+[INFO ] 12-10-2020 08:46:39.989 [Method:setBeeper] carbeeper.CarBeeperV2:228 - End setBeeper()
+[INFO ] 12-10-2020 08:46:39.990 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:39.991 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/alarm.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:40.010 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/alarm.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:40.010 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:40.011 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:40.011 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/window.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:40.013 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/window.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:40.014 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:40.014 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:40.015 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/power.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:40.017 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/power.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:40.018 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:40.018 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:40.019 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/trunk2.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:40.023 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/trunk2.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:40.024 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:40.024 [Method:createImageIcon] carbeeper.CarBeeperV2:763 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:40.026 [Method:createImageIcon] carbeeper.CarBeeperV2:773 - The path 'src/main/resources/images/lock.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:40.033 [Method:createImageIcon] carbeeper.CarBeeperV2:777 - the path 'src/main/resources/images/lock.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:40.033 [Method:createImageIcon] carbeeper.CarBeeperV2:778 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:40.041 [Method:<init>] carbeeper.CarBeeperV2:89 - Adding components.
+[INFO ] 12-10-2020 08:46:40.042 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:40.043 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:46:40.044 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:40.045 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:46:40.045 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:40.045 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:46:40.046 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:40.046 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:46:40.047 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:40.047 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:46:40.047 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:40.048 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:46:40.055 [Method:addComponent] carbeeper.CarBeeperV2:454 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:40.056 [Method:addComponent] carbeeper.CarBeeperV2:461 - Component added.
+[INFO ] 12-10-2020 08:46:40.056 [Method:<init>] carbeeper.CarBeeperV2:110 - Initializing lock button listener.
+[INFO ] 12-10-2020 08:46:40.058 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:40.059 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:46:40.060 [Method:<init>] carbeeper.CarBeeperV2:128 - Initializing window button listener with custom window listener
+[INFO ] 12-10-2020 08:46:40.063 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:324 - Inside WindowButtonHandler constructor
+[INFO ] 12-10-2020 08:46:40.064 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:328 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 12-10-2020 08:46:40.064 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:329 - End WindowButtonHandler constructor
+[INFO ] 12-10-2020 08:46:40.065 [Method:<init>] carbeeper.CarBeeperV2:130 - Initializing power button listener.
+[INFO ] 12-10-2020 08:46:40.066 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:40.069 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:46:40.070 [Method:<init>] carbeeper.CarBeeperV2:147 - Initializing trunk button listener.
+[INFO ] 12-10-2020 08:46:40.070 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:40.071 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:46:40.071 [Method:<init>] carbeeper.CarBeeperV2:164 - Initializing alarm button listener
+[INFO ] 12-10-2020 08:46:40.071 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:40.072 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:46:40.073 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:235 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:40.073 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:253 - timer is running: true
+[INFO ] 12-10-2020 08:46:40.073 [Method:<init>] carbeeper.CarBeeperV2:194 - End CarBeeperV2 constructor.
+[INFO ] 12-10-2020 08:46:40.074 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 12-10-2020 08:46:40.199 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 12-10-2020 08:46:40.205 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
+
+[INFO ] 12-10-2020 08:46:40.565 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:40.571 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:40.571 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:40.572 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:40.573 [Method:lambda$0] carbeeper.CarBeeperV2.MouseClickHandler:248 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:55.013 [Method:main] carbeeper.Main:126 - Inside main(). Starting MainDemo.
+[INFO ] 12-10-2020 08:46:55.467 [Method:<init>] carbeeper.CarBeeperV2:71 - Inside CarBeeperV2 constructor.
+[INFO ] 12-10-2020 08:46:55.468 [Method:setBeeper] carbeeper.CarBeeperV2:203 - Inside setBeeper(). Setting initial states...
+[INFO ] 12-10-2020 08:46:56.087 [Method:setBeeper] carbeeper.CarBeeperV2:230 - End setBeeper()
+[INFO ] 12-10-2020 08:46:56.089 [Method:createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:56.090 [Method:createImageIcon] carbeeper.CarBeeperV2:775 - The path 'src/main/resources/images/lock.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:56.108 [Method:createImageIcon] carbeeper.CarBeeperV2:779 - the path 'src/main/resources/images/lock.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:56.109 [Method:createImageIcon] carbeeper.CarBeeperV2:780 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:56.109 [Method:createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:56.110 [Method:createImageIcon] carbeeper.CarBeeperV2:775 - The path 'src/main/resources/images/window.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:56.112 [Method:createImageIcon] carbeeper.CarBeeperV2:779 - the path 'src/main/resources/images/window.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:56.112 [Method:createImageIcon] carbeeper.CarBeeperV2:780 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:56.112 [Method:createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:56.113 [Method:createImageIcon] carbeeper.CarBeeperV2:775 - The path 'src/main/resources/images/power.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:56.115 [Method:createImageIcon] carbeeper.CarBeeperV2:779 - the path 'src/main/resources/images/power.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:56.115 [Method:createImageIcon] carbeeper.CarBeeperV2:780 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:56.115 [Method:createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:56.116 [Method:createImageIcon] carbeeper.CarBeeperV2:775 - The path 'src/main/resources/images/trunk2.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:56.119 [Method:createImageIcon] carbeeper.CarBeeperV2:779 - the path 'src/main/resources/images/trunk2.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:56.119 [Method:createImageIcon] carbeeper.CarBeeperV2:780 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:56.119 [Method:createImageIcon] carbeeper.CarBeeperV2:764 - Inside createImageIcon()
+[DEBUG] 12-10-2020 08:46:56.120 [Method:createImageIcon] carbeeper.CarBeeperV2:775 - The path 'src/main/resources/images/alarm.jpg' could not find an image there!. Trying again by removing 'src/main/resources/' from path!
+[INFO ] 12-10-2020 08:46:56.122 [Method:createImageIcon] carbeeper.CarBeeperV2:779 - the path 'src/main/resources/images/alarm.jpg' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...
+[INFO ] 12-10-2020 08:46:56.122 [Method:createImageIcon] carbeeper.CarBeeperV2:780 - End createImageIcon()
+[INFO ] 12-10-2020 08:46:56.130 [Method:<init>] carbeeper.CarBeeperV2:89 - Adding components.
+[INFO ] 12-10-2020 08:46:56.131 [Method:addComponent] carbeeper.CarBeeperV2:456 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:56.132 [Method:addComponent] carbeeper.CarBeeperV2:463 - Component added.
+[INFO ] 12-10-2020 08:46:56.132 [Method:addComponent] carbeeper.CarBeeperV2:456 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:56.133 [Method:addComponent] carbeeper.CarBeeperV2:463 - Component added.
+[INFO ] 12-10-2020 08:46:56.133 [Method:addComponent] carbeeper.CarBeeperV2:456 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:56.133 [Method:addComponent] carbeeper.CarBeeperV2:463 - Component added.
+[INFO ] 12-10-2020 08:46:56.134 [Method:addComponent] carbeeper.CarBeeperV2:456 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:56.134 [Method:addComponent] carbeeper.CarBeeperV2:463 - Component added.
+[INFO ] 12-10-2020 08:46:56.134 [Method:addComponent] carbeeper.CarBeeperV2:456 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:56.135 [Method:addComponent] carbeeper.CarBeeperV2:463 - Component added.
+[INFO ] 12-10-2020 08:46:56.135 [Method:addComponent] carbeeper.CarBeeperV2:456 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:56.135 [Method:addComponent] carbeeper.CarBeeperV2:463 - Component added.
+[INFO ] 12-10-2020 08:46:56.143 [Method:addComponent] carbeeper.CarBeeperV2:456 - Inside addComponent()
+[INFO ] 12-10-2020 08:46:56.143 [Method:addComponent] carbeeper.CarBeeperV2:463 - Component added.
+[INFO ] 12-10-2020 08:46:56.144 [Method:<init>] carbeeper.CarBeeperV2:110 - Initializing lock button listener.
+[INFO ] 12-10-2020 08:46:56.145 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:237 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:56.146 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:255 - timer is running: true
+[INFO ] 12-10-2020 08:46:56.147 [Method:<init>] carbeeper.CarBeeperV2:127 - Initializing window button listener with custom window listener
+[INFO ] 12-10-2020 08:46:56.148 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:326 - Inside WindowButtonHandler constructor
+[INFO ] 12-10-2020 08:46:56.149 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:330 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 12-10-2020 08:46:56.149 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:331 - End WindowButtonHandler constructor
+[INFO ] 12-10-2020 08:46:56.150 [Method:<init>] carbeeper.CarBeeperV2:129 - Initializing power button listener.
+[INFO ] 12-10-2020 08:46:56.150 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:237 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:56.152 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:255 - timer is running: true
+[INFO ] 12-10-2020 08:46:56.152 [Method:<init>] carbeeper.CarBeeperV2:147 - Initializing trunk button listener.
+[INFO ] 12-10-2020 08:46:56.153 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:237 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:56.153 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:255 - timer is running: true
+[INFO ] 12-10-2020 08:46:56.154 [Method:<init>] carbeeper.CarBeeperV2:165 - Initializing alarm button listener
+[INFO ] 12-10-2020 08:46:56.154 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:237 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:56.155 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:255 - timer is running: true
+[INFO ] 12-10-2020 08:46:56.155 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:237 - Inside MouseClickHandler constructor.
+[INFO ] 12-10-2020 08:46:56.156 [Method:<init>] carbeeper.CarBeeperV2.MouseClickHandler:255 - timer is running: true
+[INFO ] 12-10-2020 08:46:56.156 [Method:<init>] carbeeper.CarBeeperV2:196 - End CarBeeperV2 constructor.
+[INFO ] 12-10-2020 08:46:56.156 [Method:main] carbeeper.Main:128 - Setting up beeper...
+[INFO ] 12-10-2020 08:46:56.270 [Method:main] carbeeper.Main:134 - Beeper loaded.
+[INFO ] 12-10-2020 08:46:56.270 [Method:main] carbeeper.Main:135 - End main(). End MainDemo.
+
+[INFO ] 12-10-2020 08:46:56.652 [Method:lambda$new$0] carbeeper.CarBeeperV2.MouseClickHandler:250 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:56.654 [Method:lambda$new$0] carbeeper.CarBeeperV2.MouseClickHandler:250 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:56.655 [Method:lambda$new$0] carbeeper.CarBeeperV2.MouseClickHandler:250 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:56.656 [Method:lambda$new$0] carbeeper.CarBeeperV2.MouseClickHandler:250 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:46:56.657 [Method:lambda$new$0] carbeeper.CarBeeperV2.MouseClickHandler:250 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:47:14.736 [Method:mouseClicked] carbeeper.CarBeeperV2:187 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:14.739 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:47:14.740 [Method:mouseClicked] carbeeper.CarBeeperV2:193 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:31.160 [Method:mouseClicked] carbeeper.CarBeeperV2:169 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:31.163 [Method:getAlarmState] carbeeper.CarBeeperV2:540 - Alarm is: ON
+[INFO ] 12-10-2020 08:47:31.164 [Method:mouseClicked] carbeeper.CarBeeperV2:180 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:31.848 [Method:mouseClicked] carbeeper.CarBeeperV2:169 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:31.850 [Method:getAlarmState] carbeeper.CarBeeperV2:540 - Alarm is: OFF
+[INFO ] 12-10-2020 08:47:31.851 [Method:mouseClicked] carbeeper.CarBeeperV2:180 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:34.741 [Method:mouseClicked] carbeeper.CarBeeperV2:114 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:34.743 [Method:mouseClicked] carbeeper.CarBeeperV2:122 - Timer for Lock Button started.
+[INFO ] 12-10-2020 08:47:34.744 [Method:mouseClicked] carbeeper.CarBeeperV2:124 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:35.245 [Method:lambda$new$0] carbeeper.CarBeeperV2.MouseClickHandler:240 - Single click
+[INFO ] 12-10-2020 08:47:35.250 [Method:printDoorStates] carbeeper.CarBeeperV2:648 - ----- Door States -----
+[INFO ] 12-10-2020 08:47:35.251 [Method:printDoorStates] carbeeper.CarBeeperV2:649 - Master door lock: LOCKED
+[INFO ] 12-10-2020 08:47:35.252 [Method:printDoorStates] carbeeper.CarBeeperV2:650 - Passenger door lock: UNLOCKED
+[INFO ] 12-10-2020 08:47:35.253 [Method:printDoorStates] carbeeper.CarBeeperV2:651 - Back Left door lock: UNLOCKED
+[INFO ] 12-10-2020 08:47:35.254 [Method:printDoorStates] carbeeper.CarBeeperV2:652 - Back Right doorLock: UNLOCKED
+[INFO ] 12-10-2020 08:47:35.255 [Method:printDoorStates] carbeeper.CarBeeperV2:653 - ----- End Door States -----
+[INFO ] 12-10-2020 08:47:35.255 [Method:lambda$new$0] carbeeper.CarBeeperV2.MouseClickHandler:250 - Timer's event set for 500 seconds.
+[INFO ] 12-10-2020 08:47:53.850 [Method:mouseClicked] carbeeper.CarBeeperV2:187 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:53.852 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:47:53.852 [Method:mouseClicked] carbeeper.CarBeeperV2:193 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:53.979 [Method:mouseClicked] carbeeper.CarBeeperV2:187 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:53.980 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:47:53.981 [Method:mouseClicked] carbeeper.CarBeeperV2:193 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:54.098 [Method:mouseClicked] carbeeper.CarBeeperV2:187 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:54.099 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:47:54.099 [Method:mouseClicked] carbeeper.CarBeeperV2:193 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:57.721 [Method:mouseClicked] carbeeper.CarBeeperV2:133 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:57.723 [Method:getPowerState] carbeeper.CarBeeperV2:524 - Car is: ON
+[INFO ] 12-10-2020 08:47:57.724 [Method:mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:58.246 [Method:mouseClicked] carbeeper.CarBeeperV2:133 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:58.249 [Method:getPowerState] carbeeper.CarBeeperV2:524 - Car is: OFF
+[INFO ] 12-10-2020 08:47:58.249 [Method:mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:58.682 [Method:mouseClicked] carbeeper.CarBeeperV2:133 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:58.683 [Method:getPowerState] carbeeper.CarBeeperV2:524 - Car is: ON
+[INFO ] 12-10-2020 08:47:58.684 [Method:mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.
+[INFO ] 12-10-2020 08:47:59.071 [Method:mouseClicked] carbeeper.CarBeeperV2:133 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:47:59.072 [Method:getPowerState] carbeeper.CarBeeperV2:524 - Car is: OFF
+[INFO ] 12-10-2020 08:47:59.073 [Method:mouseClicked] carbeeper.CarBeeperV2:144 - End mouseClicked.
+[INFO ] 12-10-2020 08:48:01.665 [Method:mouseClicked] carbeeper.CarBeeperV2:187 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:48:01.666 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:48:01.667 [Method:mouseClicked] carbeeper.CarBeeperV2:193 - End mouseClicked.
+[INFO ] 12-10-2020 08:48:04.992 [Method:mouseClicked] carbeeper.CarBeeperV2:151 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:48:04.993 [Method:getTrunkState] carbeeper.CarBeeperV2:532 - Trunk is: OPEN
+[INFO ] 12-10-2020 08:48:04.994 [Method:mouseClicked] carbeeper.CarBeeperV2:162 - End mouseClicked.
+[INFO ] 12-10-2020 08:48:05.924 [Method:mouseClicked] carbeeper.CarBeeperV2:151 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:48:05.927 [Method:getTrunkState] carbeeper.CarBeeperV2:532 - Trunk is: CLOSED
+[INFO ] 12-10-2020 08:48:05.927 [Method:mouseClicked] carbeeper.CarBeeperV2:162 - End mouseClicked.
+[INFO ] 12-10-2020 08:48:06.421 [Method:mouseClicked] carbeeper.CarBeeperV2:151 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:48:06.422 [Method:getTrunkState] carbeeper.CarBeeperV2:532 - Trunk is: OPEN
+[INFO ] 12-10-2020 08:48:06.423 [Method:mouseClicked] carbeeper.CarBeeperV2:162 - End mouseClicked.
+[INFO ] 12-10-2020 08:48:06.886 [Method:mouseClicked] carbeeper.CarBeeperV2:151 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:48:06.888 [Method:getTrunkState] carbeeper.CarBeeperV2:532 - Trunk is: CLOSED
+[INFO ] 12-10-2020 08:48:06.889 [Method:mouseClicked] carbeeper.CarBeeperV2:162 - End mouseClicked.
+[INFO ] 12-10-2020 08:48:07.340 [Method:mouseClicked] carbeeper.CarBeeperV2:151 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:48:07.342 [Method:getTrunkState] carbeeper.CarBeeperV2:532 - Trunk is: OPEN
+[INFO ] 12-10-2020 08:48:07.342 [Method:mouseClicked] carbeeper.CarBeeperV2:162 - End mouseClicked.
+[INFO ] 12-10-2020 08:48:08.834 [Method:mouseClicked] carbeeper.CarBeeperV2:187 - Inside mouseClicked.
+[INFO ] 12-10-2020 08:48:08.835 [Method:mouseClicked] carbeeper.CarBeeperV2:191 - windowStatesPrinted = false. Textarea cleared.
+[INFO ] 12-10-2020 08:48:08.836 [Method:mouseClicked] carbeeper.CarBeeperV2:193 - End mouseClicked.

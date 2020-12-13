@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package carbeeper;
 
 /**
- *
- * @author aaron
+ * State   an Enum used to set the state of the properties of the Car Beeper
+ * @author aaron hunter
  */
 public enum State {
     // for power and alarm

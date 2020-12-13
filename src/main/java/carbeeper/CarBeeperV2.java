@@ -6,11 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,59 +23,58 @@ import org.apache.logging.log4j.Logger;
  * @author aaron hunter
  */
 public class CarBeeperV2 extends JFrame {
-    private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LogManager.getLogger(CarBeeperV2.class);
-	private final int TIMER_INTERVAL = 500;
+    protected static final long serialVersionUID = 1L;
+	protected static final Logger LOGGER = LogManager.getLogger(CarBeeperV2.class);
+	protected final int TIMER_INTERVAL = 500;
 	// Buttons
-    private final JButton lockButton;
-    private final JButton windowButton;
-    private final JButton powerButton;
-    private final JButton trunkButton;
-    private final JButton alarmButton;
-    private final JButton clearButton;
+    protected final JButton lockButton;
+    protected final JButton windowButton;
+    protected final JButton powerButton;
+    protected final JButton trunkButton;
+    protected final JButton alarmButton;
+    protected final JButton clearButton;
     // Images for the Buttons
-    private Icon lockImage;
-    private Icon windowImage;
-    private Icon powerImage;
-    private Icon trunkImage;
-    private Icon alarmImage;
+    protected final Icon lockImage;
+    protected final Icon windowImage;
+    protected final Icon powerImage;
+    protected final Icon trunkImage;
+    protected final Icon alarmImage;
     // Button States
-    private State carState;
-    private State trunkState;
-    private State alarmState;
-    private State masterDoorLockState;
-    private State passengerDoorLockState;
-    private State leftDoorLockState;
-    private State rightDoorLockState;
-    private State masterWindowState;
-    private State passengerWindowState;
-    private State leftWindowState;
-    private State rightWindowState;
+    protected State carState;
+    protected State trunkState;
+    protected State alarmState;
+    protected State masterDoorLockState;
+    protected State passengerDoorLockState;
+    protected State leftDoorLockState;
+    protected State rightDoorLockState;
+    protected State masterWindowState;
+    protected State passengerWindowState;
+    protected State leftWindowState;
+    protected State rightWindowState;
     // TextArea
     public final JTextArea textArea = new JTextArea("", 10, 1); // textArea of rows and columns
     // Layout and Constraints
-    private final GridBagLayout layout;
-    private final GridBagConstraints constraints; 
+    protected final GridBagLayout layout;
+    protected final GridBagConstraints constraints; 
     // Other Attributes
-    private boolean wasHeld = false;
-    private boolean holding = false;
-    private boolean singleClick = false, doubleClick = false, windowStatesPrinted = false;
-    private int beingHeldTimer = 0;
-    private int counter2 = 0;
+    protected boolean wasHeld = false;
+    protected boolean holding = false;
+    protected boolean singleClick = false, doubleClick = false, windowStatesPrinted = false;
+    protected int beingHeldTimer = 0;
+    protected int counter2 = 0;
     // GUI Component
     public CarBeeperV2() {
         super("Car Beeper");
         LOGGER.info("Inside CarBeeperV2 constructor.");
         setBeeper();
-        setResizable(false);
         setLayout(layout = new GridBagLayout());
         constraints = new GridBagConstraints();
         // Images
-        lockImage = createImageIcon("src/main/resources/images/alarm.jpg");
-        windowImage = createImageIcon("src/main/resources/images/window.jpg");
-        powerImage = createImageIcon("src/main/resources/images/power.jpg");
-        trunkImage = createImageIcon("src/main/resources/images/trunk2.jpg");
-        alarmImage = createImageIcon("src/main/resources/images/lock.jpg");
+        lockImage = createImageIcon("src/main/resources/images/lock.jpg", "Lock image");
+        windowImage = createImageIcon("src/main/resources/images/window.jpg", "Window image");
+        powerImage = createImageIcon("src/main/resources/images/power.jpg", "Power image");
+        trunkImage = createImageIcon("src/main/resources/images/trunk2.jpg", "Trunk image");
+        alarmImage = createImageIcon("src/main/resources/images/alarm.jpg", "Alarm image");
         // Buttons
         lockButton = new JButton(lockImage);
         windowButton = new JButton(windowImage);
@@ -112,7 +108,6 @@ public class CarBeeperV2 extends JFrame {
             @Override
             public void mouseClicked(MouseEvent me) {
                 LOGGER.info("Inside mouseClicked.");
-                //Integer timerinterval = (Integer)Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
                 if (me.getClickCount() == 2) {
                     singleClick = false;
                     doubleClick = true;
@@ -136,7 +131,8 @@ public class CarBeeperV2 extends JFrame {
                     carState = State.ON;
                     textArea.append("Car is " + carState + "\n");
                     getPowerState();
-                } else if (me.getSource() == powerButton && carState.equals(State.ON)) {
+                }
+                else if (me.getSource() == powerButton && carState.equals(State.ON)) {
                     carState = State.OFF;
                     textArea.append("Car is " + carState + "\n");
                     getPowerState();
@@ -153,7 +149,8 @@ public class CarBeeperV2 extends JFrame {
                     trunkState = State.OPEN;
                     textArea.append("Trunk is " + trunkState + "\n");
                     getTrunkState();
-                } else if (me.getSource() == trunkButton && trunkState.equals(State.OPEN)) {
+                }
+            	else if (me.getSource() == trunkButton && trunkState.equals(State.OPEN)) {
                     trunkState = State.CLOSED;
                     textArea.append("Trunk is " + trunkState + "\n");
                     getTrunkState();
@@ -170,7 +167,8 @@ public class CarBeeperV2 extends JFrame {
                     alarmState = State.ON;
                     textArea.append("Alarm is " + alarmState + "\n");
                     getAlarmState();
-                } else if (me.getSource() == alarmButton && alarmState.equals(State.ON)) {
+                }
+            	else if (me.getSource() == alarmButton && alarmState.equals(State.ON)) {
                     alarmState = State.OFF;
                     textArea.append("Alarm is " + alarmState + "\n");
                     getAlarmState();
@@ -228,9 +226,9 @@ public class CarBeeperV2 extends JFrame {
         LOGGER.info("End setBeeper()");
     }
     
-    private class MouseClickHandler extends MouseAdapter { //implements ActionListener {
-        private final Logger LOGGER = LogManager.getLogger(MouseClickHandler.class);
-    	protected Timer timer = null;
+    protected class MouseClickHandler extends MouseAdapter { //implements ActionListener {
+        protected final Logger LOGGER = LogManager.getLogger(MouseClickHandler.class);
+    	protected Timer timer;
     	public MouseClickHandler() {
     		LOGGER.info("Inside MouseClickHandler constructor.");
     		timer = new Timer(TIMER_INTERVAL, evt -> {
@@ -262,8 +260,6 @@ public class CarBeeperV2 extends JFrame {
         public void mouseClicked(MouseEvent me)  {}
         @Override
         public void mouseReleased(MouseEvent me) {}
-//        @Override
-//        public void actionPerformed(ActionEvent e) {}
     }
     
     /**
@@ -274,14 +270,14 @@ public class CarBeeperV2 extends JFrame {
      * Inside mouseClicked...
      * Inside actionPerformed...
      */
-    private class WindowButtonHandler extends MouseAdapter implements ActionListener {
-        //private final int TIMER_INTERVAL = (Integer) Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
-        private final Logger LOGGER = LogManager.getLogger(WindowButtonHandler.class);
-    	private final Timer timer;
-        private final Timer beingHeld = new Timer(250, actionEvent -> {
+    protected class WindowButtonHandler extends MouseAdapter implements ActionListener {
+        //protected final int TIMER_INTERVAL = (Integer) Toolkit.getDefaultToolkit().getDesktopProperty("awt.multiClickInterval");
+        protected final Logger LOGGER = LogManager.getLogger(WindowButtonHandler.class);
+    	protected final Timer timer;
+        protected final Timer beingHeld = new Timer(250, actionEvent -> {
             LOGGER.info("Inside beingHeld Timer actionEvent.");
             LOGGER.info("windowStatesPrinted = " + windowStatesPrinted);
-        	if ((beingHeldTimer < 3 && holding == false) ) { // 0, 1, 2 < 3
+        	if ((beingHeldTimer < 3 && !holding) ) { // 0, 1, 2 < 3
                 textArea.append(++beingHeldTimer + " Window button held: no\n");
                 LOGGER.info(beingHeldTimer + " Timer is not being held.");
             } else if (beingHeldTimer == 3) {
@@ -292,9 +288,9 @@ public class CarBeeperV2 extends JFrame {
             } else if (beingHeldTimer > 3 && !windowStatesPrinted) {
             	if (counter2 < 10)
             		textArea.setText(textArea.getText().substring(0, textArea.getText().length()-26) + ++counter2 + " Window button held: yes\n");
-            	else if (counter2 < 100 && counter2 >= 10) {
+            	else if (counter2 <= 100) {
             		textArea.setText(textArea.getText().substring(0, textArea.getText().length()-27) + ++counter2 + " Window button held: yes\n");
-            	} else if (counter2 > 100) {
+            	} else {
             		LOGGER.error("counter2: " + counter2 + " shouldn't go any higher than 100.");
             	}
             	LOGGER.info(counter2 + " Timer is being held.");
@@ -305,9 +301,9 @@ public class CarBeeperV2 extends JFrame {
             	if (counter2 < 10) {
             		String temp = textArea.getText(); //.substring(0, textArea.getText().length()-26);
             		textArea.setText(temp + ++counter2 + " Window button held: yes\n");
-            	} else if (counter2 < 100 && counter2 >= 10) {
+            	} else if (counter2 <= 100) {
             		textArea.setText(textArea.getText() + ++counter2 + " Window button held: yes\n");
-            	} else if (counter2 > 100) {
+            	} else {
             		LOGGER.error("counter2: " + counter2 + " shouldn't go any higher than 100.");
             	}
             	LOGGER.info(counter2 + " Timer is being held.");
@@ -359,8 +355,8 @@ public class CarBeeperV2 extends JFrame {
             if (doubleClick) {
                 LOGGER.info("Double clicked");
                 LOGGER.info("holding = " + holding + " | singleClick = " + !singleClick);
-                if (holding == true && !singleClick) {
-                    if (wasHeld == true) {
+                if (holding && !singleClick) {
+                    if (wasHeld) {
                         LOGGER.info("We double clicked and held last time...");
                         getWindowStates(2, counter2);
                         holding = false;
@@ -372,8 +368,8 @@ public class CarBeeperV2 extends JFrame {
                         wasHeld = true;
                         holding = false;
                     }
-                } else if (holding == false && !singleClick) {
-                    if (wasHeld == true) { // held on last round, clicked this round (reversing states and button logic)
+                } else if (!holding && !singleClick) {
+                    if (wasHeld) { // held on last round, clicked this round (reversing states and button logic)
                         LOGGER.info("We double clicked and held last time...");
                         getWindowStates(2, 0);
                         counter2 = 0;
@@ -402,8 +398,8 @@ public class CarBeeperV2 extends JFrame {
         public void actionPerformed(ActionEvent e){
         	LOGGER.info("Running actionPerformed...");
         	LOGGER.info("holding = " + holding + " | singleClick = " + singleClick);
-            if (holding == true && !doubleClick) {
-                if (wasHeld == true) {
+            if (holding && !doubleClick) {
+                if (wasHeld) {
                 	LOGGER.info("We single click and held last time.");
                     getWindowStates(1, counter2);
                     holding = false;
@@ -416,8 +412,8 @@ public class CarBeeperV2 extends JFrame {
                     wasHeld = true;
                     holding = false;
                 }
-            } else if (holding == false && !doubleClick) {
-                if (wasHeld == true) { // held on last round, clicked this round (reversing states and button logic)
+            } else if (!holding && !doubleClick) {
+                if (wasHeld) { // held on last round, clicked this round (reversing states and button logic)
                     LOGGER.info("We single click and held last time.");
                     //windowUp_Down();
                     getWindowStates(1, 0);
@@ -450,12 +446,12 @@ public class CarBeeperV2 extends JFrame {
     } // end WindowButtonHandler.class
     
     // method to set constraints on
-    private void addComponent(Component component, int gridy, int gridx, double gwidth, double gheight) {
+    protected void addComponent(Component component, int gridy, int gridx, double gwidth, double gheight) {
         LOGGER.info("Inside addComponent()");
     	constraints.gridx = gridx;
         constraints.gridy = gridy;
         constraints.gridwidth = (int)Math.ceil(gwidth);
-        constraints.gridheight = (int)Math.ceil(gheight);
+        constraints.gridheight = (int)Math.ceil(gheight); // (int)Math.ceil(gheight); *actual value of parameter is always 1
         layout.setConstraints(component, constraints);
         add(component);
         LOGGER.info("Component added.");
@@ -515,8 +511,8 @@ public class CarBeeperV2 extends JFrame {
     }
     // State Methods
     /**
-     * This method returns the state of the car.
-     * @return 
+     * This method returns the state of the car's power.
+     * @return State of the car's power
      */
     public State getPowerState() {
         LOGGER.info("Car is: " + carState);
@@ -524,7 +520,7 @@ public class CarBeeperV2 extends JFrame {
     }
     /**
      * This method returns the state of the trunk.
-     * @return 
+     * @return State of the trunk
      */
     public State getTrunkState() {
     	LOGGER.info("Trunk is: " + trunkState);
@@ -532,7 +528,7 @@ public class CarBeeperV2 extends JFrame {
     }
     /**
      * This method returns the state of the alarm.
-     * @return 
+     * @return State the state of the alarm
      */
     public State getAlarmState() {
     	LOGGER.info("Alarm is: " + alarmState);
@@ -550,7 +546,7 @@ public class CarBeeperV2 extends JFrame {
     }
     /**
      * This method returns the master door lock state
-     * @return
+     * @return State the state of the master door's lock
      */
     public State getMasterDoorLockState() {
     	LOGGER.info("Master door lock state is : " + masterDoorLockState);
@@ -559,7 +555,6 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method is only used for testing purposes only.
-     * @param state 
      */
     protected void setMasterDoorLockState(State state) {
         this.masterDoorLockState = state;
@@ -567,7 +562,7 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method returns the passenger door lock state
-     * @return 
+     * @return State the state of the passenger doors lock state
      */
     public State getPassengerDoorLockState() {
     	LOGGER.info("Passenger door lock is : " + passengerDoorLockState);
@@ -576,7 +571,6 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method is used for testing purposes only.
-     * @param state
      */
     protected void setPassengerDoorLockState(State state) {
         this.passengerDoorLockState = state;
@@ -584,7 +578,7 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method returns the left door lock state
-     * @return 
+     * @return State the state of the left door lock state
      */
     public State getLeftDoorLockState() {
     	LOGGER.info("Left door lock is : " + leftDoorLockState);
@@ -610,7 +604,6 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method is used for testing purposes only.
-     * @param state
      */
     protected void setRightDoorLockState(State state) {
         this.rightDoorLockState = state;
@@ -655,7 +648,6 @@ public class CarBeeperV2 extends JFrame {
      * This method simply returns the current state of all the windows.
      * @param clicks : integer; one click or two
      * @param windowCounter : counter2
-     * @return 
      */
     public void getWindowStates(int clicks, int windowCounter) {
         if ((clicks == 1 || clicks == 2) && windowCounter == 0) { 
@@ -689,7 +681,6 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method is used for testing purposes only.
-     * @param state
      */
     protected void setMasterWindowState(State state) {
         this.masterWindowState = state;
@@ -697,7 +688,7 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method returns the passenger door window state
-     * @return
+     * @return State the state of the passenger door window's state
      */
     public State getPassengerWindowState() {
     	LOGGER.info("Passenger window is : " + passengerWindowState);
@@ -706,7 +697,6 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method is used for testing purposes only.
-     * @param state
      */
     protected void setPassengerWindowState(State state) {
         this.passengerWindowState = state;
@@ -714,7 +704,7 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method returns the left door window state
-     * @return
+     * @return State the state of the left window state
      */
     public State getLeftWindowState() {
     	LOGGER.info("Left window is : " + leftWindowState);
@@ -723,7 +713,6 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method is used for testing purposes only.
-     * @param state
      */
     protected void setLeftWindowState(State state) {
         this.leftWindowState = state;
@@ -731,7 +720,7 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method returns the right door window state
-     * @return
+     * @return State the state of the right window state
      */
     public State getRightWindowState() {
     	LOGGER.info("Right window is : " + rightWindowState);
@@ -740,7 +729,6 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method is used for testing purposes only.
-     * @param state
      */
     protected void setRightWindowState(State state) {
         this.rightWindowState = state;
@@ -748,7 +736,7 @@ public class CarBeeperV2 extends JFrame {
     
     /**
      * This method returns the text area
-     * @return
+     * @return JTextArea the textarea that displays results
      */
     public JTextArea getTextArea() {
         return textArea;
@@ -758,23 +746,23 @@ public class CarBeeperV2 extends JFrame {
     	return createImageIcon(path, "No description given.");
     }
     /** Returns an ImageIcon, or null if the path was invalid. */
-    @SuppressWarnings("unused")
 	protected ImageIcon createImageIcon(String path, String description) {
         LOGGER.info("Inside createImageIcon()");
         ImageIcon retImageIcon = null;
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        URL resource = classLoader.getResource(path);
-        //File sourceimage = new File(path);
-        if (resource != null) { // if (sourceimage != null) {
+        LOGGER.debug(classLoader.getDefinedPackages().toString());
+        URL resource = classLoader.getResource(path.substring(19));
+        if (resource != null) {
     	    retImageIcon = new ImageIcon(resource);
-			LOGGER.info("the path '" + path + "' created an image! the imageicon is being returned...");
+			LOGGER.info("the path '" + path + "' created an image! the ImageIcon is being returned...");
 			LOGGER.info("End createImageIcon()");
-        } else {
+        }
+        else {
         	LOGGER.debug("The path '" + path + "' could not find an image there!. Trying again by removing 'src/main/resources/' from path!");
         	resource = classLoader.getResource(path.substring(19));
         	if (resource != null) {
         		retImageIcon = new ImageIcon(resource);
-        		LOGGER.info("the path '" + path + "' created an image after remvoing 'src/main/resources/'! the imageicon is being returned...");
+        		LOGGER.info("the path '" + path + "' created an image after removing 'src/main/resources/'! the ImageIcon is being returned...");
     			LOGGER.info("End createImageIcon()");
         	} else {
         		LOGGER.error("The path '" + path + "' could not find an image there after removing src/main/resources/!. Returning null!");

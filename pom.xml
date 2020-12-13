@@ -2,61 +2,52 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
     <groupId>com.myprojects</groupId>
     <artifactId>CarBeeper</artifactId>
-    <version>1.1</version>
+    <version>2.0</version>
     <name>Car Beeper</name>
     <description>This is a car beeper simulator</description>
-    
     <properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<junit.version>4.12</junit.version>
     	<log4j2.version>2.11.2</log4j2.version>
+		<maven.compiler.version>3.8.0</maven.compiler.version>
+		<properties.maven.plugin.version>1.0-alpha-2</properties.maven.plugin.version>
+		<maven.jar.plugin.version>3.1.0</maven.jar.plugin.version>
     </properties>
-    
     <dependencies>
-    
 	    <dependency>
 	      <groupId>junit</groupId>
 	      <artifactId>junit</artifactId>
 	      <version>${junit.version}</version>
 	    </dependency>
-	    
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
 	      <artifactId>log4j-core</artifactId>
 	      <version>${log4j2.version}</version>
 	    </dependency>
-	    
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
 	      <artifactId>log4j-api</artifactId>
 	      <version>${log4j2.version}</version>
 	    </dependency>
-	    
     </dependencies>
-    
     <build>
     	<sourceDirectory>src/main/java</sourceDirectory>
-    	
     	<testSourceDirectory>src/test/java</testSourceDirectory>
-    	
     	<plugins>
-
         	<plugin>
 	        	<artifactId>maven-compiler-plugin</artifactId>
-	        	<version>3.8.0</version>
+	        	<version>${maven.compiler.version}</version>
 		        <configuration>
-		        	<source>1.8</source>
-		            <target>1.8</target>
+		        	<source>11</source>
+		            <target>11</target>
 		        </configuration>
             </plugin>
-            
             <plugin>
             	<groupId>org.codehaus.mojo</groupId>
             	<artifactId>properties-maven-plugin</artifactId>
-            	<version>1.0-alpha-2</version>
+            	<version>${properties.maven.plugin.version}</version>
             	<executions>
             		<execution>
             			<phase>generate-resources</phase>
@@ -74,12 +65,11 @@
             		</execution>
             	</executions>
             </plugin>
-            
             <!-- When creating a jar, update MANIFEST.MF file and place JAR in specified outputDirectory -->
              <plugin>
 		    	<groupId>org.apache.maven.plugins</groupId>
 		    	<artifactId>maven-jar-plugin</artifactId>
-		    	<version>3.1.0</version>
+		    	<version>${maven.jar.plugin.version}</version>
 		    	<configuration>
 			    	<executions>
 	            		<execution>
@@ -103,14 +93,14 @@
             				<Implementation-Version>${project.version}</Implementation-Version>
             				<Creation-Time-Format>MM-dd-YYYY hh:mm:ss</Creation-Time-Format>
             				<Creation-Time>${build.time}</Creation-Time>
-            				<mainClass>carbeeper.MainDemo</mainClass>
+            				<mainClass>carbeeper.Main</mainClass>
             			</manifestEntries>
             		</archive>
 					<outputDirectory>${basedir}/dist</outputDirectory>
             		<finalName>${project.artifactId}-${project.version}</finalName> <!-- ${project.artifactId}.${project.version} -->
             	</configuration>
 		    </plugin>
-            
+            <!-- Builds filter.properties file -->
             <plugin>
             	<groupId>org.apache.maven.plugins</groupId>
             	<artifactId>maven-antrun-plugin</artifactId>
@@ -132,28 +122,8 @@
             		</execution>
             	</executions>
             </plugin>
-            
-            <!-- Reference to assembly.xml file -->
-            <!-- <plugin>
-            	<groupId>org.apache.amaven.plugins</groupId>
-            	<artifactId>maven-assembly-plugin</artifactId>
-            	<executions>
-            		<execution>
-            			<id>create-archive</id>
-            			<phase>package</phase>
-            			<goals>
-            				<goals>single</goal>
-            			</goals>
-            			<configuration>
-            				<descriptor>location of assembly.xml like src/assembly.xml </descriptor> 
-            				<finalName></finalName>
-            				<outputDirectory>${basedir}/dist/LOCATION</outputDirectory>
-            			</configuration>
-            		</execution>
-            	</executions>
-            </plugin>-->
-            
-            <plugin>
+			<!-- Can be triggered by Lifecycle: Package: Builds 'jar-with-dependencies' -->
+			<plugin>
                  <artifactId>maven-assembly-plugin</artifactId>
                  <executions>
                      <execution>
@@ -164,30 +134,26 @@
                       </execution>
                   </executions>
                   <configuration>
-                       <!-- ... -->
                        <finalName>${project.artifactId}-${project.version}</finalName>
                        <archive>
                            <index>>true</index>
                            <manifest>
                            		<addClasspath>true</addClasspath>
-                                <mainClass>carbeeper.MainDemo</mainClass>
+                                <mainClass>carbeeper.Main</mainClass>
                            </manifest>
                            <manifestEntries>
             				  <Implementation-Version>${project.version}</Implementation-Version>
             				  <Creation-Time-Format>MM-dd-YYYY hh:mm:ss</Creation-Time-Format>
             				  <Creation-Time>${build.time}</Creation-Time>
-            				  <mainClass>carbeeper.MainDemo</mainClass>
+            				  <mainClass>carbeeper.Main</mainClass>
             			  </manifestEntries>
                        </archive>
                        <descriptorRefs>
-                           <descriptorRef>jar-with-dependencies</descriptorRef>
+                           <descriptorRef>with-dependencies</descriptorRef>
                       </descriptorRefs>
                       <outputDirectory>${basedir}/dist</outputDirectory>
                  </configuration>
              </plugin>
-		    
         </plugins>
-        
     </build>
-    
 </project>
