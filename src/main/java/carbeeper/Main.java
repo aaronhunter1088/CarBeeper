@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
     	LOGGER.info("Inside main(). Beginning setup of beeper...");
         CarBeeperV2 beeper = new CarBeeperV2();
+        beeper.setButtonFunctionalities();
         beeper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         beeper.setSize(290, 400);
         beeper.setResizable(false); //* set in constructor now; left to show my learning

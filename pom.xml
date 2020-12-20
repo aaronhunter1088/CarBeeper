@@ -12,15 +12,25 @@
     	<junit.version>4.13.1</junit.version>
     	<log4j2.version>2.13.3</log4j2.version>
 		<maven.compiler.version>3.8.0</maven.compiler.version>
+		<mockito.version>3.0.0</mockito.version>
 		<properties.maven.plugin.version>1.0-alpha-2</properties.maven.plugin.version>
 		<maven.jar.plugin.version>3.1.0</maven.jar.plugin.version>
     </properties>
     <dependencies>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
 	    <dependency>
-	      <groupId>junit</groupId>
-	      <artifactId>junit</artifactId>
-	      <version>${junit.version}</version>
+	        <groupId>junit</groupId>
+	        <artifactId>junit</artifactId>
+	        <version>${junit.version}</version>
+			<scope>test</scope>
 	    </dependency>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
 	    <dependency>
 	      <groupId>org.apache.logging.log4j</groupId>
 	      <artifactId>log4j-core</artifactId>

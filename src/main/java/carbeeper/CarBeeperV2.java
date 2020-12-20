@@ -588,11 +588,11 @@ public class CarBeeperV2 extends JFrame {
     protected void setButtonFunctionalities()
     {
         LOGGER.info("Setting up all button functionalities....");
-        powerButton.addMouseListener(new ButtonClicked() {});
-        trunkButton.addMouseListener(new ButtonClicked() {});
-        alarmButton.addMouseListener(new ButtonClicked() {});
-        lockButton.addMouseListener (new ButtonClicked() {});
-        clearButton.addMouseListener(new ButtonClicked() {});
+        powerButton.addMouseListener(new ButtonClicked(this) {});
+        trunkButton.addMouseListener(new ButtonClicked(this) {});
+        alarmButton.addMouseListener(new ButtonClicked(this) {});
+        lockButton.addMouseListener (new ButtonClicked(this) {});
+        clearButton.addMouseListener(new ButtonClicked(this) {});
         LOGGER.info("Initializing window button listener with custom window listener");
         windowButton.addMouseListener(new WindowButtonHandler() {});
         LOGGER.info("Button functionalities are all set up.");
@@ -618,120 +618,10 @@ public class CarBeeperV2 extends JFrame {
         setTrunkButton(new JButton(getTrunkImage()));
         setAlarmButton(new JButton(getAlarmImage()));
         setClearButton(new JButton("Clear"));
-        setButtonFunctionalities();
         addComponents();
         LOGGER.info("End CarBeeperV2 constructor.");
     }
-    protected class ButtonClicked extends MouseAdapter
-    {
-        protected final Logger LOGGER = LogManager.getLogger(ButtonClicked.class);
-    	protected Timer timer;
-    	public ButtonClicked() {
-    		LOGGER.info("Inside ButtonClicked constructor.");
-    		timer = new Timer(TIMER_INTERVAL, evt -> {
-                if (singleClick) {
-                	LOGGER.info("Single click");
-                    lock_Unlock();
-                    getLockState();
-                } else if (doubleClick) {
-                	LOGGER.info("Double click");
-                    lock_UnlockAll();
-                    getLockState();
-                }
-                singleClick = false;
-                doubleClick = false;
-                LOGGER.info("Timer's event set for " + TIMER_INTERVAL + " seconds.");
-            });
-    		timer.setRepeats(false);
-            timer.setDelay(TIMER_INTERVAL + TIMER_INTERVAL);
-            timer.start();
-            LOGGER.info("timer is running: " + this.timer.isRunning());
-    	}
-        @Override
-        public void mouseEntered(MouseEvent me) {}
-        @Override
-        public void mouseExited(MouseEvent me) {}
-        @Override
-        public void mousePressed(MouseEvent event) {}
-        @Override
-        public void mouseClicked(MouseEvent me)
-        {
-            LOGGER.info("Inside ButtonClicked.mouseClicked().");
-            if (me.getSource() == clearButton)
-            {
-                textArea.setText("");
-                windowStatesPrinted = false;
-                LOGGER.info("Textarea cleared.");
-            }
-            else if (me.getSource() == lockButton)
-            {
-                if (me.getClickCount() == 2)
-                {
-                    singleClick = false;
-                    doubleClick = true;
-                }
-                else
-                {
-                    singleClick = true;
-                    doubleClick = false;
-                }
-                LOGGER.info("Timer for Lock Button started.");
-                this.timer.start();
-            }
-            else if (me.getSource() == alarmButton)
-            {
-                if (alarmState.equals(State.OFF))
-                {
-                    alarmState = State.ON;
-                    textArea.append("Alarm is " + alarmState + "\n");
-                    getAlarmState();
-                }
-                else
-                {
-                    alarmState = State.OFF;
-                    textArea.append("Alarm is " + alarmState + "\n");
-                    getAlarmState();
-                }
-            }
-            else if (me.getSource() == trunkButton)
-            {
-                if (trunkState.equals(State.CLOSED))
-                {
-                    trunkState = State.OPEN;
-                    textArea.append("Trunk is " + trunkState + "\n");
-                    getTrunkState();
-                }
-                else
-                {
-                    trunkState = State.CLOSED;
-                    textArea.append("Trunk is " + trunkState + "\n");
-                    getTrunkState();
-                }
-            }
-            else if (me.getSource() == powerButton)
-            {
-                if (powerState.equals(State.OFF))
-                {
-                    powerState = State.ON;
-                    textArea.append("Car is " + powerState + "\n");
-                    getPowerState();
-                }
-                else
-                {
-                    powerState = State.OFF;
-                    textArea.append("Car is " + powerState + "\n");
-                    getPowerState();
-                }
-            }
-            else
-            {
-                LOGGER.error("Source: " + me.getSource());
-            }
-            LOGGER.info("End ButtonClicked.mouseClicked().");
-        }
-        @Override
-        public void mouseReleased(MouseEvent me) {}
-    }
+
     /**
      * My WindowButtonHandler class takes care of any and all mouse clicks 
      * and/or holding that may occur.
