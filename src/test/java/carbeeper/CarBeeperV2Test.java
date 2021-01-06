@@ -6,11 +6,8 @@ import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
-import static carbeeper.CarBeeperV2.LOGGER;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -20,7 +17,6 @@ public class CarBeeperV2Test {
 
     CarBeeperV2 beeper = new CarBeeperV2();
     private ButtonClicked testButton;
-    private String clickType;
     @Mock
     MouseEvent me = mock(MouseEvent.class);
 
@@ -38,8 +34,22 @@ public class CarBeeperV2Test {
         when(me.getSource()).thenReturn(beeper.clearButton);
         testButton.mouseClicked(me);
 
-        assertTrue("Source should be clear button", me.getSource() == beeper.clearButton);
-        assertTrue("Text area should be cleared", beeper.textArea.getText().equals(""));
+        assertSame("Source should be clear button", me.getSource(), beeper.clearButton);
+        assertEquals("Text area should be cleared", "", beeper.textArea.getText());
         assertFalse("WindowsStatesPrinted should be false", beeper.windowStatesPrinted);
+    }
+
+    @Test
+    public void testPowerButtonWasClicked()
+    {
+        beeper.setLockButton(new JButton("Lock"));
+        beeper.setPowerState(State.OFF);
+        testButton = new ButtonClicked(beeper);
+        when(me.getSource()).thenReturn(beeper.powerButton);
+        testButton.mouseClicked(me);
+
+        assertEquals("The car's power should be ON", State.ON, beeper.getPowerState());
+        testButton.mouseClicked(me);
+        assertEquals("The car's power should be OFF", State.OFF, beeper.getPowerState());
     }
 }

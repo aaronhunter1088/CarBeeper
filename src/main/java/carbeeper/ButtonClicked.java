@@ -46,7 +46,7 @@ public class ButtonClicked extends MouseAdapter
     @Override
     public void mouseClicked(MouseEvent me)
     {
-        LOGGER.info("Inside ButtonClicked.mouseClicked(me="+me.getSource()+").");
+        LOGGER.info("Inside ButtonClicked.mouseClicked(me="+((JButton)me.getSource()).getText()+" Button).");
         if (me.getSource() == beeper.clearButton)
         {
             beeper.textArea.setText("");
