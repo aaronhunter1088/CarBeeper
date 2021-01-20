@@ -25,9 +25,9 @@ public class Main {
 
  ASSIGNMENT: N/A
 
- ENVIRONMENT: Windows 10 Version 10.0.10586
+ ENVIRONMENT: Mac OS BigSur 11.1
 
- FILES INCLUDED: MainDemo, and include header files,  input/output, executable, etc.
+ FILES INCLUDED: ButtonClicked.class, CarBeeperV2.class, State.class, Main.class, All images for buttons
  *
  * PURPOSE: To simulate a car beeper with buttons that can take care of more than one action.
  *
@@ -39,6 +39,7 @@ public class Main {
  *                3. Car is off.
  *                4. Alarm is off.
  *                5. Trunk is closed.
+ *                6. All tires are inflated.
  *
  * OUTPUT: Depending on the button clicks, the following are several outputs:
  *                1. The master door and/or all other doors are locked or unlocked.
@@ -47,6 +48,7 @@ public class Main {
  *                3. The car may be turned on or off.
  *                4. The car alarm may be turned on or off.
  *                5. The trunk to the car is opened or closed (using hydraulics).
+ *                6. Based on a random number a tire becomes flat or inflated.
  *
  * POSTCONDITIONS: The "car" will now be in several different states after multiple clicks
  *                 using the car beeper until the program is closed and launched again.
@@ -137,4 +139,8 @@ public class Main {
  * 	        December 10, 2020:
  * 	        Just checking on on this project and noticed a couple bugs. The alarm and lock images got mixed up.
  * 	        Eliminated a bit more code. Updated the pom.
+ *
+ * 	        January 20, 2021:
+ * 	        Added a new button, Flat Tire. This button is truly a simulation. Without any actual car inputs,
+ * 	        this button truly just emulates what would happen if a tire is flat or not.
  */
