@@ -1,6 +1,6 @@
 # CarBeeper
 This quick guide will inform you how the car beeper works.
-There are five buttons on the top. 
+There are six buttons on the top. 
 Below is a text area which displays the results of the button clicks.
 There is one button below the mentioned textarea, a clear button.
 The Car Beeper starts by displaying the default states of the car's properties.
@@ -9,7 +9,14 @@ When you click the power button, the car comes on. When you click it again, the 
 When you click the trunk button, the trunk opens up. When you click it again, the trunk closes.
 When you click the alarm button, the car alarm turns on. When you click it again, the alarm turns off.
 
-Those were simple. The lock button is a bit more complex. As you see there is only one lock button.
+Those buttons were simple. The flat tire button is the most emulated button of them all. This works 
+purely by chance of a random number. By default, all tires are inflated. Whenever you click on any other
+button, a random number is set. For example, when we click the Power button, a random number is set. If
+that number is 1, the master tire becomes flat. Then clicking the flat tire button, we recognize this and
+display the master tire is set. Clicking any other button again, sets the random number. The master tire
+will be flat until the random number is 5, when we then set the master tire to be inflated. 
+
+The lock button is a bit more complex. As you can see, there is only one lock button.
 When you click the button once, it will lock just the driver door. If you click it once again, it will unlock the 
 driver's door. 
 When you click the button twice, it will lock all doors. When you click it twice again, all doors will be unlocked.
