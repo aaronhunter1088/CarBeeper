@@ -12,5 +12,7 @@ public enum State {
     // for doors 
     LOCKED, UNLOCKED,
     // for windows
-    UP, DOWN;
+    UP, DOWN,
+    // for tires
+    FLAT, INFLATED;
 }

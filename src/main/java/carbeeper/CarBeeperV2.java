@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
+import java.security.SecureRandom;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -25,19 +26,22 @@ public class CarBeeperV2 extends JFrame {
     protected static final long serialVersionUID = 1L;
 	protected static final Logger LOGGER = LogManager.getLogger(CarBeeperV2.class);
 	protected final int TIMER_INTERVAL = 500;
-	// Buttons
+    public int randomNumber;
+    // Buttons
     protected JButton lockButton;
     protected JButton windowButton;
     protected JButton powerButton;
     protected JButton trunkButton;
     protected JButton alarmButton;
     protected JButton clearButton;
+    protected JButton flatTireButton;
     // Images for the Buttons
     protected Icon lockImage;
     protected Icon windowImage;
     protected Icon powerImage;
     protected Icon trunkImage;
     protected Icon alarmImage;
+    protected Icon flatTireImage;
     // Button States
     protected State powerState;
     protected State trunkState;
@@ -50,6 +54,10 @@ public class CarBeeperV2 extends JFrame {
     protected State passengerWindowState;
     protected State leftWindowState;
     protected State rightWindowState;
+    protected State masterTireState;
+    protected State passengerTireState;
+    protected State leftTireState;
+    protected State rightTireState;
     // TextArea
     public final JTextArea textArea = new JTextArea("", 10, 1); // textArea of rows and columns
     // Layout and Constraints
@@ -62,7 +70,6 @@ public class CarBeeperV2 extends JFrame {
     protected int beingHeldTimer = 0;
     protected int counter2 = 0;
     // Getters
-    // State Methods
     /**
      * This method returns the state of the car's power.
      * @return State of the car's power
@@ -227,6 +234,10 @@ public class CarBeeperV2 extends JFrame {
      */
     public JButton getClearButton() { return clearButton; }
     /**
+     * This method returns the flat tire button
+     */
+    public JButton getFlatTireButton() { return flatTireButton; }
+    /**
      * This method returns the lock image
      * @return Icon the lock image
      */
@@ -251,10 +262,51 @@ public class CarBeeperV2 extends JFrame {
      * @return Icon the alarm image
      */
     public Icon getAlarmImage() { return alarmImage; }
+    /**
+     * This method returns the flat tire image
+     */
+    public Icon getFlatTireImage() { return flatTireImage; }
+    /**
+     * This method returns the master tire state
+     * @return masterTireState the state of the master tire
+     */
+    protected State getMasterTireState() {
+        LOGGER.info("Master tire state is : " + masterTireState);
+        return masterTireState;
+    }
+    /**
+     * This method returns the passenger tire state
+     * @return passengerTireState the state of the passenger tire
+     */
+    public State getPassengerTireState() {
+        LOGGER.info("Passenger tire state is : " + passengerTireState);
+        return passengerTireState;
+    }
+    /**
+     * This method returns the left tire state
+     * @return leftTireState the state of the left tire
+     */
+    public State getLeftTireState() {
+        LOGGER.info("Left tire state is : " + leftTireState);
+        return leftTireState;
+    }
+    /**
+     * This method returns the right tire state
+     * @return rightTireState the state of the right tire
+     */
+    public State getRightTireState() {
+        LOGGER.info("Right tire state is : " + rightTireState);
+        return rightTireState;
+    }
     /** This method returns the layout for the car beeper */
     public GridBagLayout getThisLayout() { return layout; }
     /** This method returns the constraints for the component */
     public GridBagConstraints getConstraints() { return this.constraints; }
+    /**
+     * This method returns the random number, used to set the state
+     * of a tire
+     */
+    public int getRandomNumber() { return randomNumber; }
 
     // Setters
     /**
@@ -326,6 +378,34 @@ public class CarBeeperV2 extends JFrame {
      */
     protected void setAlarmState(State state) { this.alarmState = state; }
     /**
+     * This method is only used for testing purposes only.
+     * @param state the state of the master door
+     */
+    protected void setMasterTireState(State state) {
+        this.masterTireState = state;
+    }
+    /**
+     * This method is used for testing purposes only.
+     * @param state the state of the passenger door
+     */
+    protected void setPassengerTireState(State state) {
+        this.passengerTireState = state;
+    }
+    /**
+     * This method is used for testing purposes only.
+     * @param state the state of the left door
+     */
+    protected void setLeftTireState(State state) {
+        this.leftTireState = state;
+    }
+    /**
+     * This method is used for testing purposes only.
+     * @param state the state of the right door
+     */
+    protected void setRightTireState(State state) {
+        this.rightTireState = state;
+    }
+    /**
      * This method sets the lock button
      * @param lockButton the lock button
      */
@@ -357,7 +437,10 @@ public class CarBeeperV2 extends JFrame {
     public void setClearButton(JButton clearButton) {
         this.clearButton = clearButton;
     }
-
+    /**
+     * This method sets the flat tire button
+     */
+    public void setFlatTireButton(JButton flatTireButton) { this.flatTireButton = flatTireButton; }
     /** This method sets the lock icon
      * @param icon sets the lock icon for the lock button
      */
@@ -366,20 +449,36 @@ public class CarBeeperV2 extends JFrame {
      * @param icon sets the window icon for the window button
      */
     protected void setWindowImage(ImageIcon icon) { windowImage = icon; }
-    /** This method sets the lock icon for the lock button */
+    /**
+     * This method sets the lock icon for the lock button
+     */
     protected void setPowerImage(ImageIcon icon) { powerImage = icon; }
-    /** This method sets the trunk icon for the trunk button */
+    /**
+     * This method sets the trunk icon for the trunk button
+     */
     protected void setTrunkImage(ImageIcon icon) { trunkImage = icon; }
     /** This method sets the alarm icon
      * @param icon sets the alarm icon for the alarm button
      */
     protected void setAlarmImage(ImageIcon icon) { alarmImage = icon; }
+    /**
+     * This method sets the flat tire icon for the flat tire button
+     */
+    protected void setFlatTireImage(ImageIcon icon) { flatTireImage = icon; }
     /** Sets the layout for the car beeper */
     protected void setThisLayout(GridBagLayout layout) { setLayout(layout); this.layout = layout; }
     /** Sets the constraints for the car beeper
      * @param constraints the constraints to set on the component
      */
     protected void setConstraints(GridBagConstraints constraints) { this.constraints = constraints; }
+    /**
+     * Sets the random number for the flat tire functionality
+     * @param nextInt
+     */
+    protected void setRandomNumber(int nextInt)
+    {
+        this.randomNumber = nextInt;
+    }
 
     // Helper methods
     /**
@@ -395,6 +494,10 @@ public class CarBeeperV2 extends JFrame {
         setPassengerDoorLockState(State.UNLOCKED);
         setLeftDoorLockState(State.UNLOCKED);
         setRightDoorLockState(State.UNLOCKED);
+        setMasterTireState(State.INFLATED);
+        setPassengerTireState(State.INFLATED);
+        setLeftTireState(State.INFLATED);
+        setRightTireState(State.INFLATED);
         setMasterWindowState(State.UP);
         setPassengerWindowState(State.UP);
         setLeftWindowState(State.UP);
@@ -475,6 +578,27 @@ public class CarBeeperV2 extends JFrame {
             setRightWindowState(getMasterWindowState());
         }
     }
+    /**
+     * This method randomly will set the state of a random tire after
+     * clicking on any button, including the flat tire button
+     */
+    public void setFlatTireRandomizer()
+    {
+        // if the random number is 1, master tire is flat
+        // if 2, passenger tire is flat
+        // if 3, left tire is flat
+        // if 4, right tire is flat
+        // any other number, tires are inflated
+        if (getRandomNumber() == 1) { setMasterTireState(State.FLAT); }
+        else if (getRandomNumber() == 2) { setPassengerTireState(State.FLAT); }
+        else if (getRandomNumber() == 3) { setLeftTireState(State.FLAT); }
+        else if (getRandomNumber() == 4) { setRightTireState(State.FLAT); }
+        else if (getRandomNumber() == 7) { setMasterTireState(State.INFLATED); }
+        else if (getRandomNumber() == 8) { setMasterTireState(State.INFLATED); }
+        else if (getRandomNumber() == 9) { setMasterTireState(State.INFLATED); }
+        else if (getRandomNumber() == 10) { setMasterTireState(State.INFLATED); }
+        else { /* do nothing */ }
+    }
     public void updateAllStatesInTextArea()
     {
         textArea.append("Master Door is " + getMasterDoorLockState() + ".\n");
@@ -487,7 +611,11 @@ public class CarBeeperV2 extends JFrame {
         textArea.append("Right Window is " + getRightWindowState() + ".\n");
         textArea.append("Car is " + getPowerState() + ".\n");
         textArea.append("Trunk is " + getTrunkState() + ".\n");
-        textArea.append("Alarm is " + getAlarmState() + ".\n\n");
+        textArea.append("Alarm is " + getAlarmState() + ".\n");
+        textArea.append("Master Tire is " + getMasterTireState() + ".\n");
+        textArea.append("Passenger Tire is " + getPassengerTireState() + ".\n");
+        textArea.append("Left Tire is " + getLeftTireState() + ".\n");
+        textArea.append("Right Tire is " + getRightTireState() + ".\n");
     }
     public void printWindowStates(int clicks, int windowCounter)
     {
@@ -529,7 +657,8 @@ public class CarBeeperV2 extends JFrame {
         LOGGER.info("Back Right doorLock: " + rightDoorLockState);
         LOGGER.info("----- End Door States -----");
     }
-    /** method to set constraints on
+    /**
+     * method to set constraints on
      */
     protected void addComponent(Component component, int gridy, int gridx, double gwidth, double gheight) {
         LOGGER.info("Inside addComponent()");
@@ -570,12 +699,15 @@ public class CarBeeperV2 extends JFrame {
         }
         return retImageIcon;
     }
-    /** Add all the components to the frame */
+    /**
+     * Add all the components to the frame
+     */
     protected void addComponents()
     {
         LOGGER.info("Adding components.");
         getConstraints().fill = GridBagConstraints.BOTH;
         addComponent(getLockButton(), 1, 1, 1, 1); // row, column, size, size
+        addComponent(getFlatTireButton(), 1, 2, 1, 1); // row, column, size, size
         addComponent(getWindowButton(), 1, 3, 1, 1); // row, column, size, size
         addComponent(getPowerButton(), 2, 1, 1, 1); // row, column, size, size
         addComponent(getTrunkButton(), 2, 2, 1, 1); // row, column, size, size
@@ -584,15 +716,18 @@ public class CarBeeperV2 extends JFrame {
         addComponent(new JScrollPane(getTextArea()), 5, 1, 3, 1); // row, column, size, size
         LOGGER.info("All components added.");
     }
-    /** This method sets the button functionalities */
+    /**
+     * This method sets the button functionalities
+     */
     protected void setButtonFunctionalities()
     {
         LOGGER.info("Setting up all button functionalities....");
-        powerButton.addMouseListener(new ButtonClicked() {});
-        trunkButton.addMouseListener(new ButtonClicked() {});
-        alarmButton.addMouseListener(new ButtonClicked() {});
-        lockButton.addMouseListener (new ButtonClicked() {});
-        clearButton.addMouseListener(new ButtonClicked() {});
+        powerButton.addMouseListener(new ButtonClicked(this) {});
+        trunkButton.addMouseListener(new ButtonClicked(this) {});
+        alarmButton.addMouseListener(new ButtonClicked(this) {});
+        lockButton.addMouseListener (new ButtonClicked(this) {});
+        clearButton.addMouseListener(new ButtonClicked(this) {});
+        flatTireButton.addMouseListener(new ButtonClicked(this) {});
         LOGGER.info("Initializing window button listener with custom window listener");
         windowButton.addMouseListener(new WindowButtonHandler() {});
         LOGGER.info("Button functionalities are all set up.");
@@ -603,6 +738,7 @@ public class CarBeeperV2 extends JFrame {
         super("Car Beeper");
         LOGGER.info("Inside CarBeeperV2 constructor.");
         setDefaultValues();
+        setFlatTireRandomizer();
         setThisLayout(new GridBagLayout());
         setConstraints(new GridBagConstraints());
         // Images
@@ -611,127 +747,19 @@ public class CarBeeperV2 extends JFrame {
         setPowerImage(createImageIcon("src/main/resources/images/power.jpg", "Power image"));
         setTrunkImage(createImageIcon("src/main/resources/images/trunk2.jpg", "Trunk image"));
         setAlarmImage(createImageIcon("src/main/resources/images/alarm.jpg", "Alarm image"));
+        setFlatTireImage(createImageIcon("src/main/resources/images/flatTire.jpg", "Flat tire image"));
         // Buttons
-        setLockButton(new JButton(getLockImage()));
-        setWindowButton(new JButton(getWindowImage()));
-        setPowerButton(new JButton(getPowerImage()));
-        setTrunkButton(new JButton(getTrunkImage()));
-        setAlarmButton(new JButton(getAlarmImage()));
+        setLockButton(new JButton("Lock", getLockImage()));
+        setWindowButton(new JButton("Window", getWindowImage()));
+        setPowerButton(new JButton("Power", getPowerImage()));
+        setTrunkButton(new JButton("Trunk", getTrunkImage()));
+        setAlarmButton(new JButton("Alarm", getAlarmImage()));
+        setFlatTireButton(new JButton("Flat tire", getFlatTireImage()));
         setClearButton(new JButton("Clear"));
-        setButtonFunctionalities();
         addComponents();
         LOGGER.info("End CarBeeperV2 constructor.");
     }
-    protected class ButtonClicked extends MouseAdapter
-    {
-        protected final Logger LOGGER = LogManager.getLogger(ButtonClicked.class);
-    	protected Timer timer;
-    	public ButtonClicked() {
-    		LOGGER.info("Inside ButtonClicked constructor.");
-    		timer = new Timer(TIMER_INTERVAL, evt -> {
-                if (singleClick) {
-                	LOGGER.info("Single click");
-                    lock_Unlock();
-                    getLockState();
-                } else if (doubleClick) {
-                	LOGGER.info("Double click");
-                    lock_UnlockAll();
-                    getLockState();
-                }
-                singleClick = false;
-                doubleClick = false;
-                LOGGER.info("Timer's event set for " + TIMER_INTERVAL + " seconds.");
-            });
-    		timer.setRepeats(false);
-            timer.setDelay(TIMER_INTERVAL + TIMER_INTERVAL);
-            timer.start();
-            LOGGER.info("timer is running: " + this.timer.isRunning());
-    	}
-        @Override
-        public void mouseEntered(MouseEvent me) {}
-        @Override
-        public void mouseExited(MouseEvent me) {}
-        @Override
-        public void mousePressed(MouseEvent event) {}
-        @Override
-        public void mouseClicked(MouseEvent me)
-        {
-            LOGGER.info("Inside ButtonClicked.mouseClicked().");
-            if (me.getSource() == clearButton)
-            {
-                textArea.setText("");
-                windowStatesPrinted = false;
-                LOGGER.info("Textarea cleared.");
-            }
-            else if (me.getSource() == lockButton)
-            {
-                if (me.getClickCount() == 2)
-                {
-                    singleClick = false;
-                    doubleClick = true;
-                }
-                else
-                {
-                    singleClick = true;
-                    doubleClick = false;
-                }
-                LOGGER.info("Timer for Lock Button started.");
-                this.timer.start();
-            }
-            else if (me.getSource() == alarmButton)
-            {
-                if (alarmState.equals(State.OFF))
-                {
-                    alarmState = State.ON;
-                    textArea.append("Alarm is " + alarmState + "\n");
-                    getAlarmState();
-                }
-                else
-                {
-                    alarmState = State.OFF;
-                    textArea.append("Alarm is " + alarmState + "\n");
-                    getAlarmState();
-                }
-            }
-            else if (me.getSource() == trunkButton)
-            {
-                if (trunkState.equals(State.CLOSED))
-                {
-                    trunkState = State.OPEN;
-                    textArea.append("Trunk is " + trunkState + "\n");
-                    getTrunkState();
-                }
-                else
-                {
-                    trunkState = State.CLOSED;
-                    textArea.append("Trunk is " + trunkState + "\n");
-                    getTrunkState();
-                }
-            }
-            else if (me.getSource() == powerButton)
-            {
-                if (powerState.equals(State.OFF))
-                {
-                    powerState = State.ON;
-                    textArea.append("Car is " + powerState + "\n");
-                    getPowerState();
-                }
-                else
-                {
-                    powerState = State.OFF;
-                    textArea.append("Car is " + powerState + "\n");
-                    getPowerState();
-                }
-            }
-            else
-            {
-                LOGGER.error("Source: " + me.getSource());
-            }
-            LOGGER.info("End ButtonClicked.mouseClicked().");
-        }
-        @Override
-        public void mouseReleased(MouseEvent me) {}
-    }
+
     /**
      * My WindowButtonHandler class takes care of any and all mouse clicks 
      * and/or holding that may occur.
@@ -883,6 +911,7 @@ public class CarBeeperV2 extends JFrame {
                 timer.restart();
             }
             getWindowStates(clicks, counter2);
+            setRandomNumber(new SecureRandom().nextInt(10));
             LOGGER.info("End mouseClicked.");
         }
         @Override
