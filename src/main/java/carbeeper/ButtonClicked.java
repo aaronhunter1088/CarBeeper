@@ -6,12 +6,13 @@ import org.apache.logging.log4j.Logger;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.security.SecureRandom;
 
 public class ButtonClicked extends MouseAdapter
 {
     protected final Logger LOGGER = LogManager.getLogger(ButtonClicked.class);
     protected Timer timer;
-    protected CarBeeperV2 beeper = null;
+    protected CarBeeperV2 beeper;
     public ButtonClicked(CarBeeperV2 beeper) {
         LOGGER.info("Inside ButtonClicked constructor.");
         this.beeper = beeper;
@@ -52,6 +53,7 @@ public class ButtonClicked extends MouseAdapter
             beeper.textArea.setText("");
             beeper.windowStatesPrinted = false;
             LOGGER.info("Textarea cleared.");
+            beeper.setRandomNumber(new SecureRandom().nextInt(10));
         }
         else if (me.getSource() == beeper.lockButton)
         {
@@ -66,6 +68,7 @@ public class ButtonClicked extends MouseAdapter
                 beeper.doubleClick = false;
             }
             LOGGER.info("Timer for Lock Button started.");
+            beeper.setRandomNumber(new SecureRandom().nextInt(10));
             this.timer.start();
         }
         else if (me.getSource() == beeper.alarmButton)
@@ -82,6 +85,7 @@ public class ButtonClicked extends MouseAdapter
                 beeper.textArea.append("Alarm is " + beeper.alarmState + "\n");
                 beeper.getAlarmState();
             }
+            beeper.setRandomNumber(new SecureRandom().nextInt(10));
         }
         else if (me.getSource() == beeper.trunkButton)
         {
@@ -97,6 +101,7 @@ public class ButtonClicked extends MouseAdapter
                 beeper.textArea.append("Trunk is " + beeper.trunkState + "\n");
                 beeper.getTrunkState();
             }
+            beeper.setRandomNumber(new SecureRandom().nextInt(10));
         }
         else if (me.getSource() == beeper.powerButton)
         {
@@ -112,11 +117,45 @@ public class ButtonClicked extends MouseAdapter
                 beeper.textArea.append("Car is " + beeper.powerState + "\n");
                 beeper.getPowerState();
             }
+            beeper.setRandomNumber(new SecureRandom().nextInt(10));
+        }
+        else if (me.getSource() == beeper.flatTireButton)
+        {
+            beeper.setFlatTireRandomizer();
+            if (beeper.masterTireState == State.FLAT)
+            {
+                beeper.textArea.append("The car's master tire is flat. Raising hydraulic press" +
+                        " for master tire\n");
+                beeper.getMasterTireState();
+            }
+            else if (beeper.passengerTireState == State.FLAT)
+            {
+                beeper.textArea.append("The car's passenger tire is flat. Raising hydraulic press" +
+                        " for passenger tire\n");
+                beeper.getPassengerTireState();
+            }
+            else if (beeper.leftTireState == State.FLAT)
+            {
+                beeper.textArea.append("The car's left tire is flat. Raising hydraulic press" +
+                        " for left tire\n");
+                beeper.getLeftTireState();
+            }
+            else if (beeper.rightTireState == State.FLAT)
+            {
+                beeper.textArea.append("The car's right tire is flat. Raising hydraulic press" +
+                        " for right tire\n");
+                beeper.getRightTireState();
+            }
+            else
+            {
+                beeper.textArea.append("The tires are all INFLATED\n");
+            }
         }
         else
         {
             LOGGER.error("Source: " + me.getSource());
         }
+        LOGGER.info("randomNumber: " + beeper.getRandomNumber());
         LOGGER.info("End ButtonClicked.mouseClicked().");
     }
 }

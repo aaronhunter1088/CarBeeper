@@ -1,0 +1,220 @@
+[INFO ] 01-20-2021 15:34:26.125 [Method:main] carbeeper.Main:9 - Inside main(). Beginning setup of beeper...
+[INFO ] 01-20-2021 15:34:27.967 [Method:<init>] carbeeper.CarBeeperV2:604 - Inside CarBeeperV2 constructor.
+[INFO ] 01-20-2021 15:34:27.968 [Method:setDefaultValues] carbeeper.CarBeeperV2:390 - Inside setDefaultValues(). Setting initial states...
+[INFO ] 01-20-2021 15:34:27.999 [Method:getMasterDoorLockState] carbeeper.CarBeeperV2:105 - Master door lock state is : UNLOCKED
+[INFO ] 01-20-2021 15:34:31.084 [Method:getPassengerDoorLockState] carbeeper.CarBeeperV2:113 - Passenger door lock is : UNLOCKED
+[INFO ] 01-20-2021 15:34:31.086 [Method:getLeftDoorLockState] carbeeper.CarBeeperV2:121 - Left door lock is : UNLOCKED
+[INFO ] 01-20-2021 15:34:31.088 [Method:getRightDoorLockState] carbeeper.CarBeeperV2:129 - Right door lock is : UNLOCKED
+[INFO ] 01-20-2021 15:34:31.090 [Method:getMasterWindowState] carbeeper.CarBeeperV2:165 - Master window is : UP
+[INFO ] 01-20-2021 15:34:31.092 [Method:getPassengerWindowState] carbeeper.CarBeeperV2:173 - Passenger window is : UP
+[INFO ] 01-20-2021 15:34:31.094 [Method:getLeftWindowState] carbeeper.CarBeeperV2:181 - Left window is : UP
+[INFO ] 01-20-2021 15:34:31.097 [Method:getRightWindowState] carbeeper.CarBeeperV2:189 - Right window is : UP
+[INFO ] 01-20-2021 15:34:31.099 [Method:getPowerState] carbeeper.CarBeeperV2:71 - Car is: OFF
+[INFO ] 01-20-2021 15:34:31.101 [Method:getTrunkState] carbeeper.CarBeeperV2:79 - Trunk is: CLOSED
+[INFO ] 01-20-2021 15:34:31.104 [Method:getAlarmState] carbeeper.CarBeeperV2:87 - Alarm is: OFF
+[INFO ] 01-20-2021 15:34:31.111 [Method:setDefaultValues] carbeeper.CarBeeperV2:406 - End setDefaultValues()
+[INFO ] 01-20-2021 15:34:31.151 [Method:createImageIcon] carbeeper.CarBeeperV2:550 - Inside createImageIcon(): creating image for Lock image
+[INFO ] 01-20-2021 15:34:31.264 [Method:createImageIcon] carbeeper.CarBeeperV2:556 - the path 'src/main/resources/images/lock.jpg' created the 'Lock image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 15:34:31.264 [Method:createImageIcon] carbeeper.CarBeeperV2:557 - End createImageIcon()
+[INFO ] 01-20-2021 15:34:31.265 [Method:createImageIcon] carbeeper.CarBeeperV2:550 - Inside createImageIcon(): creating image for Window image
+[INFO ] 01-20-2021 15:34:31.269 [Method:createImageIcon] carbeeper.CarBeeperV2:556 - the path 'src/main/resources/images/window.jpg' created the 'Window image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 15:34:31.270 [Method:createImageIcon] carbeeper.CarBeeperV2:557 - End createImageIcon()
+[INFO ] 01-20-2021 15:34:31.271 [Method:createImageIcon] carbeeper.CarBeeperV2:550 - Inside createImageIcon(): creating image for Power image
+[INFO ] 01-20-2021 15:34:31.275 [Method:createImageIcon] carbeeper.CarBeeperV2:556 - the path 'src/main/resources/images/power.jpg' created the 'Power image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 15:34:31.276 [Method:createImageIcon] carbeeper.CarBeeperV2:557 - End createImageIcon()
+[INFO ] 01-20-2021 15:34:31.277 [Method:createImageIcon] carbeeper.CarBeeperV2:550 - Inside createImageIcon(): creating image for Trunk image
+[INFO ] 01-20-2021 15:34:31.283 [Method:createImageIcon] carbeeper.CarBeeperV2:556 - the path 'src/main/resources/images/trunk2.jpg' created the 'Trunk image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 15:34:31.285 [Method:createImageIcon] carbeeper.CarBeeperV2:557 - End createImageIcon()
+[INFO ] 01-20-2021 15:34:31.286 [Method:createImageIcon] carbeeper.CarBeeperV2:550 - Inside createImageIcon(): creating image for Alarm image
+[INFO ] 01-20-2021 15:34:31.289 [Method:createImageIcon] carbeeper.CarBeeperV2:556 - the path 'src/main/resources/images/alarm.jpg' created the 'Alarm image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 15:34:31.291 [Method:createImageIcon] carbeeper.CarBeeperV2:557 - End createImageIcon()
+[INFO ] 01-20-2021 15:34:31.305 [Method:addComponents] carbeeper.CarBeeperV2:576 - Adding components.
+[INFO ] 01-20-2021 15:34:31.305 [Method:addComponent] carbeeper.CarBeeperV2:535 - Inside addComponent()
+[INFO ] 01-20-2021 15:34:31.321 [Method:addComponent] carbeeper.CarBeeperV2:542 - Component added.
+[INFO ] 01-20-2021 15:34:31.322 [Method:addComponent] carbeeper.CarBeeperV2:535 - Inside addComponent()
+[INFO ] 01-20-2021 15:34:31.323 [Method:addComponent] carbeeper.CarBeeperV2:542 - Component added.
+[INFO ] 01-20-2021 15:34:31.325 [Method:addComponent] carbeeper.CarBeeperV2:535 - Inside addComponent()
+[INFO ] 01-20-2021 15:34:31.326 [Method:addComponent] carbeeper.CarBeeperV2:542 - Component added.
+[INFO ] 01-20-2021 15:34:31.327 [Method:addComponent] carbeeper.CarBeeperV2:535 - Inside addComponent()
+[INFO ] 01-20-2021 15:34:31.328 [Method:addComponent] carbeeper.CarBeeperV2:542 - Component added.
+[INFO ] 01-20-2021 15:34:31.328 [Method:addComponent] carbeeper.CarBeeperV2:535 - Inside addComponent()
+[INFO ] 01-20-2021 15:34:31.329 [Method:addComponent] carbeeper.CarBeeperV2:542 - Component added.
+[INFO ] 01-20-2021 15:34:31.330 [Method:addComponent] carbeeper.CarBeeperV2:535 - Inside addComponent()
+[INFO ] 01-20-2021 15:34:31.332 [Method:addComponent] carbeeper.CarBeeperV2:542 - Component added.
+[INFO ] 01-20-2021 15:34:31.373 [Method:addComponent] carbeeper.CarBeeperV2:535 - Inside addComponent()
+[INFO ] 01-20-2021 15:34:31.374 [Method:addComponent] carbeeper.CarBeeperV2:542 - Component added.
+[INFO ] 01-20-2021 15:34:31.375 [Method:addComponents] carbeeper.CarBeeperV2:585 - All components added.
+[INFO ] 01-20-2021 15:34:31.375 [Method:<init>] carbeeper.CarBeeperV2:622 - End CarBeeperV2 constructor.
+[INFO ] 01-20-2021 15:34:31.376 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:590 - Setting up all button functionalities....
+[INFO ] 01-20-2021 15:34:31.377 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 15:34:31.380 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 15:34:31.383 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 15:34:31.384 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 15:34:31.385 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 15:34:31.386 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 15:34:31.387 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 15:34:31.388 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 15:34:31.390 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 15:34:31.390 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 15:34:31.391 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:596 - Initializing window button listener with custom window listener
+[INFO ] 01-20-2021 15:34:31.395 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:689 - Inside WindowButtonHandler constructor
+[INFO ] 01-20-2021 15:34:31.396 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:693 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 01-20-2021 15:34:31.397 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:694 - End WindowButtonHandler constructor
+[INFO ] 01-20-2021 15:34:31.398 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:598 - Button functionalities are all set up.
+[INFO ] 01-20-2021 15:34:31.652 [Method:main] carbeeper.Main:17 - Beeper loaded.
+[INFO ] 01-20-2021 15:34:31.652 [Method:main] carbeeper.Main:18 - End main(). Starting beeper.
+[INFO ] 01-20-2021 15:34:31.888 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 15:34:31.889 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 15:34:31.890 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 15:34:31.890 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 15:34:31.891 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:06:36.577 [Method:main] carbeeper.Main:9 - Inside main(). Beginning setup of beeper...
+[INFO ] 01-20-2021 16:06:37.636 [Method:<init>] carbeeper.CarBeeperV2:700 - Inside CarBeeperV2 constructor.
+[INFO ] 01-20-2021 16:06:37.637 [Method:setDefaultValues] carbeeper.CarBeeperV2:480 - Inside setDefaultValues(). Setting initial states...
+[INFO ] 01-20-2021 16:06:37.643 [Method:getMasterDoorLockState] carbeeper.CarBeeperV2:111 - Master door lock state is : UNLOCKED
+[INFO ] 01-20-2021 16:06:39.988 [Method:getPassengerDoorLockState] carbeeper.CarBeeperV2:119 - Passenger door lock is : UNLOCKED
+[INFO ] 01-20-2021 16:06:39.992 [Method:getLeftDoorLockState] carbeeper.CarBeeperV2:127 - Left door lock is : UNLOCKED
+[INFO ] 01-20-2021 16:06:39.994 [Method:getRightDoorLockState] carbeeper.CarBeeperV2:135 - Right door lock is : UNLOCKED
+[INFO ] 01-20-2021 16:06:39.996 [Method:getMasterWindowState] carbeeper.CarBeeperV2:171 - Master window is : UP
+[INFO ] 01-20-2021 16:06:39.998 [Method:getPassengerWindowState] carbeeper.CarBeeperV2:179 - Passenger window is : UP
+[INFO ] 01-20-2021 16:06:40.000 [Method:getLeftWindowState] carbeeper.CarBeeperV2:187 - Left window is : UP
+[INFO ] 01-20-2021 16:06:40.003 [Method:getRightWindowState] carbeeper.CarBeeperV2:195 - Right window is : UP
+[INFO ] 01-20-2021 16:06:40.005 [Method:getPowerState] carbeeper.CarBeeperV2:77 - Car is: OFF
+[INFO ] 01-20-2021 16:06:40.007 [Method:getTrunkState] carbeeper.CarBeeperV2:85 - Trunk is: CLOSED
+[INFO ] 01-20-2021 16:06:40.008 [Method:getAlarmState] carbeeper.CarBeeperV2:93 - Alarm is: OFF
+[INFO ] 01-20-2021 16:06:40.010 [Method:setDefaultValues] carbeeper.CarBeeperV2:496 - End setDefaultValues()
+[INFO ] 01-20-2021 16:06:40.012 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Lock image
+[INFO ] 01-20-2021 16:06:40.072 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/lock.jpg' created the 'Lock image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:06:40.073 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:06:40.074 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Window image
+[INFO ] 01-20-2021 16:06:40.080 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/window.jpg' created the 'Window image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:06:40.080 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:06:40.081 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Power image
+[INFO ] 01-20-2021 16:06:40.087 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/power.jpg' created the 'Power image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:06:40.088 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:06:40.089 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Trunk image
+[INFO ] 01-20-2021 16:06:40.095 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/trunk2.jpg' created the 'Trunk image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:06:40.096 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:06:40.097 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Alarm image
+[INFO ] 01-20-2021 16:06:40.100 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/alarm.jpg' created the 'Alarm image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:06:40.101 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:06:40.102 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Flat tire image
+[INFO ] 01-20-2021 16:06:40.108 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/flatTire.jpg' created the 'Flat tire image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:06:40.108 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:06:40.118 [Method:addComponents] carbeeper.CarBeeperV2:669 - Adding components.
+[INFO ] 01-20-2021 16:06:40.119 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.122 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.122 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.123 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.124 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.124 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.125 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.126 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.126 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.127 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.128 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.129 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.129 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.130 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.146 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:06:40.147 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:06:40.147 [Method:addComponents] carbeeper.CarBeeperV2:679 - All components added.
+[INFO ] 01-20-2021 16:06:40.147 [Method:<init>] carbeeper.CarBeeperV2:720 - End CarBeeperV2 constructor.
+[INFO ] 01-20-2021 16:06:40.149 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:686 - Setting up all button functionalities....
+[INFO ] 01-20-2021 16:06:40.151 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:06:40.154 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:06:40.157 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:06:40.158 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:06:40.159 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:06:40.160 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:06:40.161 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:06:40.162 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:06:40.163 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:06:40.163 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:06:40.164 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:692 - Initializing window button listener with custom window listener
+[INFO ] 01-20-2021 16:06:40.166 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:787 - Inside WindowButtonHandler constructor
+[INFO ] 01-20-2021 16:06:40.167 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:791 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 01-20-2021 16:06:40.170 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:792 - End WindowButtonHandler constructor
+[INFO ] 01-20-2021 16:06:40.171 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:694 - Button functionalities are all set up.
+[INFO ] 01-20-2021 16:06:40.361 [Method:main] carbeeper.Main:17 - Beeper loaded.
+[INFO ] 01-20-2021 16:06:40.362 [Method:main] carbeeper.Main:18 - End main(). Starting beeper.
+[INFO ] 01-20-2021 16:06:40.657 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:06:40.658 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:06:40.660 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:06:40.662 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:06:40.664 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:11:03.484 [Method:main] carbeeper.Main:9 - Inside main(). Beginning setup of beeper...
+[INFO ] 01-20-2021 16:11:04.309 [Method:<init>] carbeeper.CarBeeperV2:700 - Inside CarBeeperV2 constructor.
+[INFO ] 01-20-2021 16:11:04.311 [Method:setDefaultValues] carbeeper.CarBeeperV2:480 - Inside setDefaultValues(). Setting initial states...
+[INFO ] 01-20-2021 16:11:04.317 [Method:getMasterDoorLockState] carbeeper.CarBeeperV2:111 - Master door lock state is : UNLOCKED
+[INFO ] 01-20-2021 16:11:06.478 [Method:getPassengerDoorLockState] carbeeper.CarBeeperV2:119 - Passenger door lock is : UNLOCKED
+[INFO ] 01-20-2021 16:11:06.506 [Method:getLeftDoorLockState] carbeeper.CarBeeperV2:127 - Left door lock is : UNLOCKED
+[INFO ] 01-20-2021 16:11:06.508 [Method:getRightDoorLockState] carbeeper.CarBeeperV2:135 - Right door lock is : UNLOCKED
+[INFO ] 01-20-2021 16:11:06.510 [Method:getMasterWindowState] carbeeper.CarBeeperV2:171 - Master window is : UP
+[INFO ] 01-20-2021 16:11:06.513 [Method:getPassengerWindowState] carbeeper.CarBeeperV2:179 - Passenger window is : UP
+[INFO ] 01-20-2021 16:11:06.519 [Method:getLeftWindowState] carbeeper.CarBeeperV2:187 - Left window is : UP
+[INFO ] 01-20-2021 16:11:06.528 [Method:getRightWindowState] carbeeper.CarBeeperV2:195 - Right window is : UP
+[INFO ] 01-20-2021 16:11:06.537 [Method:getPowerState] carbeeper.CarBeeperV2:77 - Car is: OFF
+[INFO ] 01-20-2021 16:11:06.544 [Method:getTrunkState] carbeeper.CarBeeperV2:85 - Trunk is: CLOSED
+[INFO ] 01-20-2021 16:11:06.552 [Method:getAlarmState] carbeeper.CarBeeperV2:93 - Alarm is: OFF
+[INFO ] 01-20-2021 16:11:06.583 [Method:setDefaultValues] carbeeper.CarBeeperV2:496 - End setDefaultValues()
+[INFO ] 01-20-2021 16:11:06.586 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Lock image
+[INFO ] 01-20-2021 16:11:06.650 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/lock.jpg' created the 'Lock image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:11:06.650 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:11:06.655 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Window image
+[INFO ] 01-20-2021 16:11:06.659 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/window.jpg' created the 'Window image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:11:06.660 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:11:06.661 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Power image
+[INFO ] 01-20-2021 16:11:06.664 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/power.jpg' created the 'Power image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:11:06.664 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:11:06.665 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Trunk image
+[INFO ] 01-20-2021 16:11:06.670 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/trunk2.jpg' created the 'Trunk image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:11:06.671 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:11:06.672 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Alarm image
+[INFO ] 01-20-2021 16:11:06.676 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/alarm.jpg' created the 'Alarm image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:11:06.676 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:11:06.677 [Method:createImageIcon] carbeeper.CarBeeperV2:641 - Inside createImageIcon(): creating image for Flat tire image
+[INFO ] 01-20-2021 16:11:06.680 [Method:createImageIcon] carbeeper.CarBeeperV2:647 - the path 'src/main/resources/images/flatTire.jpg' created the 'Flat tire image'! the ImageIcon is being returned...
+[INFO ] 01-20-2021 16:11:06.682 [Method:createImageIcon] carbeeper.CarBeeperV2:648 - End createImageIcon()
+[INFO ] 01-20-2021 16:11:06.695 [Method:addComponents] carbeeper.CarBeeperV2:669 - Adding components.
+[INFO ] 01-20-2021 16:11:06.696 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.698 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.698 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.699 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.699 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.700 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.700 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.701 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.702 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.705 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.705 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.706 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.707 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.708 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.725 [Method:addComponent] carbeeper.CarBeeperV2:626 - Inside addComponent()
+[INFO ] 01-20-2021 16:11:06.729 [Method:addComponent] carbeeper.CarBeeperV2:633 - Component added.
+[INFO ] 01-20-2021 16:11:06.730 [Method:addComponents] carbeeper.CarBeeperV2:679 - All components added.
+[INFO ] 01-20-2021 16:11:06.731 [Method:<init>] carbeeper.CarBeeperV2:720 - End CarBeeperV2 constructor.
+[INFO ] 01-20-2021 16:11:06.732 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:686 - Setting up all button functionalities....
+[INFO ] 01-20-2021 16:11:06.735 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:11:06.737 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:11:06.740 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:11:06.743 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:11:06.746 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:11:06.747 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:11:06.756 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:11:06.757 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:11:06.760 [Method:<init>] carbeeper.ButtonClicked:16 - Inside ButtonClicked constructor.
+[INFO ] 01-20-2021 16:11:06.761 [Method:<init>] carbeeper.ButtonClicked:36 - timer is running: true
+[INFO ] 01-20-2021 16:11:06.761 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:692 - Initializing window button listener with custom window listener
+[INFO ] 01-20-2021 16:11:06.766 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:787 - Inside WindowButtonHandler constructor
+[INFO ] 01-20-2021 16:11:06.768 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:791 - WindowButtonHandler: timer, type of Timer beingHeldTimer, type of Timer LOGGER, type of Logger.
+[INFO ] 01-20-2021 16:11:06.769 [Method:<init>] carbeeper.CarBeeperV2.WindowButtonHandler:792 - End WindowButtonHandler constructor
+[INFO ] 01-20-2021 16:11:06.769 [Method:setButtonFunctionalities] carbeeper.CarBeeperV2:694 - Button functionalities are all set up.
+[INFO ] 01-20-2021 16:11:06.987 [Method:main] carbeeper.Main:17 - Beeper loaded.
+[INFO ] 01-20-2021 16:11:06.989 [Method:main] carbeeper.Main:18 - End main(). Starting beeper.
+[INFO ] 01-20-2021 16:11:07.240 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:11:07.244 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:11:07.247 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:11:07.258 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
+[INFO ] 01-20-2021 16:11:07.263 [Method:lambda$new$0] carbeeper.ButtonClicked:31 - Timer's event set for 500 seconds.
