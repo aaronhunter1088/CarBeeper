@@ -13,7 +13,7 @@ Those buttons were simple. The flat tire button is the most emulated button of t
 purely by chance of a random number. By default, all tires are inflated. Whenever you click on any other
 button, a random number is set. For example, when we click the Power button, a random number is set. If
 that number is 1, the master tire becomes flat. Then clicking the flat tire button, we recognize this and
-display the master tire is set. Clicking any other button again, sets the random number. The master tire
+display the master tire is flat. Clicking any other button again sets the random number. The master tire
 will be flat until the random number is 5, when we then set the master tire to be inflated. 
 
 The lock button is a bit more complex. As you can see, there is only one lock button.
