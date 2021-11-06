@@ -593,11 +593,7 @@ public class CarBeeperV2 extends JFrame {
         else if (getRandomNumber() == 2) { setPassengerTireState(State.FLAT); }
         else if (getRandomNumber() == 3) { setLeftTireState(State.FLAT); }
         else if (getRandomNumber() == 4) { setRightTireState(State.FLAT); }
-        else if (getRandomNumber() == 7) { setMasterTireState(State.INFLATED); }
-        else if (getRandomNumber() == 8) { setMasterTireState(State.INFLATED); }
-        else if (getRandomNumber() == 9) { setMasterTireState(State.INFLATED); }
-        else if (getRandomNumber() == 10) { setMasterTireState(State.INFLATED); }
-        else { /* do nothing */ }
+        else setMasterTireState(State.INFLATED);
     }
     public void updateAllStatesInTextArea()
     {
