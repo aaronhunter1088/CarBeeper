@@ -10,7 +10,7 @@
     <properties>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<junit.version>4.13.1</junit.version>
-    	<log4j2.version>2.13.3</log4j2.version>
+    	<log4j2.version>2.16.0</log4j2.version>
 		<maven.compiler.version>3.8.0</maven.compiler.version>
 		<mockito.version>3.0.0</mockito.version>
 		<properties.maven.plugin.version>1.0-alpha-2</properties.maven.plugin.version>
