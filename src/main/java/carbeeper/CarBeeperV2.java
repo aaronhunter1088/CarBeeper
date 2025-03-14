@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.security.SecureRandom;
+import java.util.Random;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -23,10 +24,11 @@ import org.apache.logging.log4j.Logger;
  * @author aaron hunter
  */
 public class CarBeeperV2 extends JFrame {
-    protected static final long serialVersionUID = 1L;
+    protected static final long serialVersionUID = 2L;
 	protected static final Logger LOGGER = LogManager.getLogger(CarBeeperV2.class);
 	protected final int TIMER_INTERVAL = 500;
-    public int randomNumber;
+    protected int randomNumber;
+    protected int buttonClicks = 0;
     // Buttons
     protected JButton lockButton;
     protected JButton windowButton;
@@ -46,14 +48,17 @@ public class CarBeeperV2 extends JFrame {
     protected State powerState;
     protected State trunkState;
     protected State alarmState;
+    // All door states
     protected State masterDoorLockState;
     protected State passengerDoorLockState;
     protected State leftDoorLockState;
     protected State rightDoorLockState;
+    // All window states
     protected State masterWindowState;
     protected State passengerWindowState;
     protected State leftWindowState;
     protected State rightWindowState;
+    // All tire states
     protected State masterTireState;
     protected State passengerTireState;
     protected State leftTireState;
@@ -75,7 +80,7 @@ public class CarBeeperV2 extends JFrame {
      * @return State of the car's power
      */
     public State getPowerState() {
-        LOGGER.info("Car is: " + powerState);
+        LOGGER.debug("Car is: " + powerState);
         return powerState;
     }
     /**
@@ -83,7 +88,7 @@ public class CarBeeperV2 extends JFrame {
      * @return State of the trunk
      */
     public State getTrunkState() {
-        LOGGER.info("Trunk is: " + trunkState);
+        LOGGER.debug("Trunk is: " + trunkState);
         return trunkState;
     }
     /**
@@ -91,25 +96,15 @@ public class CarBeeperV2 extends JFrame {
      * @return State the state of the alarm
      */
     public State getAlarmState() {
-        LOGGER.info("Alarm is: " + alarmState);
+        LOGGER.debug("Alarm is: " + alarmState);
         return alarmState;
-    }
-    /**
-     * This method simply returns the current state of all the windows.\
-     */
-    public void getLockState() {
-        textArea.append("\nMaster Door lock is " + masterDoorLockState + "\n");
-        textArea.append("Passenger Door lock is " + passengerDoorLockState + "\n");
-        textArea.append("Left Door lock is " + leftDoorLockState + "\n");
-        textArea.append("Right Door lock is " + rightDoorLockState + "\n");
-        printDoorStates();
     }
     /**
      * This method returns the master door lock state
      * @return State the state of the master door's lock
      */
     public State getMasterDoorLockState() {
-        LOGGER.info("Master door lock state is : " + masterDoorLockState);
+        LOGGER.debug("Master door lock state is : " + masterDoorLockState);
         return masterDoorLockState;
     }
     /**
@@ -117,7 +112,7 @@ public class CarBeeperV2 extends JFrame {
      * @return State the state of the passenger doors lock state
      */
     public State getPassengerDoorLockState() {
-        LOGGER.info("Passenger door lock is : " + passengerDoorLockState);
+        LOGGER.debug("Passenger door lock is : " + passengerDoorLockState);
         return passengerDoorLockState;
     }
     /**
@@ -125,7 +120,7 @@ public class CarBeeperV2 extends JFrame {
      * @return State the state of the left door lock state
      */
     public State getLeftDoorLockState() {
-        LOGGER.info("Left door lock is : " + leftDoorLockState);
+        LOGGER.debug("Left door lock is : " + leftDoorLockState);
         return leftDoorLockState;
     }
     /**
@@ -133,7 +128,7 @@ public class CarBeeperV2 extends JFrame {
      * @return rightDoorLockState the state of the right door
      */
     public State getRightDoorLockState() {
-        LOGGER.info("Right door lock is : " + rightDoorLockState);
+        LOGGER.debug("Right door lock is : " + rightDoorLockState);
         return rightDoorLockState;
     }
     /**
@@ -142,25 +137,12 @@ public class CarBeeperV2 extends JFrame {
      * @param windowCounter : counter2
      */
     public void getWindowStates(int clicks, int windowCounter) {
-        if ((clicks == 1 || clicks == 2) && windowCounter == 0)
-        {
-            textArea.append("\nMaster window is " + masterWindowState + "\n");
-            textArea.append("Passenger window is " + passengerWindowState + "\n");
-            textArea.append("Left window is " + leftWindowState + "\n");
-            textArea.append("Right window is " + rightWindowState + "\n\n");
+        if ((clicks == 1 || clicks == 2) && windowCounter == 0) {
             printWindowStates(clicks, 0);
         }
         else if (clicks == 1 && windowCounter > 0) {
-            textArea.append("\nMaster window is " + windowCounter + "% " + masterWindowState + "\n");
-            textArea.append("Passenger window is " + passengerWindowState + "\n");
-            textArea.append("Left window is " + leftWindowState + "\n");
-            textArea.append("Right window is " + rightWindowState + "\n\n");
             printWindowStates(clicks, windowCounter);
         } else { // clicks == 2 && windowCounter > 0
-            textArea.append("\nMaster window is " + windowCounter + "% " + masterWindowState + "\n");
-            textArea.append("Passenger window is " + windowCounter + "% " + passengerWindowState + "\n");
-            textArea.append("Left window is " + windowCounter + "% " + leftWindowState + "\n");
-            textArea.append("Right window is " + windowCounter + "% " + rightWindowState + "\n\n");
             printWindowStates(clicks, windowCounter);
         }
     }
@@ -169,7 +151,7 @@ public class CarBeeperV2 extends JFrame {
      * @return masterWindowState the state of the master window
      */
     protected State getMasterWindowState() {
-        LOGGER.info("Master window is : " + masterWindowState);
+        LOGGER.debug("Master window is : " + masterWindowState);
         return masterWindowState;
     }
     /**
@@ -177,7 +159,7 @@ public class CarBeeperV2 extends JFrame {
      * @return State the state of the passenger door window's state
      */
     public State getPassengerWindowState() {
-        LOGGER.info("Passenger window is : " + passengerWindowState);
+        LOGGER.debug("Passenger window is : " + passengerWindowState);
         return passengerWindowState;
     }
     /**
@@ -185,7 +167,7 @@ public class CarBeeperV2 extends JFrame {
      * @return State the state of the left window state
      */
     public State getLeftWindowState() {
-        LOGGER.info("Left window is : " + leftWindowState);
+        LOGGER.debug("Left window is : " + leftWindowState);
         return leftWindowState;
     }
     /**
@@ -193,7 +175,7 @@ public class CarBeeperV2 extends JFrame {
      * @return State the state of the right window state
      */
     public State getRightWindowState() {
-        LOGGER.info("Right window is : " + rightWindowState);
+        LOGGER.debug("Right window is : " + rightWindowState);
         return rightWindowState;
     }
     /**
@@ -271,7 +253,7 @@ public class CarBeeperV2 extends JFrame {
      * @return masterTireState the state of the master tire
      */
     protected State getMasterTireState() {
-        LOGGER.info("Master tire state is : " + masterTireState);
+        LOGGER.debug("Master tire state is : " + masterTireState);
         return masterTireState;
     }
     /**
@@ -279,7 +261,7 @@ public class CarBeeperV2 extends JFrame {
      * @return passengerTireState the state of the passenger tire
      */
     public State getPassengerTireState() {
-        LOGGER.info("Passenger tire state is : " + passengerTireState);
+        LOGGER.debug("Passenger tire state is : " + passengerTireState);
         return passengerTireState;
     }
     /**
@@ -287,7 +269,7 @@ public class CarBeeperV2 extends JFrame {
      * @return leftTireState the state of the left tire
      */
     public State getLeftTireState() {
-        LOGGER.info("Left tire state is : " + leftTireState);
+        LOGGER.debug("Left tire state is : " + leftTireState);
         return leftTireState;
     }
     /**
@@ -295,8 +277,20 @@ public class CarBeeperV2 extends JFrame {
      * @return rightTireState the state of the right tire
      */
     public State getRightTireState() {
-        LOGGER.info("Right tire state is : " + rightTireState);
+        LOGGER.debug("Right tire state is : " + rightTireState);
         return rightTireState;
+    }
+    /**
+     * This method returns true if any of the tires are flat or false
+     * if none are flat
+     */
+    public boolean isAnyTireFlat() {
+        if (getMasterTireState() == State.FLAT || getPassengerTireState() == State.FLAT
+         || getLeftTireState() == State.FLAT || getRightTireState() == State.FLAT) {
+            return true;
+        } else {
+            return false;
+        }
     }
     /** This method returns the layout for the car beeper */
     public GridBagLayout getThisLayout() { return layout; }
@@ -311,99 +305,95 @@ public class CarBeeperV2 extends JFrame {
     // Setters
     /**
      * This method is only used for testing purposes only.
-     * @param state the state of the master door
+     * @param masterDoorLockState the state of the master door
      */
-    protected void setMasterDoorLockState(State state) {
-        this.masterDoorLockState = state;
+    protected void setMasterDoorLockState(State masterDoorLockState) {
+        this.masterDoorLockState = masterDoorLockState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the passenger door
+     * @param passengerDoorLockState the state of the passenger door
      */
-    protected void setPassengerDoorLockState(State state) {
-        this.passengerDoorLockState = state;
+    protected void setPassengerDoorLockState(State passengerDoorLockState) {this.passengerDoorLockState = passengerDoorLockState;}
+    /**
+     * This method is used for testing purposes only.
+     * @param leftDoorLockState the state of the left door
+     */
+    protected void setLeftDoorLockState(State leftDoorLockState) {
+        this.leftDoorLockState = leftDoorLockState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the left door
+     * @param rightDoorLockState the state of the right door
      */
-    protected void setLeftDoorLockState(State state) {
-        this.leftDoorLockState = state;
+    protected void setRightDoorLockState(State rightDoorLockState) {
+        this.rightDoorLockState = rightDoorLockState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the right door
+     * @param masterWindowState the state of the master window
      */
-    protected void setRightDoorLockState(State state) {
-        this.rightDoorLockState = state;
+    protected void setMasterWindowState(State masterWindowState) {
+        this.masterWindowState = masterWindowState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the master window
+     * @param passengerWindowState the state of the passenger window
      */
-    protected void setMasterWindowState(State state) {
-        this.masterWindowState = state;
+    protected void setPassengerWindowState(State passengerWindowState) {this.passengerWindowState = passengerWindowState;}
+    /**
+     * This method is used for testing purposes only.
+     * @param leftWindowState the state of the left window
+     */
+    protected void setLeftWindowState(State leftWindowState) {
+        this.leftWindowState = leftWindowState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the passenger window
+     * @param rightWindowState the state of the right window
      */
-    protected void setPassengerWindowState(State state) {
-        this.passengerWindowState = state;
-    }
-    /**
-     * This method is used for testing purposes only.
-     * @param state the state of the left window
-     */
-    protected void setLeftWindowState(State state) {
-        this.leftWindowState = state;
-    }
-    /**
-     * This method is used for testing purposes only.
-     * @param state the state of the right window
-     */
-    protected void setRightWindowState(State state) {
-        this.rightWindowState = state;
+    protected void setRightWindowState(State rightWindowState) {
+        this.rightWindowState = rightWindowState;
     }
     /** This method is used for setting the car's power state
-     * @param state the state of the car's power
+     * @param powerState the state of the car's power
      */
-    protected void setPowerState(State state) { this.powerState = state; }
+    protected void setPowerState(State powerState) { this.powerState = powerState; }
     /** This method is used for setting the car's trunk state
-     * @param state the state of the car's trunk
+     * @param trunkState the state of the car's trunk
      */
-    protected void setTrunkState(State state) { this.trunkState = state; }
+    protected void setTrunkState(State trunkState) { this.trunkState = trunkState; }
     /** This method is used for setting the car's alarm state
-     * @param state the state of the car's alarm
+     * @param alarmState the state of the car's alarm
      */
-    protected void setAlarmState(State state) { this.alarmState = state; }
+    protected void setAlarmState(State alarmState) { this.alarmState = alarmState; }
     /**
      * This method is only used for testing purposes only.
-     * @param state the state of the master door
+     * @param masterTireState the state of the master door
      */
-    protected void setMasterTireState(State state) {
-        this.masterTireState = state;
+    protected void setMasterTireState(State masterTireState) {
+        this.masterTireState = masterTireState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the passenger door
+     * @param passengerTireState the state of the passenger door
      */
-    protected void setPassengerTireState(State state) {
-        this.passengerTireState = state;
+    protected void setPassengerTireState(State passengerTireState) {
+        this.passengerTireState = passengerTireState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the left door
+     * @param leftTireState the state of the left door
      */
-    protected void setLeftTireState(State state) {
-        this.leftTireState = state;
+    protected void setLeftTireState(State leftTireState) {
+        this.leftTireState = leftTireState;
     }
     /**
      * This method is used for testing purposes only.
-     * @param state the state of the right door
+     * @param rightTireState the state of the right door
      */
-    protected void setRightTireState(State state) {
-        this.rightTireState = state;
+    protected void setRightTireState(State rightTireState) {
+        this.rightTireState = rightTireState;
     }
     /**
      * This method sets the lock button
@@ -578,22 +568,10 @@ public class CarBeeperV2 extends JFrame {
             setRightWindowState(getMasterWindowState());
         }
     }
-    /**
-     * This method randomly will set the state of a random tire after
-     * clicking on any button, including the flat tire button
-     */
     public void setFlatTireRandomizer()
     {
-        // if the random number is 1, master tire is flat
-        // if 2, passenger tire is flat
-        // if 3, left tire is flat
-        // if 4, right tire is flat
-        // any other number, tires are inflated
-        if (getRandomNumber() == 1) { setMasterTireState(State.FLAT); }
-        else if (getRandomNumber() == 2) { setPassengerTireState(State.FLAT); }
-        else if (getRandomNumber() == 3) { setLeftTireState(State.FLAT); }
-        else if (getRandomNumber() == 4) { setRightTireState(State.FLAT); }
-        else setMasterTireState(State.INFLATED);
+        setRandomNumber(new Random().nextInt(100));
+        LOGGER.info("Random Number {}", getRandomNumber());
     }
     public void updateAllStatesInTextArea()
     {
@@ -623,6 +601,10 @@ public class CarBeeperV2 extends JFrame {
             LOGGER.info("Back Left Window: " + leftWindowState);
             LOGGER.info("Back Right Window: " + rightWindowState);
             LOGGER.info("----- End Window States -----");
+            textArea.append("\nMaster window is " + masterWindowState + "\n");
+            textArea.append("Passenger window is " + passengerWindowState + "\n");
+            textArea.append("Left window is " + leftWindowState + "\n");
+            textArea.append("Right window is " + rightWindowState + "\n");
         }
         else if (clicks == 1 && windowCounter > 0)
         {
@@ -632,6 +614,11 @@ public class CarBeeperV2 extends JFrame {
             LOGGER.info("Back Left Window: " + leftWindowState);
             LOGGER.info("Back Right Window: " + rightWindowState);
             LOGGER.info("----- End Window States -----");
+            textArea.append("\nMaster window is " + windowCounter + "% " + masterWindowState + "\n");
+            textArea.append("Passenger window is " + passengerWindowState + "\n");
+            textArea.append("Left window is " + leftWindowState + "\n");
+            textArea.append("Right window is " + rightWindowState + "\n");
+
         }
         else
         {
@@ -641,6 +628,11 @@ public class CarBeeperV2 extends JFrame {
             LOGGER.info("Back Left Window is " + windowCounter + "% " + leftWindowState);
             LOGGER.info("Back Right Window is " + windowCounter + "% " +  rightWindowState);
             LOGGER.info("----- End Window States -----");
+            textArea.append("\nMaster window is " + windowCounter + "% " + masterWindowState + "\n");
+            textArea.append("Passenger window is " + windowCounter + "% " + passengerWindowState + "\n");
+            textArea.append("Left window is " + windowCounter + "% " + leftWindowState + "\n");
+            textArea.append("Right window is " + windowCounter + "% " + rightWindowState + "\n");
+
         }
         windowStatesPrinted = true;
     }
@@ -652,6 +644,17 @@ public class CarBeeperV2 extends JFrame {
         LOGGER.info("Back Left door lock: " + leftDoorLockState);
         LOGGER.info("Back Right doorLock: " + rightDoorLockState);
         LOGGER.info("----- End Door States -----");
+        textArea.append("\nMaster Door lock is " + masterDoorLockState + "\n");
+        textArea.append("Passenger Door lock is " + passengerDoorLockState + "\n");
+        textArea.append("Left Door lock is " + leftDoorLockState + "\n");
+        textArea.append("Right Door lock is " + rightDoorLockState + "\n");
+    }
+    public void printCarState()
+    {
+        LOGGER.info("----- Car State -----");
+        LOGGER.info("Car is " + powerState);
+        LOGGER.info("----- End Car State -----");
+        textArea.append("Car is " + powerState + "\n");
     }
     /**
      * method to set constraints on
@@ -734,7 +737,6 @@ public class CarBeeperV2 extends JFrame {
         super("Car Beeper");
         LOGGER.info("Inside CarBeeperV2 constructor.");
         setDefaultValues();
-        setFlatTireRandomizer();
         setThisLayout(new GridBagLayout());
         setConstraints(new GridBagConstraints());
         // Images
@@ -752,6 +754,7 @@ public class CarBeeperV2 extends JFrame {
         setAlarmButton(new JButton("Alarm", getAlarmImage()));
         setFlatTireButton(new JButton("Flat tire", getFlatTireImage()));
         setClearButton(new JButton("Clear"));
+        setFlatTireRandomizer();
         addComponents();
         LOGGER.info("End CarBeeperV2 constructor.");
     }
@@ -850,6 +853,7 @@ public class CarBeeperV2 extends JFrame {
         public void mouseReleased(MouseEvent e) {
             LOGGER.info("Inside mouseReleased.");
             beingHeld.stop();
+            LOGGER.info("Stopping beingHeld timer");
             LOGGER.info("End mouseReleased.");
         }
         @Override
@@ -906,14 +910,15 @@ public class CarBeeperV2 extends JFrame {
             	LOGGER.info("Single click.");
                 timer.restart();
             }
-            getWindowStates(clicks, counter2);
-            setRandomNumber(new SecureRandom().nextInt(10));
+            //getWindowStates(clicks, counter2);
             LOGGER.info("End mouseClicked.");
         }
         @Override
         public void actionPerformed(ActionEvent e)
         {
         	LOGGER.info("Running actionPerformed...");
+            LOGGER.info("Timer for Window Button stopped.");
+            timer.stop();
         	LOGGER.info("holding = " + holding + " | singleClick = " + singleClick);
             if (holding && !doubleClick)
             {
@@ -958,8 +963,7 @@ public class CarBeeperV2 extends JFrame {
                     windowStatesPrinted = false;
                 }
             }
-            LOGGER.info("Timer for Window Button stopped.");
-            timer.stop();
+            LOGGER.info("actionPerformed finished.");
         }
         @Override
         public String toString() {
