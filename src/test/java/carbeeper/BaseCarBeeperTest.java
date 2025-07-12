@@ -10,7 +10,7 @@ abstract class BaseCarBeeperTest {
      * @param button the button to be clicked
      * @param mouseEvent the event of the button
      * @param clicks the number of button clicks
-     * @return
+     * @return the MouseEvent
      */
     MouseEvent createMouseEvent(JButton button, int mouseEvent, int clicks) {
         return new MouseEvent(button, mouseEvent, System.currentTimeMillis(), 0, 10, 10, clicks, false);

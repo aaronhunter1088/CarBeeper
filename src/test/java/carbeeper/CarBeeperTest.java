@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -27,6 +28,7 @@ class CarBeeperTest extends BaseCarBeeperTest {
     {
         MockitoAnnotations.initMocks(this);
         beeper = new CarBeeper();
+        beeper.setButtonFunctionalities();
     }
 
     @Test
@@ -80,13 +82,19 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent exitedEvent = createMouseEvent(beeper.getClearButton(), MouseEvent.MOUSE_EXITED, 1);
         MouseEvent clickedEvent = createMouseEvent(beeper.getClearButton(), MouseEvent.MOUSE_CLICKED, 1);
         for (MouseListener listener : beeper.getClearButton().getMouseListeners()) {
-            if (listener instanceof ButtonClicked buttonClicked) {
-                buttonClicked.mouseEntered(enteredEvent);
-                buttonClicked.mouseExited(exitedEvent);
-                buttonClicked.mouseClicked(clickedEvent);
-            } else {
-                LOGGER.warn("There is a listener attached to the clear button that is not a ButtonClicked instance");
-                LOGGER.debug("Listener class: {}", listener.getClass().getName());
+            try {
+                javax.swing.SwingUtilities.invokeAndWait(() -> {
+                    if (listener instanceof ButtonClicked buttonClicked) {
+                        buttonClicked.mouseEntered(enteredEvent);
+                        buttonClicked.mouseExited(exitedEvent);
+                        buttonClicked.mouseClicked(clickedEvent);
+                    } else {
+                        LOGGER.warn("There is a listener attached to the clear button that is not a ButtonClicked instance");
+                        LOGGER.debug("Listener class: {}", listener.getClass().getName());
+                    }
+                });
+            } catch (Exception e) {
+                fail("EDT interrupted: " + e.getMessage());
             }
         }
 

@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Main {
-	private final static Logger LOGGER = LogManager.getLogger(Main.class);
+    private final static Logger LOGGER = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
@@ -15,13 +15,13 @@ public class Main {
                 LOGGER.info("Beeper loaded. Starting GUI");
             }
             catch (Exception e) {
-                LOGGER.error("Could not create Car Beeper bc {}", e.getMessage());
+                LOGGER.error("Could not create Car Beeper because {}", e.getMessage());
             }
         });
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> LOGGER.info("Closing beeper")));
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> LOGGER.info("Closing Car Beeper")));
     }
 }
-/**
+/*
  PROGRAMMER: Michael Ball
 
  DATE: May 18, 2016
@@ -29,18 +29,21 @@ public class Main {
  ENVIRONMENT: Mac OS Sequoia 15.4.1
 
  FILES INCLUDED:
- ButtonClicked.class,
- WindowButtonHandler.class,
- CarBeeper.class,
- Constants.class,
- State.class,
- Main.class,
- Alarm image
- Flat tire image
- Lock image
- Power image
- Trunk image
- Window image
+ carbeeper/ButtonClicked.class,
+ carbeeper/CarBeeper.class,
+ carbeeper/Constants.class,
+ carbeeper/Main.class,
+ carbeeper/State.class,
+ carbeeper/WindowButtonHandler.class,
+ images/Alarm.jpg,
+ images/flatTire.jpg,
+ images/lock.jpg,
+ images/power.jpg,
+ images/trunk.jpg,
+ images/window.jpg,
+ log4j2.xml,
+ pom.properties,
+ META-INF/MANIFEST.MF
  *
  * PURPOSE: To simulate a car beeper with buttons that can take care of more than one action.
  *
@@ -146,12 +149,12 @@ public class Main {
  *          read the code, or even myself years from now, it will still be 100% legible, even to someone
  *          inexperienced in coding.
  *
- * 			March 18, 2019:
- * 			Today, in about 3 hours, I fully implemented LOGGING! I have replaced all System.out statements
- * 			with log statements. During so, I cleaned up the code some. I also replaced the window button timer
- * 			beingHeld printout to overwrite itself, like a timer should, instead of adding the new time to the
- * 			textarea. This makes the simulator easier to read. The logs still print out everything in full.
- * 			As of today, I am wrapping this project up in CarBeeper-1.1-jar-with-dependencies.jar
+ *          March 18, 2019:
+ *          Today, in about 3 hours, I fully implemented LOGGING! I have replaced all System.out statements
+ *          with log statements. During so, I cleaned up the code some. I also replaced the window button timer
+ *          beingHeld printout to overwrite itself, like a timer should, instead of adding the new time to the
+ *          textarea. This makes the simulator easier to read. The logs still print out everything in full.
+ *          As of today, I am wrapping this project up in CarBeeper-1.1-jar-with-dependencies.jar
  *
  * 	        December 10, 2020:
  * 	        Just checking on on this project and noticed a couple bugs. The alarm and lock images got mixed up.
