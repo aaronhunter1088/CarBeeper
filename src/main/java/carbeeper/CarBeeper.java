@@ -99,6 +99,9 @@ public class CarBeeper extends JFrame {
         setFlatTireRandomizer();
         addComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(290, 400);
+        setLocationRelativeTo(null); // loads the GUI in the center of the screen
+        setResizable(false);
         pack();
         LOGGER.info("End CarBeeper constructor.");
     }
@@ -185,9 +188,6 @@ public class CarBeeper extends JFrame {
         flatTireButton.addMouseListener(new ButtonClicked(this) {});
         windowButton.addMouseListener(new WindowButtonHandler(this) {});
         LOGGER.info("Button functionalities are all set up.");
-        setSize(290, 400);
-        setLocationRelativeTo(null); // loads the GUI in the center of the screen
-        setResizable(false);
         // Only show the beeper once button functionalities are set
         setVisible(true);
     }
