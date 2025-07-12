@@ -162,7 +162,7 @@
                         <include>**/*</include>
                     </includes>
                 </configuration>
-          </plugin>
+            </plugin>
             <!-- Assembly:Single creates runnable jar with dependencies
                  Run Command: mvn clean package (-Dmaven.test.skip=true) -->
             <plugin>
