@@ -1,33 +1,49 @@
 package carbeeper;
-import javax.swing.JFrame;
+import javax.swing.*;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Main {
-	private final static Logger LOGGER = LogManager.getLogger(Main.class);
+    private final static Logger LOGGER = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
-    	LOGGER.info("Inside main(). Beginning setup of beeper...");
-        CarBeeperV2 beeper = new CarBeeperV2();
-        beeper.setButtonFunctionalities();
-        beeper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        beeper.setSize(290, 400);
-        beeper.setResizable(false); //* set in constructor now; left to show my learning
-        beeper.setVisible(true);
-        beeper.pack();
-        LOGGER.info("Beeper loaded.");
-        LOGGER.info("End main(). Starting beeper.");
+        SwingUtilities.invokeLater(() -> {
+            try {
+                LOGGER.info("Inside main");
+                CarBeeper carBeeper = new CarBeeper();
+                carBeeper.setButtonFunctionalities();
+                LOGGER.info("Beeper loaded. Starting GUI");
+            }
+            catch (Exception e) {
+                LOGGER.error("Could not create Car Beeper because {}", e.getMessage());
+            }
+        });
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> LOGGER.info("Closing Car Beeper")));
     }
 }
-/**
+/*
  PROGRAMMER: Michael Ball
 
  DATE: May 18, 2016
 
- ASSIGNMENT: N/A
+ ENVIRONMENT: Mac OS Sequoia 15.4.1
 
- ENVIRONMENT: Mac OS BigSur 11.1
-
- FILES INCLUDED: ButtonClicked.class, CarBeeperV2.class, State.class, Main.class, All images for buttons
+ FILES INCLUDED:
+ carbeeper/ButtonClicked.class,
+ carbeeper/CarBeeper.class,
+ carbeeper/Constants.class,
+ carbeeper/Main.class,
+ carbeeper/State.class,
+ carbeeper/WindowButtonHandler.class,
+ images/Alarm.jpg,
+ images/flatTire.jpg,
+ images/lock.jpg,
+ images/power.jpg,
+ images/trunk.jpg,
+ images/window.jpg,
+ log4j2.xml,
+ pom.properties,
+ META-INF/MANIFEST.MF
  *
  * PURPOSE: To simulate a car beeper with buttons that can take care of more than one action.
  *
@@ -42,22 +58,23 @@ public class Main {
  *                6. All tires are inflated.
  *
  * OUTPUT: Depending on the button clicks, the following are several outputs:
- *                1. The master door and/or all other doors are locked or unlocked.
- *                2. The master window is rolled up or down
+ *                1. The driver door and/or all other doors are locked or unlocked.
+ *                2. The driver window is rolled up or down
  *                   depending on the number of clicks.
  *                3. The car may be turned on or off.
  *                4. The car alarm may be turned on or off.
  *                5. The trunk to the car is opened or closed (using hydraulics).
  *                6. Based on a random number a tire becomes flat or inflated.
+ *          Each click of a button is a single click count, whether it was a single or
+ *          a double click, the click count is incremented by 1.
  *
  * POSTCONDITIONS: The "car" will now be in several different states after multiple clicks
  *                 using the car beeper until the program is closed and launched again.
  *
- * ALGORITHM: How the program works.  This should be structured using short, descriptive phrases that are
- *            indented appropriately.  At the beginning of the program, you will have an overall algorithm to
- *            describe the flow of the entire program.  For each nontrivial module an algorithm will describe
- *            how that module works or will make a very specific reference to an existing algorithm (eg.QuickSort,
- *            BinarySearch), if a well-known algorithm is used.
+ * ALGORITHM: The beeper will start up and display a GUI with buttons that have images on them.
+ *            The user will click on the buttons to perform actions. The actions will be simple
+ *            to complex depending on the button clicked. The buttons will output their actions
+ *            to the text area, simulating what would happen if used on a real car.
  *
  * ERRORS:     Version 1.0
  *          1) I was having trouble getting the textArea height to the size I wanted it to be.
@@ -87,11 +104,14 @@ public class Main {
  *             the results. Also, the issue with the windows not keeping count while incrementally increasing was resolved.
  *             This issue was resolved by stopping the auto reset when the window was down. The reset is now only taking place
  *             when a single or double click occurs.
- *             Version 2 (CarBeeperV2)
+ *             Version 2 (CarBeeper)
  *          1) The main goal of version 2 was to condense the code and simplify the logic. As of 3/5/2018, I was able
  *             to reduce the code by as much as 310 lines. I also added enums to make the code more readable. Finally,
  *             I fixed the windows button handler so that it uses a more unique class to handle the click actions.
  *             As of 3/5/2018, I have tested all of my logic by writing test cases following TDD.
+ *          2) As of 7/6/25, CarBeeper is on 2.3.
+ *             Some of the changes includes: updates to the pom.xml, the log4j2.xml, some code cleanup, tests were
+ *             added, and the code was updated to use Java 21.
  *
  * EXAMPLE: A sample execution in terms of input and corresponding output  (if appropriate)
  *
@@ -129,12 +149,12 @@ public class Main {
  *          read the code, or even myself years from now, it will still be 100% legible, even to someone
  *          inexperienced in coding.
  *
- * 			March 18, 2019:
- * 			Today, in about 3 hours, I fully implemented LOGGING! I have replaced all System.out statements
- * 			with log statements. During so, I cleaned up the code some. I also replaced the window button timer
- * 			beingHeld printout to overwrite itself, like a timer should, instead of adding the new time to the
- * 			textarea. This makes the simulator easier to read. The logs still print out everything in full.
- * 			As of today, I am wrapping this project up in CarBeeper-1.1-jar-with-dependencies.jar
+ *          March 18, 2019:
+ *          Today, in about 3 hours, I fully implemented LOGGING! I have replaced all System.out statements
+ *          with log statements. During so, I cleaned up the code some. I also replaced the window button timer
+ *          beingHeld printout to overwrite itself, like a timer should, instead of adding the new time to the
+ *          textarea. This makes the simulator easier to read. The logs still print out everything in full.
+ *          As of today, I am wrapping this project up in CarBeeper-1.1-jar-with-dependencies.jar
  *
  * 	        December 10, 2020:
  * 	        Just checking on on this project and noticed a couple bugs. The alarm and lock images got mixed up.
@@ -143,4 +163,7 @@ public class Main {
  * 	        January 20, 2021:
  * 	        Added a new button, Flat Tire. This button is truly a simulation. Without any actual car inputs,
  * 	        this button truly just emulates what would happen if a tire is flat or not.
+ *
+ * 	        July 6, 2025:
+ * 	        Updated the code to use Java 21. Updated the pom.xml to use the latest dependencies.
  */

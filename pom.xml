@@ -1,202 +1,205 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
+
+    <parent>
+        <groupId>com.skvllprodvctions</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
     <artifactId>CarBeeper</artifactId>
-    <version>2.2</version>
+    <version>2.3</version>
     <name>Car Beeper</name>
     <description>This is a car beeper simulator</description>
 
-	<properties>
-		<finalName>${project.artifactId}-${project.version}</finalName>
-		<maven.compiler.source>18</maven.compiler.source>
-		<maven.compiler.target>18</maven.compiler.target>
-		<outputDirectory>${basedir}/dist</outputDirectory>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    	<junit.version>4.13.1</junit.version>
-    	<log4j2.version>2.24.1</log4j2.version>
-		<maven.assembly.version>3.7.1</maven.assembly.version>
-		<maven.compiler.version>3.8.0</maven.compiler.version>
-		<maven.jar.version>3.2.0</maven.jar.version>
-		<maven.jar.plugin.version>3.1.0</maven.jar.plugin.version>
-		<maven.surefire.version>3.0.0-M5</maven.surefire.version>
-		<mockito.version>3.0.0</mockito.version>
-		<properties.maven.plugin.version>1.0-alpha-2</properties.maven.plugin.version>
+    <properties>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <outputDirectory>${basedir}/dist</outputDirectory>
     </properties>
 
     <dependencies>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>${log4j2.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>${log4j2.version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
-	    <dependency>
-	        <groupId>junit</groupId>
-	        <artifactId>junit</artifactId>
-	        <version>${junit.version}</version>
-			<scope>test</scope>
-	    </dependency>
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>${mockito.version}</version>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
-	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<testSourceDirectory>src/test/java</testSourceDirectory>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/**</include>
-				</includes>
-			</resource>
-		</resources>
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+            </resource>
+        </resources>
 
-		<!-- NOTES -->
-		<!-- Assembly:single creates CarBeeper-#.jar -->
-		<!-- Mvn:package creates CarBeeper-#-jar-with-dependencies.jar -->
-		<!-- Mvn:install adds CarBeeper-#-jar-with-dependencies.jar to local repo -->
+        <!-- NOTES -->
+        <!-- Assembly:single creates CarBeeper-#.jar -->
+        <!-- Mvn:package creates CarBeeper-#-jar-with-dependencies.jar -->
+        <!-- Mvn:install adds CarBeeper-#-jar-with-dependencies.jar to local repo -->
 
-		<plugins>
-			<!-- Compile -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.version}</version>
-				<configuration>
-					<source>${maven.compiler.source}</source>
-					<target>${maven.compiler.target}</target>
-					<release>18</release>
-					<compilerArgs>
-						<!--<arg>#doubledash#enable-preview</arg>-->
-						<arg>-verbose</arg>
-						<arg>-Xlint:all,-options,-path</arg>
-					</compilerArgs>
-					<!-- for surefire plugin -->
-				</configuration>
-				<executions>
-					<execution>
-						<id>default-testCompile</id>
-						<phase>test-compile</phase>
-						<goals>
-							<goal>testCompile</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- Test-compile -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.version}</version>
-			</plugin>
-			<!-- Generate resources -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>properties-maven-plugin</artifactId>
-				<version>1.0-alpha-2</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>write-project-properties</goal>
-						</goals>
-						<configuration>
-							<outputFile>${basedir}/src/main/resources/pom.properties</outputFile>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- Binds to Package phase, but will not run... -->
-			<!-- When creating a jar, update MANIFEST.MF file and place JAR in specified outputDirectory
-			     Run Command: mvn install -DskipTests -DskipITs -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven.jar.version}</version>
-				<executions>
-					<execution>
-						<id>default-jar</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<finalName>${finalName}</finalName>
-					<outputDirectory>${outputDirectory}</outputDirectory>
-					<archive>
-						<index>true</index>
-						<manifest>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							<addClasspath>true</addClasspath>
-							<mainClass>carbeeper.Main</mainClass>
-						</manifest>
-						<manifestEntries>
-							<Implementation-Version>${project.version}</Implementation-Version>
-							<Creation-Time-Format>yyyy-MM-dd HH:mm:ss</Creation-Time-Format>
-							<!--suppress UnresolvedMavenProperty -->
-							<Creation-Time>${build.time}</Creation-Time>
-							<mainClass>carbeeper.Main</mainClass>
-						</manifestEntries>
-					</archive>
-					<includes>
-						<include>**/*</include>
-					</includes>
-				</configuration>
-			</plugin>
-			<!-- Assembly:Single creates runnable jar with dependencies
-			     Run Command: mvn clean package (-Dmaven.test.skip=true) -->
-			<plugin>
-				<!-- don't need group id since org.apache.maven.plugins is assumed -->
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>${maven.assembly.version}</version>
-				<executions>
-					<execution>
-						<id>build-beeper</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
-							<appendAssemblyId>true</appendAssemblyId> <!-- If false, jar-with-dependencies is not appended to jar name -->
-							<!-- archive required to create executable jar -->
-							<archive>
-								<index>true</index>
-								<manifest>
-									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-									<addClasspath>true</addClasspath>
-									<mainClass>carbeeper.Main</mainClass>
-								</manifest>
-								<manifestEntries>
-									<Creation-Time>${maven.build.timestamp}</Creation-Time>
-									<Creation-Time-Format>yyyy-MM-dd HH:mm:ss</Creation-Time-Format>
-								</manifestEntries>
-							</archive>
-							<finalName>${finalName}</finalName>
-							<outputDirectory>${outputDirectory}</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+        <plugins>
+            <!-- Compile -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <release>${java.version}</release>
+                    <compilerArgs>
+                        <!--<arg>#doubledash#enable-preview</arg>-->
+                        <arg>-verbose</arg>
+                        <arg>-Xlint:all,-options,-path</arg>
+                    </compilerArgs>
+                    <!-- for surefire plugin -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Test-compile -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <useModulePath>false</useModulePath>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <!-- <junitPlatformVersion>${junit.jupiter.version}</junitPlatformVersion> -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Generate resources -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>write-properties</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>write-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>${basedir}/src/main/resources/pom.properties</outputFile>
+                          </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Binds to Package phase, but will not run... -->
+            <!-- When creating a jar-with-dependencies, update MANIFEST.MF file
+                 and place JAR in specified outputDirectory
+                 Run Command In Terminal: mvn install -DskipTests -DskipITs -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>${finalName}</finalName>
+                    <outputDirectory>${outputDirectory}</outputDirectory>
+                    <archive>
+                        <index>true</index>
+                        <manifest>
+                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                    <addClasspath>true</addClasspath>
+                    <mainClass>carbeeper.Main</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                    <Implementation-Version>${project.version}</Implementation-Version>
+                    <Creation-Time-Format>yyyy-MM-dd HH:mm:ss</Creation-Time-Format>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <Creation-Time>${build.time}</Creation-Time>
+                    <mainClass>carbeeper.Main</mainClass>
+                        </manifestEntries>
+                    </archive>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </configuration>
+          </plugin>
+            <!-- Assembly:Single creates runnable jar with dependencies
+                 Run Command: mvn clean package (-Dmaven.test.skip=true) -->
+            <plugin>
+                <!-- don't need group id since org.apache.maven.plugins is assumed -->
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven.assembly.version}</version>
+                <executions>
+                    <execution>
+                        <id>build-beeper</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <appendAssemblyId>true</appendAssemblyId> <!-- If false, jar-with-dependencies is not appended to jar name -->
+                            <!-- archive required to create executable jar -->
+                            <archive>
+                                <index>true</index>
+                                <manifest>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                    <addClasspath>true</addClasspath>
+                                    <mainClass>carbeeper.Main</mainClass>
+                                </manifest>
+                                <manifestEntries>
+                                    <Creation-Time>${maven.build.timestamp}</Creation-Time>
+                                    <Creation-Time-Format>yyyy-MM-dd HH:mm:ss</Creation-Time-Format>
+                                </manifestEntries>
+                            </archive>
+                            <finalName>${finalName}</finalName>
+                            <outputDirectory>${outputDirectory}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
