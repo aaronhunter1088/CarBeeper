@@ -4,50 +4,44 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.security.SecureRandom;
 import java.util.Random;
 
 public class ButtonClicked extends MouseAdapter
 {
     protected final Logger LOGGER = LogManager.getLogger(ButtonClicked.class);
     protected Timer timer;
-    protected CarBeeperV2 beeper;
-    public ButtonClicked(CarBeeperV2 beeper) {
+    protected boolean timerIsRunning = false;
+    protected CarBeeper beeper;
+    public ButtonClicked(CarBeeper beeper) {
         LOGGER.info("Inside ButtonClicked constructor.");
         this.beeper = beeper;
-        timer = new Timer(beeper.TIMER_INTERVAL, evt -> {
-            if (beeper.singleClick) {
-                LOGGER.info("Single click");
-                beeper.lock_Unlock();
-                beeper.printDoorStates();
-            } else if (beeper.doubleClick)
-            {
-                LOGGER.info("Double click");
-                beeper.lock_UnlockAll();
-                beeper.printDoorStates();
-            }
-            beeper.singleClick = false;
-            beeper.doubleClick = false;
-        });
-        timer.setRepeats(false);
-        timer.setDelay(beeper.TIMER_INTERVAL * 2);
+        createTimer();
         LOGGER.info("Timer's event set for " + beeper.TIMER_INTERVAL + " seconds.");
-        //timer.start();
     }
     @Override
-    public void mouseEntered(MouseEvent me) {}
+    public void mouseEntered(MouseEvent me)
+    {
+        String buttonName = ((JButton)me.getSource()).getText();
+        LOGGER.debug("Entered {} Button.", buttonName);
+    }
     @Override
-    public void mouseExited(MouseEvent me) {}
-    @Override
-    public void mousePressed(MouseEvent event) {}
-    @Override
-    public void mouseReleased(MouseEvent me) {}
+    public void mouseExited(MouseEvent me)
+    {
+        String buttonName = ((JButton)me.getSource()).getText();
+        LOGGER.debug("Leaving {} Button.", buttonName);
+    }
+    // Don't need these methods.
+//    @Override
+//    public void mousePressed(MouseEvent event) {}
+//    @Override
+//    public void mouseReleased(MouseEvent me) {}
     @Override
     public void mouseClicked(MouseEvent me)
     {
-        LOGGER.info("Inside ButtonClicked.mouseClicked(me="+((JButton)me.getSource()).getText()+" Button).");
+        LOGGER.info("Inside ButtonClicked.mouseClicked(me={} Button).", ((JButton)me.getSource()).getText());
         if (me.getSource() == beeper.clearButton)
         {
             beeper.textArea.setText("");
@@ -66,60 +60,54 @@ public class ButtonClicked extends MouseAdapter
                 beeper.singleClick = true;
                 beeper.doubleClick = false;
             }
+            timerIsRunning = true;
             LOGGER.info("Timer for Lock Button started.");
-            this.timer.start();
         }
         else if (me.getSource() == beeper.alarmButton)
         {
             if (beeper.alarmState.equals(State.OFF))
             {
                 beeper.setAlarmState(State.ON);
-                beeper.textArea.append("Alarm is " + beeper.alarmState + "\n");
-                beeper.getAlarmState();
             }
             else
             {
                 beeper.setAlarmState(State.OFF);
-                beeper.textArea.append("Alarm is " + beeper.alarmState + "\n");
-                beeper.getAlarmState();
             }
+            beeper.textArea.append("Alarm is " + beeper.alarmState + "\n");
+            beeper.getAlarmState();
         }
         else if (me.getSource() == beeper.trunkButton)
         {
             if (beeper.trunkState.equals(State.CLOSED))
             {
                 beeper.trunkState = State.OPEN;
-                beeper.textArea.append("Trunk is " + beeper.trunkState + "\n");
-                beeper.getTrunkState();
             }
             else
             {
                 beeper.trunkState = State.CLOSED;
-                beeper.textArea.append("Trunk is " + beeper.trunkState + "\n");
-                beeper.getTrunkState();
             }
+            beeper.textArea.append("Trunk is " + beeper.trunkState + "\n");
+            beeper.getTrunkState();
         }
         else if (me.getSource() == beeper.powerButton)
         {
             if (beeper.powerState.equals(State.OFF))
             {
                 beeper.powerState = State.ON;
-                beeper.printCarState();
             }
             else
             {
                 beeper.powerState = State.OFF;
-                beeper.textArea.append("Car is " + beeper.powerState + "\n");
-                beeper.getPowerState();
             }
+            beeper.printCarState();
         }
         else if (me.getSource() == beeper.flatTireButton) {
             if (me.getClickCount() == 1) {
-                if (beeper.masterTireState == State.FLAT)
+                if (beeper.driverTireState == State.FLAT)
                 {
                     beeper.textArea.append("The car's master tire is flat. Raising hydraulic press" +
                             " for master tire\n");
-                    beeper.getMasterTireState();
+                    beeper.getDriverTireState();
                 }
                 else if (beeper.passengerTireState == State.FLAT)
                 {
@@ -145,11 +133,11 @@ public class ButtonClicked extends MouseAdapter
                 }
             } else {
                 if (beeper.isAnyTireFlat()) {
-                    if (beeper.masterTireState == State.FLAT)
+                    if (beeper.driverTireState == State.FLAT)
                     {
                         beeper.textArea.append("The car's master tire is fixed\n");
-                        beeper.masterTireState = State.INFLATED;
-                        beeper.getMasterTireState();
+                        beeper.driverTireState = State.INFLATED;
+                        beeper.getDriverTireState();
                     }
                     else if (beeper.passengerTireState == State.FLAT)
                     {
@@ -179,12 +167,74 @@ public class ButtonClicked extends MouseAdapter
         }
         beeper.buttonClicks += 1;
         if (beeper.buttonClicks == beeper.randomNumber) {
-            if (0 <= beeper.randomNumber && beeper.randomNumber < 25) { beeper.masterTireState = State.FLAT; }
+            if (0 <= beeper.randomNumber && beeper.randomNumber < 25) { beeper.driverTireState = State.FLAT; }
             else if (25 <= beeper.randomNumber && beeper.randomNumber < 50) { beeper.passengerTireState = State.FLAT; }
             else if (50 <= beeper.randomNumber && beeper.randomNumber < 75) { beeper.leftTireState = State.FLAT; }
             else if (75 <= beeper.randomNumber && beeper.randomNumber <= 100) { beeper.rightTireState = State.FLAT; }
         }
-        LOGGER.info("number of clicks: " + beeper.buttonClicks);
+        LOGGER.info("total buttons click count: {}", beeper.buttonClicks);
+        if (timerIsRunning) {
+            this.timer.start();
+        }
         LOGGER.info("End ButtonClicked.mouseClicked().");
+    }
+
+    public CarBeeper getBeeper() {
+        return beeper;
+    }
+    public void setBeeper(CarBeeper beeper) {
+        this.beeper = beeper;
+    }
+    public Timer getTimer()
+    {
+        return timer;
+    }
+    public void setTimer(Timer timer)
+    {
+        this.timer = timer;
+    }
+    public boolean isTimerRunning()
+    {
+        return timerIsRunning;
+    }
+    public void setTimerIsRunning(boolean timerIsRunning)
+    {
+        this.timerIsRunning = timerIsRunning;
+    }
+
+    /**
+     * Creates a timer that will be
+     * used to handle the actions
+     */
+    private void createTimer()
+    {
+        timer = new Timer(beeper.TIMER_INTERVAL, this::timerAction);
+        timer.setRepeats(false);
+    }
+
+    /**
+     * Handles the timer action logic
+     * @param ae the actionEvent
+     */
+    protected void timerAction(ActionEvent ae)
+    {
+        if (timerIsRunning) {
+            if (beeper.singleClick) {
+                LOGGER.info("Single click");
+                beeper.lock_Unlock();
+            }
+            else if (beeper.doubleClick) {
+                LOGGER.info("Double click");
+                beeper.lock_UnlockAll();
+            }
+            beeper.printDoorStates();
+            //beeper.singleClick = false;
+            //beeper.doubleClick = false;
+            timerIsRunning = false;
+            LOGGER.info("Timer ended for Button.");
+        }
+        if (!timerIsRunning) {
+            timer.stop();
+        }
     }
 }
