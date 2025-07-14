@@ -12,6 +12,7 @@
     <artifactId>CarBeeper</artifactId>
     <version>2.3</version>
     <name>Car Beeper</name>
+    <packaging>jar</packaging>
     <description>This is a car beeper simulator</description>
 
     <properties>
@@ -79,6 +80,13 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>default-compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <id>default-testCompile</id>
                         <phase>test-compile</phase>
                         <goals>
@@ -121,7 +129,7 @@
                         </goals>
                         <configuration>
                             <outputFile>${basedir}/src/main/resources/pom.properties</outputFile>
-                          </configuration>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -135,7 +143,7 @@
                 <executions>
                     <execution>
                         <id>default-jar</id>
-                        <phase>compile</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -146,22 +154,16 @@
                     <outputDirectory>${outputDirectory}</outputDirectory>
                     <archive>
                         <index>true</index>
-                        <manifest>
-                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                    <addClasspath>true</addClasspath>
-                    <mainClass>carbeeper.Main</mainClass>
-                        </manifest>
                         <manifestEntries>
-                    <Implementation-Version>${project.version}</Implementation-Version>
-                    <Creation-Time-Format>yyyy-MM-dd HH:mm:ss</Creation-Time-Format>
-                    <!--suppress UnresolvedMavenProperty -->
-                    <Creation-Time>${build.time}</Creation-Time>
-                    <mainClass>carbeeper.Main</mainClass>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addClasspath>true</addClasspath>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                            <Creation-Time-Format>yyyy-MM-dd HH:mm:ss</Creation-Time-Format>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <Creation-Time>${build.time}</Creation-Time>
+                            <mainClass>carbeeper.Main</mainClass>
                         </manifestEntries>
                     </archive>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
                 </configuration>
             </plugin>
             <!-- Assembly:Single creates runnable jar with dependencies
