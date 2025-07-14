@@ -7,48 +7,78 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
 
+/**
+ * ButtonClicked class handles mouse events
+ * for buttons in the CarBeeper application.
+ * It extends MouseAdapter to provide custom
+ * behavior for mouse events.
+ * Inside mouseEntered
+ * Inside mousePressed...
+ * Inside mouseReleased...
+ * Inside mouseClicked...
+ * Inside actionPerformed (for lock button only)
+ * Inside mouseExited...
+ */
 public class ButtonClicked extends MouseAdapter
 {
     protected final Logger LOGGER = LogManager.getLogger(ButtonClicked.class);
     protected Timer timer;
     protected boolean timerIsRunning = false;
     protected CarBeeper beeper;
-    public ButtonClicked(CarBeeper beeper) {
+    private JButton button;
+    private String buttonName;
+
+    /**
+     * Constructor for ButtonClicked
+     * @param beeper the CarBeeper instance
+     */
+    public ButtonClicked(CarBeeper beeper)
+    {
         LOGGER.info("Inside ButtonClicked constructor.");
         this.beeper = beeper;
         createTimer();
-        LOGGER.info("Timer's event set for " + beeper.TIMER_INTERVAL + " seconds.");
     }
+
+    public ButtonClicked withButton(JButton button)
+    {
+        this.button = button;
+        buttonName = this.button.getText();
+        LOGGER.debug("Created ButtonClicked for {} Button.", buttonName);
+        return this;
+    }
+
     @Override
     public void mouseEntered(MouseEvent me)
     {
-        String buttonName = ((JButton)me.getSource()).getText();
         LOGGER.debug("Entered {} Button.", buttonName);
     }
     @Override
     public void mouseExited(MouseEvent me)
     {
-        String buttonName = ((JButton)me.getSource()).getText();
         LOGGER.debug("Leaving {} Button.", buttonName);
     }
-    // Don't need these methods.
-//    @Override
-//    public void mousePressed(MouseEvent event) {}
-//    @Override
-//    public void mouseReleased(MouseEvent me) {}
+    @Override
+    public void mousePressed(MouseEvent event)
+    {
+        LOGGER.info("Inside {} mousePressed.", buttonName);
+    }
+    @Override
+    public void mouseReleased(MouseEvent me)
+    {
+        LOGGER.info("Inside {} mouseReleased.", buttonName);
+    }
     @Override
     public void mouseClicked(MouseEvent me)
     {
-        LOGGER.info("Inside ButtonClicked.mouseClicked(me={} Button).", ((JButton)me.getSource()).getText());
-        if (me.getSource() == beeper.clearButton)
+        LOGGER.info("Inside {} mouseClicked.", buttonName);
+        if (button == beeper.clearButton)
         {
             beeper.textArea.setText("");
-            beeper.windowStatesPrinted = false;
+            //beeper.windowStatesPrinted = false;
             LOGGER.info("Textarea cleared.");
         }
-        else if (me.getSource() == beeper.lockButton)
+        else if (button == beeper.lockButton)
         {
             if (me.getClickCount() == 2)
             {
@@ -63,7 +93,7 @@ public class ButtonClicked extends MouseAdapter
             timerIsRunning = true;
             LOGGER.info("Timer for Lock Button started.");
         }
-        else if (me.getSource() == beeper.alarmButton)
+        else if (button == beeper.alarmButton)
         {
             if (beeper.alarmState.equals(State.OFF))
             {
@@ -76,7 +106,7 @@ public class ButtonClicked extends MouseAdapter
             beeper.textArea.append("Alarm is " + beeper.alarmState + "\n");
             beeper.getAlarmState();
         }
-        else if (me.getSource() == beeper.trunkButton)
+        else if (button == beeper.trunkButton)
         {
             if (beeper.trunkState.equals(State.CLOSED))
             {
@@ -89,7 +119,7 @@ public class ButtonClicked extends MouseAdapter
             beeper.textArea.append("Trunk is " + beeper.trunkState + "\n");
             beeper.getTrunkState();
         }
-        else if (me.getSource() == beeper.powerButton)
+        else if (button == beeper.powerButton)
         {
             if (beeper.powerState.equals(State.OFF))
             {
@@ -101,11 +131,14 @@ public class ButtonClicked extends MouseAdapter
             }
             beeper.printCarState();
         }
-        else if (me.getSource() == beeper.flatTireButton) {
+        else if (button == beeper.flatTireButton)
+        {
             if (me.getClickCount() == 1) {
+                beeper.setSingleClick(true);
+                beeper.setDoubleClick(false);
                 if (beeper.driverTireState == State.FLAT)
                 {
-                    beeper.textArea.append("The car's master tire is flat. Raising hydraulic press" +
+                    beeper.textArea.append("The car's driver tire is flat. Raising hydraulic press" +
                             " for master tire\n");
                     beeper.getDriverTireState();
                 }
@@ -131,11 +164,14 @@ public class ButtonClicked extends MouseAdapter
                 {
                     beeper.textArea.append("The tires are all " + State.INFLATED + "\n");
                 }
-            } else {
+            }
+            else {
+                beeper.setSingleClick(false);
+                beeper.setDoubleClick(true);
                 if (beeper.isAnyTireFlat()) {
                     if (beeper.driverTireState == State.FLAT)
                     {
-                        beeper.textArea.append("The car's master tire is fixed\n");
+                        beeper.textArea.append("The car's driver tire is fixed\n");
                         beeper.driverTireState = State.INFLATED;
                         beeper.getDriverTireState();
                     }
@@ -151,52 +187,71 @@ public class ButtonClicked extends MouseAdapter
                         beeper.leftTireState = State.INFLATED;
                         beeper.getLeftTireState();
                     }
-                    else if (beeper.rightTireState == State.FLAT)
+                    else // if (beeper.rightTireState == State.FLAT)
                     {
                         beeper.textArea.append("The car's right tire is fixed\n");
                         beeper.rightTireState = State.INFLATED;
                         beeper.getRightTireState();
                     }
-                    beeper.randomNumber = new Random().nextInt(100);
-                    beeper.buttonClicks = 0;
-                    LOGGER.info("Random Number is now {}", beeper.randomNumber);
-                } else {
+                    beeper.setFlatTireRandomizer();
+                }
+                else {
                     LOGGER.info("No tire is flat");
                 }
             }
         }
         beeper.buttonClicks += 1;
-        if (beeper.buttonClicks == beeper.randomNumber) {
-            if (0 <= beeper.randomNumber && beeper.randomNumber < 25) { beeper.driverTireState = State.FLAT; }
-            else if (25 <= beeper.randomNumber && beeper.randomNumber < 50) { beeper.passengerTireState = State.FLAT; }
-            else if (50 <= beeper.randomNumber && beeper.randomNumber < 75) { beeper.leftTireState = State.FLAT; }
-            else if (75 <= beeper.randomNumber && beeper.randomNumber <= 100) { beeper.rightTireState = State.FLAT; }
-        }
+        setFlatTire();
         LOGGER.info("total buttons click count: {}", beeper.buttonClicks);
-        if (timerIsRunning) {
-            this.timer.start();
-        }
-        LOGGER.info("End ButtonClicked.mouseClicked().");
+        if (timerIsRunning)
+        { this.timer.start(); }
+        LOGGER.info("End {} mouseClicked.", buttonName);
     }
 
+    /**
+     * Returns the CarBeeper instance
+     * @return the CarBeeper instance
+     */
     public CarBeeper getBeeper() {
         return beeper;
     }
+    /**
+     * Sets the CarBeeper instance
+     * @param beeper the CarBeeper instance to set
+     */
     public void setBeeper(CarBeeper beeper) {
         this.beeper = beeper;
     }
+
+    /**
+     * Returns the Timer instance
+     * @return the Timer instance
+     */
     public Timer getTimer()
     {
         return timer;
     }
+    /**
+     * Sets the Timer instance
+     * @param timer the Timer instance to set
+     */
     public void setTimer(Timer timer)
     {
         this.timer = timer;
     }
+
+    /**
+     * Returns whether the timer is running
+     * @return true if the timer is running, false otherwise
+     */
     public boolean isTimerRunning()
     {
         return timerIsRunning;
     }
+    /**
+     * Sets whether the timer is running
+     * @param timerIsRunning true if the timer should be running, false otherwise
+     */
     public void setTimerIsRunning(boolean timerIsRunning)
     {
         this.timerIsRunning = timerIsRunning;
@@ -210,6 +265,7 @@ public class ButtonClicked extends MouseAdapter
     {
         timer = new Timer(beeper.TIMER_INTERVAL, this::timerAction);
         timer.setRepeats(false);
+        LOGGER.debug("Timer's event set for " + beeper.TIMER_INTERVAL + " seconds.");
     }
 
     /**
@@ -228,13 +284,28 @@ public class ButtonClicked extends MouseAdapter
                 beeper.lock_UnlockAll();
             }
             beeper.printDoorStates();
-            //beeper.singleClick = false;
-            //beeper.doubleClick = false;
             timerIsRunning = false;
-            LOGGER.info("Timer ended for Button.");
+            LOGGER.info("Timer ended for {} button.", buttonName);
         }
         if (!timerIsRunning) {
             timer.stop();
+        }
+    }
+
+    /**
+     * Sets a flat tire based on the random number generated
+     * and the number of button clicks.
+     * If the button clicks match the random number, it sets
+     * one of the tires to flat based on the range of the random number.
+     */
+    private void setFlatTire()
+    {
+        if (beeper.triggerFlatTire()) {
+            if (0 <= beeper.randomNumber && beeper.randomNumber < 25) { beeper.driverTireState = State.FLAT; }
+            else if (25 <= beeper.randomNumber && beeper.randomNumber < 50) { beeper.passengerTireState = State.FLAT; }
+            else if (50 <= beeper.randomNumber && beeper.randomNumber < 75) { beeper.leftTireState = State.FLAT; }
+            else if (75 <= beeper.randomNumber && beeper.randomNumber <= 100) { beeper.rightTireState = State.FLAT; }
+            beeper.printFlatTireState();
         }
     }
 }

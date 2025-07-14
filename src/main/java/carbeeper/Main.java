@@ -4,6 +4,10 @@ import javax.swing.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Main class to launch the CarBeeper application.
+ * It initializes the GUI and sets up the button functionalities.
+ */
 public class Main {
     private final static Logger LOGGER = LogManager.getLogger(Main.class);
     public static void main(String[] args) {

@@ -14,7 +14,8 @@ import java.util.Random;
 import static carbeeper.Constants.*;
 
 /**
- * @author aaron hunter
+ * The CarBeeper class used to simulate an
+ * overloaded car beeper system.
  */
 public class CarBeeper extends JFrame {
     @Serial
@@ -90,12 +91,19 @@ public class CarBeeper extends JFrame {
         setAlarmImage(createImageIcon("images/alarm.jpg", "Alarm image"));
         // Buttons
         setLockButton(new JButton(LOCK, getLockImage()));
+        lockButton.setName(LOCK);
         setFlatTireButton(new JButton(FLAT_TIRE, getFlatTireImage()));
+        flatTireButton.setName(FLAT_TIRE);
         setWindowButton(new JButton(WINDOW, getWindowImage()));
+        windowButton.setName(WINDOW);
         setPowerButton(new JButton(POWER, getPowerImage()));
+        powerButton.setName(POWER);
         setTrunkButton(new JButton(TRUNK, getTrunkImage()));
+        trunkButton.setName(TRUNK);
         setAlarmButton(new JButton(ALARM, getAlarmImage()));
+        alarmButton.setName(ALARM);
         setClearButton(new JButton(CLEAR));
+        clearButton.setName(CLEAR);
         setFlatTireRandomizer();
         addComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -166,12 +174,35 @@ public class CarBeeper extends JFrame {
     }
 
     /**
-     * This method sets the state of the tires to flat or inflated
+     * This method sets a random number between 0 and 100.
+     * When we click the button on the beeper, it will check
+     * if this random number is equal to the click count. If
+     * it is, it will set a tire to flat, depending on the
+     * click count.
      */
-    private void setFlatTireRandomizer()
+    public void setFlatTireRandomizer()
     {
-        LOGGER.debug("Random Number {}", getRandomNumber());
-        setRandomNumber(new Random().nextInt(100));
+        int random = new Random().nextInt(100);
+        while (random != 0) {
+            setRandomNumber(random);
+            LOGGER.info("Random Number {}", getRandomNumber());
+            random = 0;
+            buttonClicks = 0;
+            LOGGER.info("Reset click count to 0");
+        }
+    }
+
+    /**
+     * Triggers a flat tire if the button clicks count matches
+     * the random number generated or if the button clicks count
+     * matches the tenth of the random number.
+     * @return true if the tire should be flat, false otherwise
+     */
+    public boolean triggerFlatTire()
+    {
+        boolean b1 = buttonClicks == randomNumber;
+        boolean b2 = randomNumber > 10 && buttonClicks == randomNumber / 10;
+        return b1 || b2;
     }
 
     /**
@@ -180,13 +211,13 @@ public class CarBeeper extends JFrame {
     protected void setButtonFunctionalities()
     {
         LOGGER.debug("Setting up all button functionalities....");
-        powerButton.addMouseListener(new ButtonClicked(this) {});
-        trunkButton.addMouseListener(new ButtonClicked(this) {});
-        alarmButton.addMouseListener(new ButtonClicked(this) {});
-        lockButton.addMouseListener (new ButtonClicked(this) {});
-        clearButton.addMouseListener(new ButtonClicked(this) {});
-        flatTireButton.addMouseListener(new ButtonClicked(this) {});
-        windowButton.addMouseListener(new WindowButtonHandler(this) {});
+        powerButton.addMouseListener(new ButtonClicked(this).withButton(powerButton));
+        trunkButton.addMouseListener(new ButtonClicked(this).withButton(trunkButton));
+        alarmButton.addMouseListener(new ButtonClicked(this).withButton(alarmButton));
+        lockButton.addMouseListener (new ButtonClicked(this).withButton(lockButton));
+        clearButton.addMouseListener(new ButtonClicked(this).withButton(clearButton));
+        flatTireButton.addMouseListener(new ButtonClicked(this).withButton(flatTireButton));
+        windowButton.addMouseListener(new WindowButtonHandler(this).withButton(windowButton));
         LOGGER.info("Button functionalities are all set up.");
         // Only show the beeper once button functionalities are set
         setVisible(true);
@@ -206,7 +237,9 @@ public class CarBeeper extends JFrame {
         addComponent(getTrunkButton(), 2, 2, 1, 1); // row, column, size, size
         addComponent(getAlarmButton(), 2, 3, 1, 1); // row, column, size, size
         addComponent(getClearButton(), 6, 2, 1, 1); // row, column, size, size
-        addComponent(new JScrollPane(getTextArea()), 5, 1, 3, 1); // row, column, size, size
+        JScrollPane scrollPane = new JScrollPane(getTextArea());
+        scrollPane.setName("scrollPane");
+        addComponent(scrollPane, 5, 1, 3, 1); // row, column, size, size
         LOGGER.info("All components added.");
     }
 
@@ -939,6 +972,39 @@ public class CarBeeper extends JFrame {
         LOGGER.info("Car is {}", powerState);
         LOGGER.info("----- End Car State -----");
         textArea.append("Car is " + powerState + "\n");
+    }
+
+    /**
+     * Prints the current state of the flat tire
+     */
+    public void printFlatTireState()
+    {
+        LOGGER.info("----- There is a flat tire -----");
+        if (isAnyTireFlat()) {
+            if (driverTireState == State.FLAT)
+            {
+                textArea.append("The car's master tire is " + State.FLAT + "\n");
+                getDriverTireState();
+            }
+            else if (passengerTireState == State.FLAT)
+            {
+                textArea.append("The car's passenger tire is " + State.FLAT + "\n");
+                getPassengerTireState();
+            }
+            else if (leftTireState == State.FLAT)
+            {
+                textArea.append("The car's left rear tire is " + State.FLAT + "\n");
+                getLeftTireState();
+            }
+            else if (rightTireState == State.FLAT)
+            {
+                textArea.append("The car's right rear tire is " + State.FLAT + "\n");
+                getRightTireState();
+            }
+        } else {
+            LOGGER.info("No tires are flat.");
+            textArea.append("No tires are flat.\n");
+        }
     }
 
     /**

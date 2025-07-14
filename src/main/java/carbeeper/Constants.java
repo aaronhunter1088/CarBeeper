@@ -1,5 +1,8 @@
 package carbeeper;
 
+/**
+ * Constants used in the CarBeeper application.
+ */
 public class Constants {
 
     public static final String LOCK = "Lock";

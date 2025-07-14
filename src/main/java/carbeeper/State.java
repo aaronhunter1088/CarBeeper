@@ -1,8 +1,8 @@
 package carbeeper;
 
 /**
- * State   an Enum used to set the state of the properties of the Car Beeper
- * @author aaron hunter
+ * Enum used to set the state of
+ * the properties of the Car Beeper
  */
 public enum State {
     // for power and alarm
@@ -14,5 +14,5 @@ public enum State {
     // for windows
     UP, DOWN,
     // for tires
-    FLAT, INFLATED;
+    FLAT, INFLATED
 }
