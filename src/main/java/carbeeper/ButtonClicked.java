@@ -24,7 +24,7 @@ public class ButtonClicked extends MouseAdapter
 {
     protected final Logger LOGGER = LogManager.getLogger(ButtonClicked.class);
     protected Timer timer;
-    protected boolean timerIsRunning = false;
+    private boolean timerIsRunning;
     protected CarBeeper beeper;
     private JButton button;
     private String buttonName;
@@ -40,6 +40,11 @@ public class ButtonClicked extends MouseAdapter
         createTimer();
     }
 
+    /**
+     * Sets the button for this ButtonClicked instance.
+     * @param button the JButton to set
+     * @return this ButtonClicked instance for method chaining
+     */
     public ButtonClicked withButton(JButton button)
     {
         this.button = button;
@@ -90,7 +95,7 @@ public class ButtonClicked extends MouseAdapter
                 beeper.singleClick = true;
                 beeper.doubleClick = false;
             }
-            timerIsRunning = true;
+            setTimerIsRunning(true);
             LOGGER.info("Timer for Lock Button started.");
         }
         else if (button == beeper.alarmButton)
@@ -203,24 +208,9 @@ public class ButtonClicked extends MouseAdapter
         beeper.buttonClicks += 1;
         setFlatTire();
         LOGGER.info("total buttons click count: {}", beeper.buttonClicks);
-        if (timerIsRunning)
+        if (isTimerRunning())
         { this.timer.start(); }
         LOGGER.info("End {} mouseClicked.", buttonName);
-    }
-
-    /**
-     * Returns the CarBeeper instance
-     * @return the CarBeeper instance
-     */
-    public CarBeeper getBeeper() {
-        return beeper;
-    }
-    /**
-     * Sets the CarBeeper instance
-     * @param beeper the CarBeeper instance to set
-     */
-    public void setBeeper(CarBeeper beeper) {
-        this.beeper = beeper;
     }
 
     /**
@@ -228,34 +218,26 @@ public class ButtonClicked extends MouseAdapter
      * @return the Timer instance
      */
     public Timer getTimer()
-    {
-        return timer;
-    }
+    { return timer; }
     /**
      * Sets the Timer instance
      * @param timer the Timer instance to set
      */
     public void setTimer(Timer timer)
-    {
-        this.timer = timer;
-    }
+    { this.timer = timer; }
 
     /**
      * Returns whether the timer is running
      * @return true if the timer is running, false otherwise
      */
     public boolean isTimerRunning()
-    {
-        return timerIsRunning;
-    }
+    { return timerIsRunning; }
     /**
      * Sets whether the timer is running
      * @param timerIsRunning true if the timer should be running, false otherwise
      */
     public void setTimerIsRunning(boolean timerIsRunning)
-    {
-        this.timerIsRunning = timerIsRunning;
-    }
+    { this.timerIsRunning = timerIsRunning; }
 
     /**
      * Creates a timer that will be
@@ -274,7 +256,7 @@ public class ButtonClicked extends MouseAdapter
      */
     protected void timerAction(ActionEvent ae)
     {
-        if (timerIsRunning) {
+        if (isTimerRunning()) {
             if (beeper.singleClick) {
                 LOGGER.info("Single click");
                 beeper.lock_Unlock();
@@ -284,10 +266,10 @@ public class ButtonClicked extends MouseAdapter
                 beeper.lock_UnlockAll();
             }
             beeper.printDoorStates();
-            timerIsRunning = false;
+            setTimerIsRunning(false);
             LOGGER.info("Timer ended for {} button.", buttonName);
         }
-        if (!timerIsRunning) {
+        if (!isTimerRunning()) {
             timer.stop();
         }
     }

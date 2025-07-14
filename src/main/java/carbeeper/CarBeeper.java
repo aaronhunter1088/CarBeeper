@@ -217,7 +217,7 @@ public class CarBeeper extends JFrame {
         lockButton.addMouseListener (new ButtonClicked(this).withButton(lockButton));
         clearButton.addMouseListener(new ButtonClicked(this).withButton(clearButton));
         flatTireButton.addMouseListener(new ButtonClicked(this).withButton(flatTireButton));
-        windowButton.addMouseListener(new WindowButtonHandler(this).withButton(windowButton));
+        windowButton.addMouseListener(new WindowButtonHandler(this));
         LOGGER.info("Button functionalities are all set up.");
         // Only show the beeper once button functionalities are set
         setVisible(true);
@@ -653,15 +653,18 @@ public class CarBeeper extends JFrame {
     protected void setRightWindowState(State rightWindowState) {
         this.rightWindowState = rightWindowState;
     }
-    /** This method is used for setting the car's power state
+    /**
+     * This method is used for setting the car's power state
      * @param powerState the state of the car's power
      */
     protected void setPowerState(State powerState) { this.powerState = powerState; }
-    /** This method is used for setting the car's trunk state
+    /**
+     * This method is used for setting the car's trunk state
      * @param trunkState the state of the car's trunk
      */
     protected void setTrunkState(State trunkState) { this.trunkState = trunkState; }
-    /** This method is used for setting the car's alarm state
+    /**
+     * This method is used for setting the car's alarm state
      * @param alarmState the state of the car's alarm
      */
     protected void setAlarmState(State alarmState) { this.alarmState = alarmState; }
@@ -727,22 +730,27 @@ public class CarBeeper extends JFrame {
     }
     /**
      * This method sets the flat tire button
+     * @param flatTireButton the flat tire button
      */
     public void setFlatTireButton(JButton flatTireButton) { this.flatTireButton = flatTireButton; }
-    /** This method sets the lock icon
+    /**
+     * This method sets the lock icon
      * @param icon sets the lock icon for the lock button
      */
     protected void setLockImage(ImageIcon icon) { lockImage = icon; }
-    /** This method sets the window icon
+    /**
+     * This method sets the window icon
      * @param icon sets the window icon for the window button
      */
     protected void setWindowImage(ImageIcon icon) { windowImage = icon; }
     /**
      * This method sets the lock icon for the lock button
+     * @param icon the icon to set for the lock button
      */
     protected void setPowerImage(ImageIcon icon) { powerImage = icon; }
     /**
      * This method sets the trunk icon for the trunk button
+     * @param icon the icon to set for the trunk button
      */
     protected void setTrunkImage(ImageIcon icon) { trunkImage = icon; }
     /** This method sets the alarm icon
@@ -751,9 +759,13 @@ public class CarBeeper extends JFrame {
     protected void setAlarmImage(ImageIcon icon) { alarmImage = icon; }
     /**
      * This method sets the flat tire icon for the flat tire button
+     * @param icon the icon to set for the flat tire button
      */
     protected void setFlatTireImage(ImageIcon icon) { flatTireImage = icon; }
-    /** Sets the layout for the car beeper */
+    /**
+     * Sets the layout for the car beeper
+     * @param layout the layout to set for the car beeper
+     */
     protected void setThisLayout(GridBagLayout layout) { setLayout(layout); this.layout = layout; }
     /** Sets the constraints for the car beeper
      * @param constraints the constraints to set on the component
@@ -769,45 +781,60 @@ public class CarBeeper extends JFrame {
     }
     /**
      * Set wasHeld
+     * @param wasHeld true if the button was held, false otherwise
      */
     protected void setWasHeld(boolean wasHeld) {
         this.wasHeld = wasHeld;
     }
     /**
      * Set holding
+     * @param holding true if the button is being held, false otherwise
      */
     protected void setHolding(boolean holding) {
         this.holding = holding;
     }
     /**
      * Set singleClick
+     * @param singleClick true if the button was single clicked, false otherwise
      */
     protected void setSingleClick(boolean singleClick) {
         this.singleClick = singleClick;
     }
     /**
      * Set doubleClick
+     * @param doubleClick true if the button was double clicked, false otherwise
      */
     protected void setDoubleClick(boolean doubleClick) {
         this.doubleClick = doubleClick;
     }
     /**
      * Set windowStatesPrinted
+     * @param windowStatesPrinted true if the window states have been printed, false otherwise
      */
     protected void setWindowStatesPrinted(boolean windowStatesPrinted) {
         this.windowStatesPrinted = windowStatesPrinted;
     }
     /**
      * Set beingHeldTimer
+     * @param beingHeldTimer the timer to set for being held
      */
     protected void setBeingHeldTimer(int beingHeldTimer) {
         this.beingHeldTimer = beingHeldTimer;
     }
     /**
      * Set counter2
+     * @param counter2 the counter2 to set
      */
     protected void setCounter2(int counter2) {
         this.counter2 = counter2;
+    }
+
+    /**
+     * Sets the number of button clicks
+     * @param buttonClicks the number of button clicks
+     */
+    protected void setButtonClicks(int buttonClicks) {
+        this.buttonClicks = buttonClicks;
     }
 
     // Helper methods
@@ -979,11 +1006,11 @@ public class CarBeeper extends JFrame {
      */
     public void printFlatTireState()
     {
-        LOGGER.info("----- There is a flat tire -----");
         if (isAnyTireFlat()) {
+            LOGGER.info("----- There is a flat tire -----");
             if (driverTireState == State.FLAT)
             {
-                textArea.append("The car's master tire is " + State.FLAT + "\n");
+                textArea.append("The car's driver tire is " + State.FLAT + "\n");
                 getDriverTireState();
             }
             else if (passengerTireState == State.FLAT)
@@ -1001,7 +1028,8 @@ public class CarBeeper extends JFrame {
                 textArea.append("The car's right rear tire is " + State.FLAT + "\n");
                 getRightTireState();
             }
-        } else {
+        }
+        else {
             LOGGER.info("No tires are flat.");
             textArea.append("No tires are flat.\n");
         }
@@ -1017,6 +1045,10 @@ public class CarBeeper extends JFrame {
         textArea.append("Passenger Door is " + getPassengerDoorLockState() + ".\n");
         textArea.append("Left Door is " + getLeftDoorLockState() + ".\n");
         textArea.append("Right Door is " + getRightDoorLockState() + ".\n");
+        textArea.append("Driver Tire is " + getDriverTireState() + ".\n");
+        textArea.append("Passenger Tire is " + getPassengerTireState() + ".\n");
+        textArea.append("Left Tire is " + getLeftTireState() + ".\n");
+        textArea.append("Right Tire is " + getRightTireState() + ".\n");
         textArea.append("Driver Window is " + getDriverWindowState() + ".\n");
         textArea.append("Passenger Window is " + getPassengerWindowState() + ".\n");
         textArea.append("Left Window is " + getLeftWindowState() + ".\n");

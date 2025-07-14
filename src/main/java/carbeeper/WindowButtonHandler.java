@@ -25,7 +25,6 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
     protected final Timer timer;
     protected final Timer beingHeld;
     protected int clicks = 0;
-    private JButton button;
     private String buttonName;
     private final CarBeeper carBeeper;
 
@@ -41,15 +40,8 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
         this.carBeeper.setDoubleClick(false);
         timer = new Timer(carBeeper.TIMER_INTERVAL, this);
         beingHeld = new Timer(250, this::beingHeldAction);
+        this.buttonName = carBeeper.getWindowButton().getName();
         LOGGER.info("End WindowButtonHandler constructor");
-    }
-
-    public WindowButtonHandler withButton(JButton button)
-    {
-        this.button = button;
-        this.buttonName = this.button.getText();
-        LOGGER.debug("Created WindowButtonHandler for {} Button.", buttonName);
-        return this;
     }
 
     @Override
@@ -63,10 +55,10 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
         LOGGER.debug("Leaving {} Button.", buttonName);
     }
     @Override
-    public void mousePressed(MouseEvent e)
+    public void mousePressed(MouseEvent me)
     {
         LOGGER.info("Inside {} mousePressed.", buttonName);
-        if (e.getClickCount() == 1) {
+        if (me.getClickCount() == 1) {
             LOGGER.info("Start beingHeld timer for singleClick.");
             beingHeld.start();
             carBeeper.setSingleClick(true);
@@ -152,13 +144,13 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
     @Override
     public void actionPerformed(ActionEvent ae)
     {
-        LOGGER.info("Running actionPerformed...");
+        LOGGER.info("Running {} actionPerformed...", buttonName);
         LOGGER.info("Timer for Window Button stopped.");
         if (timer.isRunning()) {
             timer.stop();
         }
         LOGGER.info("holding = {} | singleClick = {}",carBeeper.holding , carBeeper.singleClick);
-        if (carBeeper.holding && !carBeeper.singleClick)
+        if (carBeeper.holding && carBeeper.singleClick)
         {
             if (carBeeper.wasHeld)
             {
@@ -181,7 +173,7 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
         {
             if (carBeeper.wasHeld)
             { // held on last round, clicked this round (reversing states and button logic)
-                LOGGER.info("We single click and held last time.");
+                LOGGER.info("We double clicked and held last time.");
                 //windowUp_Down();
                 carBeeper.getWindowStates(1, 0);
                 carBeeper.wasHeld = false;
@@ -189,7 +181,7 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
             }
             else
             { // not holding this round (click) and didn't hold last round (click)
-                LOGGER.info("We single clicked and didn't hold it this time.");
+                LOGGER.info("We double clicked and didn't hold it this time.");
                 carBeeper.windowUp_Down();
                 carBeeper.getWindowStates(1, carBeeper.counter2);
                 carBeeper.holding = false;
