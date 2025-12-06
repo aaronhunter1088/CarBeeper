@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static java.lang.Thread.sleep;
+
 /**
  * ButtonClicked class handles mouse events
  * for buttons in the CarBeeper application.
@@ -144,10 +146,21 @@ public class ButtonClicked extends MouseAdapter
             if (me.getClickCount() == 1) {
                 beeper.setSingleClick(true);
                 beeper.setDoubleClick(false);
+            }
+            else {
+                beeper.setSingleClick(false);
+                beeper.setDoubleClick(true);
+            }
+            // TODO: Fix. Not as smooth as it could be
+            if (beeper.isAnyTireFlat()) {
                 if (beeper.driverTireState == State.FLAT)
                 {
                     beeper.textArea.append("The car's driver tire is flat. Raising hydraulic press" +
                             " for master tire\n");
+                    beeper.getDriverTireState();
+                    try { sleep(3000); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+                    beeper.textArea.append("The car's driver tire is fixed\n");
+                    beeper.driverTireState = State.INFLATED;
                     beeper.getDriverTireState();
                 }
                 else if (beeper.passengerTireState == State.FLAT)
@@ -155,57 +168,35 @@ public class ButtonClicked extends MouseAdapter
                     beeper.textArea.append("The car's passenger tire is flat. Raising hydraulic press" +
                             " for passenger tire\n");
                     beeper.getPassengerTireState();
+                    try { sleep(3000); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+                    beeper.textArea.append("The car's passenger tire is fixed\n");
+                    beeper.passengerTireState = State.INFLATED;
+                    beeper.getPassengerTireState();
                 }
                 else if (beeper.leftTireState == State.FLAT)
                 {
                     beeper.textArea.append("The car's left tire is flat. Raising hydraulic press" +
                             " for left tire\n");
                     beeper.getLeftTireState();
+                    try { sleep(3000); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+                    beeper.textArea.append("The car's left tire is fixed\n");
+                    beeper.leftTireState = State.INFLATED;
+                    beeper.getLeftTireState();
                 }
-                else if (beeper.rightTireState == State.FLAT)
+                else // if (beeper.rightTireState == State.FLAT)
                 {
                     beeper.textArea.append("The car's right tire is flat. Raising hydraulic press" +
                             " for right tire\n");
                     beeper.getRightTireState();
+                    try { sleep(3000); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+                    beeper.textArea.append("The car's right tire is fixed\n");
+                    beeper.rightTireState = State.INFLATED;
+                    beeper.getRightTireState();
                 }
-                else
-                {
-                    beeper.textArea.append("The tires are all " + State.INFLATED + "\n");
-                }
+                beeper.setFlatTireRandomizer();
             }
             else {
-                beeper.setSingleClick(false);
-                beeper.setDoubleClick(true);
-                if (beeper.isAnyTireFlat()) {
-                    if (beeper.driverTireState == State.FLAT)
-                    {
-                        beeper.textArea.append("The car's driver tire is fixed\n");
-                        beeper.driverTireState = State.INFLATED;
-                        beeper.getDriverTireState();
-                    }
-                    else if (beeper.passengerTireState == State.FLAT)
-                    {
-                        beeper.textArea.append("The car's passenger tire is fixed\n");
-                        beeper.passengerTireState = State.INFLATED;
-                        beeper.getPassengerTireState();
-                    }
-                    else if (beeper.leftTireState == State.FLAT)
-                    {
-                        beeper.textArea.append("The car's left tire is fixed\n");
-                        beeper.leftTireState = State.INFLATED;
-                        beeper.getLeftTireState();
-                    }
-                    else // if (beeper.rightTireState == State.FLAT)
-                    {
-                        beeper.textArea.append("The car's right tire is fixed\n");
-                        beeper.rightTireState = State.INFLATED;
-                        beeper.getRightTireState();
-                    }
-                    beeper.setFlatTireRandomizer();
-                }
-                else {
-                    LOGGER.info("No tire is flat");
-                }
+                LOGGER.info("No tire is flat");
             }
         }
         beeper.buttonClicks += 1;

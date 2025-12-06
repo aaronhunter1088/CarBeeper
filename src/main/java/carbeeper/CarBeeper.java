@@ -185,11 +185,9 @@ public class CarBeeper extends JFrame {
      */
     public void setFlatTireRandomizer()
     {
-        int random = new Random().nextInt(100);
-        while (random != 0) {
-            setRandomNumber(random);
+        while (getRandomNumber() == 0) {
+            setRandomNumber(new Random().nextInt(100));
             LOGGER.info("Random Number {}", getRandomNumber());
-            random = 0;
             buttonClicks = 0;
             LOGGER.info("Reset click count to 0");
         }
@@ -204,6 +202,7 @@ public class CarBeeper extends JFrame {
     public boolean triggerFlatTire()
     {
         boolean b1 = buttonClicks == randomNumber;
+        // prevents it from being unnecessarily high to trigger a flat tire
         boolean b2 = randomNumber > 10 && buttonClicks == randomNumber / 10;
         return b1 || b2;
     }
