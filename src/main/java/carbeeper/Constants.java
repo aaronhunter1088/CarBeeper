@@ -2,6 +2,9 @@ package carbeeper;
 
 /**
  * Constants used in the CarBeeper application.
+ *
+ * @author michael ball
+ * @version since 2.3
  */
 public class Constants {
 

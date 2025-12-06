@@ -18,6 +18,9 @@ import java.awt.event.MouseEvent;
  * Inside mouseClicked...
  * Inside actionPerformed...
  * Inside mouseExited...
+ *
+ * @author michael ball
+ * @version since 2.3
  */
 public class WindowButtonHandler extends MouseAdapter implements ActionListener
 {
@@ -25,7 +28,7 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
     protected final Timer timer;
     protected final Timer beingHeld;
     protected int clicks = 0;
-    private String buttonName;
+    private final String buttonName;
     private final CarBeeper carBeeper;
 
     /**
@@ -109,7 +112,8 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
             else
             {
                 if (carBeeper.wasHeld)
-                { // held on last round, clicked this round (reversing states and button logic)
+                {
+                    // held on last round, clicked this round (reversing states and button logic)
                     LOGGER.info("We double clicked and held last time...");
                     carBeeper.getWindowStates(2, 0);
 
@@ -119,7 +123,8 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
                     // if not holding (clicked) but wasHeld previously (true) (and previous click was a singleClick (true))
                 }
                 else
-                { // not holding this round (click) and didn't hold last round (click)
+                {
+                    // not holding this round (click) and didn't hold last round (click)
                     LOGGER.info("We double clicked but didn't hold this time.");
                     carBeeper.windowUp_DownAll();
                     carBeeper.getWindowStates(2, carBeeper.counter2);
@@ -157,7 +162,6 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
                 LOGGER.info("We single click and held last time.");
                 carBeeper.getWindowStates(1, carBeeper.counter2);
                 carBeeper.holding = false;
-                carBeeper.windowStatesPrinted = false;
             }
             else
             {
@@ -188,7 +192,6 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
             }
             carBeeper.beingHeldTimer = 0;
             carBeeper.counter2 = 0;
-            carBeeper.windowStatesPrinted = false;
         }
         LOGGER.info("actionPerformed finished.");
     }
@@ -210,14 +213,10 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
         }
         else if (carBeeper.beingHeldTimer > 3 && !carBeeper.windowStatesPrinted)
         {
-            if (carBeeper.counter2 < 10)
-                carBeeper.textArea.setText(carBeeper.textArea.getText().substring(0, carBeeper.textArea.getText().length()-26) + ++carBeeper.counter2 + " Window button held: yes\n");
-            else if (carBeeper.counter2 <= 100) {
-                carBeeper.textArea.setText(carBeeper.textArea.getText().substring(0, carBeeper.textArea.getText().length()-27) + ++carBeeper.counter2 + " Window button held: yes\n");
-            }
-            else {
-                LOGGER.error("counter2: {} shouldn't go any higher than 100.", carBeeper.counter2);
-            }
+            String current = carBeeper.textArea.getText();
+            current = current.substring(0, current.length() - (carBeeper.counter2 + " Window button held: yes\n").length());
+            carBeeper.textArea.setText(current +
+                    ++carBeeper.counter2 + " Window button held: yes\n");
             LOGGER.info(carBeeper.counter2 + " Timer is being held.");
             carBeeper.setHolding(true);
             carBeeper.beingHeldTimer++;
@@ -225,18 +224,16 @@ public class WindowButtonHandler extends MouseAdapter implements ActionListener
         else if (carBeeper.beingHeldTimer > 3 && carBeeper.windowStatesPrinted)
         {
             // or maybe other states have been printed, we just need the entire text area
-            if (carBeeper.counter2 < 10) {
-                String temp = carBeeper.textArea.getText(); //.substring(0, textArea.getText().length()-26);
-                carBeeper.textArea.setText(temp + ++carBeeper.counter2 + " Window button held: yes\n");
-            }
-            else if (carBeeper.counter2 <= 100) {
-                carBeeper.textArea.setText(carBeeper.textArea.getText() + ++carBeeper.counter2 + " Window button held: yes\n");
+            if (carBeeper.counter2 < 101) {
+                String current = carBeeper.textArea.getText();
+                carBeeper.textArea.setText(current +
+                        ++carBeeper.counter2 + " Window button held: yes\n");
+                carBeeper.windowStatesPrinted = false; // KEEP!
             }
             else {
                 LOGGER.error("counter2: {} shouldn't go any higher than 100.", carBeeper.counter2);
             }
             LOGGER.info("{} Timer is being held.", carBeeper.counter2);
-            carBeeper.setWindowStatesPrinted(false);
             carBeeper.setHolding(true);
             carBeeper.beingHeldTimer++;
         }

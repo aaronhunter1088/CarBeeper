@@ -19,6 +19,9 @@ import java.awt.event.MouseEvent;
  * Inside mouseClicked...
  * Inside actionPerformed (for lock button only)
  * Inside mouseExited...
+ *
+ * @author michael ball
+ * @version since 2.0
  */
 public class ButtonClicked extends MouseAdapter
 {

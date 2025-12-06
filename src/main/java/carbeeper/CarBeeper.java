@@ -16,6 +16,9 @@ import static carbeeper.Constants.*;
 /**
  * The CarBeeper class used to simulate an
  * overloaded car beeper system.
+ *
+ * @author michael ball
+ * @version since 1.0
  */
 public class CarBeeper extends JFrame {
     @Serial
@@ -342,6 +345,7 @@ public class CarBeeper extends JFrame {
         else { // clicks == 2 && windowCounter > 0
             printWindowStates(clicks, windowCounter);
         }
+        windowStatesPrinted = true;
     }
     /**
      * This method returns the states of all the windows
@@ -931,27 +935,23 @@ public class CarBeeper extends JFrame {
      */
     public void printWindowStates(int clicks, int windowCounter)
     {
-        if ((clicks == 1 || clicks == 2) && windowCounter == 0)
+        LOGGER.info("----- Window States -----");
+        String state = "\n";
+        if (windowCounter == 0)
         {
-            LOGGER.info("----- Window States -----");
-            LOGGER.info("Driver Window: {}", driverWindowState);
-            LOGGER.info("Passenger Window: {}", passengerWindowState);
-            LOGGER.info("Back Left Window: {}", leftWindowState);
-            LOGGER.info("Back Right Window: {}", rightWindowState);
-            LOGGER.info("----- End Window States -----");
-            textArea.append("\nDriver window is " + driverWindowState + "\n");
-            textArea.append("Passenger window is " + passengerWindowState + "\n");
-            textArea.append("Left window is " + leftWindowState + "\n");
-            textArea.append("Right window is " + rightWindowState + "\n");
+            state += "Driver Window: " + driverWindowState + "\n";
+            state += "Passenger Window: " + passengerWindowState + "\n";
+            state += "Back Left Window: " + leftWindowState + "\n";
+            state += "Back Right Window: " + rightWindowState + "\n";
+            LOGGER.info(state);
+            textArea.append(state);
         }
         else if (clicks == 1 && windowCounter > 0)
         {
-            LOGGER.info("----- Window States -----");
             LOGGER.info("Driver Window is {}% {}", windowCounter, driverWindowState);
             LOGGER.info("Passenger Window: {}", passengerWindowState);
             LOGGER.info("Back Left Window: {}", leftWindowState);
             LOGGER.info("Back Right Window: {}", rightWindowState);
-            LOGGER.info("----- End Window States -----");
             textArea.append("\nDriver window is " + windowCounter + "% " + driverWindowState + "\n");
             textArea.append("Passenger window is " + passengerWindowState + "\n");
             textArea.append("Left window is " + leftWindowState + "\n");
@@ -959,18 +959,18 @@ public class CarBeeper extends JFrame {
         }
         else
         {
-            LOGGER.info("----- Window States -----");
             LOGGER.info("Driver Window is {}% {}", windowCounter, driverWindowState);
             LOGGER.info("Passenger Window is {}% {}", windowCounter, passengerWindowState);
             LOGGER.info("Back Left Window is {}% {}", windowCounter, leftWindowState);
             LOGGER.info("Back Right Window is {}% {}", windowCounter,  rightWindowState);
-            LOGGER.info("----- End Window States -----");
+
             textArea.append("\nDriver window is " + windowCounter + "% " + driverWindowState + "\n");
             textArea.append("Passenger window is " + windowCounter + "% " + passengerWindowState + "\n");
             textArea.append("Left window is " + windowCounter + "% " + leftWindowState + "\n");
             textArea.append("Right window is " + windowCounter + "% " + rightWindowState + "\n");
         }
         windowStatesPrinted = true;
+        LOGGER.info("----- End Window States -----");
     }
 
     /**
@@ -979,15 +979,15 @@ public class CarBeeper extends JFrame {
     public void printDoorStates()
     {
         LOGGER.info("----- Door States -----");
-        LOGGER.info("Driver door lock: {}", driverDoorLockState);
-        LOGGER.info("Passenger door lock: {}", passengerDoorLockState);
-        LOGGER.info("Back Left door lock: {}", leftDoorLockState);
-        LOGGER.info("Back Right doorLock: {}", rightDoorLockState);
+        LOGGER.info("Driver door is {}", driverDoorLockState);
+        LOGGER.info("Passenger door is {}", passengerDoorLockState);
+        LOGGER.info("Back Left door is {}", leftDoorLockState);
+        LOGGER.info("Back Right is {}", rightDoorLockState);
         LOGGER.info("----- End Door States -----");
-        textArea.append("\nDriver Door lock is " + driverDoorLockState + "\n");
-        textArea.append("Passenger Door lock is " + passengerDoorLockState + "\n");
-        textArea.append("Left Door lock is " + leftDoorLockState + "\n");
-        textArea.append("Right Door lock is " + rightDoorLockState + "\n");
+        textArea.append("\nDriver Door is " + driverDoorLockState + "\n");
+        textArea.append("Passenger Door is " + passengerDoorLockState + "\n");
+        textArea.append("Left Door is " + leftDoorLockState + "\n");
+        textArea.append("Right Door is " + rightDoorLockState + "\n");
     }
 
     /**
@@ -1041,24 +1041,26 @@ public class CarBeeper extends JFrame {
      */
     public void updateAllStatesInTextArea()
     {
+        /* LOCKED */
         textArea.append("Driver Door is " + getDriverDoorLockState() + ".\n");
         textArea.append("Passenger Door is " + getPassengerDoorLockState() + ".\n");
         textArea.append("Left Door is " + getLeftDoorLockState() + ".\n");
         textArea.append("Right Door is " + getRightDoorLockState() + ".\n");
+        /* TIRE INFLATED */
         textArea.append("Driver Tire is " + getDriverTireState() + ".\n");
         textArea.append("Passenger Tire is " + getPassengerTireState() + ".\n");
         textArea.append("Left Tire is " + getLeftTireState() + ".\n");
         textArea.append("Right Tire is " + getRightTireState() + ".\n");
+        /* WINDOWS */
         textArea.append("Driver Window is " + getDriverWindowState() + ".\n");
         textArea.append("Passenger Window is " + getPassengerWindowState() + ".\n");
         textArea.append("Left Window is " + getLeftWindowState() + ".\n");
         textArea.append("Right Window is " + getRightWindowState() + ".\n");
+        /* POWER */
         textArea.append("Car is " + getPowerState() + ".\n");
+        /* TRUNK */
         textArea.append("Trunk is " + getTrunkState() + ".\n");
+        /* ALARM */
         textArea.append("Alarm is " + getAlarmState() + ".\n");
-        textArea.append("Driver Tire is " + getDriverTireState() + ".\n");
-        textArea.append("Passenger Tire is " + getPassengerTireState() + ".\n");
-        textArea.append("Left Tire is " + getLeftTireState() + ".\n");
-        textArea.append("Right Tire is " + getRightTireState() + ".\n");
     }
 }
