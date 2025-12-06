@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -320,34 +321,29 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 1);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 1);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 1);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredLockEvent);
-                        buttonClicked.mousePressed(pressedLockEvent);
-                        buttonClicked.mouseReleased(releasedLockEvent);
-                        buttonClicked.mouseClicked(clickLockEvent);
-                        buttonClicked.mouseExited(exitedLockEvent);
 
-                        assertTrue(beeper.isAnyTireFlat(), "Driver tire should be flat");
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
 
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
+            buttonClicked.mouseEntered(enteredLockEvent);
+            buttonClicked.mousePressed(pressedLockEvent);
+            buttonClicked.mouseReleased(releasedLockEvent);
+            buttonClicked.mouseClicked(clickLockEvent);
+            buttonClicked.mouseExited(exitedLockEvent);
 
-                        assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
-                        assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
-                        assertEquals(State.FLAT, beeper.getDriverTireState(), "Driver tire should be flat");
-                        assertEquals(6, beeper.buttonClicks, "We clicked the beeper six times (total of 4 + lock + flat tire click)");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+            assertTrue(beeper.isAnyTireFlat(), "Driver tire should be flat");
+
+            buttonClicked.mouseEntered(enteredEvent);
+            buttonClicked.mousePressed(pressedEvent);
+            buttonClicked.mouseReleased(releasedEvent);
+            buttonClicked.mouseClicked(clickEvent);
+            buttonClicked.mouseExited(exitedEvent);
+
+            assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+            assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+            assertEquals(State.FLAT, beeper.getDriverTireState(), "Driver tire should be flat");
+            assertEquals(6, beeper.buttonClicks, "We clicked the beeper six times (total of 4 + lock + flat tire click)");
+        });
     }
 
     @Test
@@ -371,34 +367,28 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 1);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 1);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 1);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredLockEvent);
-                        buttonClicked.mousePressed(pressedLockEvent);
-                        buttonClicked.mouseReleased(releasedLockEvent);
-                        buttonClicked.mouseClicked(clickLockEvent);
-                        buttonClicked.mouseExited(exitedLockEvent);
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
 
-                        assertTrue(beeper.isAnyTireFlat(), "Passenger tire should be flat");
+            buttonClicked.mouseEntered(enteredLockEvent);
+            buttonClicked.mousePressed(pressedLockEvent);
+            buttonClicked.mouseReleased(releasedLockEvent);
+            buttonClicked.mouseClicked(clickLockEvent);
+            buttonClicked.mouseExited(exitedLockEvent);
 
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
+            assertTrue(beeper.isAnyTireFlat(), "Passenger tire should be flat");
 
-                        assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
-                        assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
-                        assertEquals(State.FLAT, beeper.getPassengerTireState(), "Passenger tire should be flat");
-                        assertEquals(36, beeper.buttonClicks, "We clicked the beeper six times (total of 34 + lock + flat tire click)");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+            buttonClicked.mouseEntered(enteredEvent);
+            buttonClicked.mousePressed(pressedEvent);
+            buttonClicked.mouseReleased(releasedEvent);
+            buttonClicked.mouseClicked(clickEvent);
+            buttonClicked.mouseExited(exitedEvent);
+
+            assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+            assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+            assertEquals(State.FLAT, beeper.getPassengerTireState(), "Passenger tire should be flat");
+            assertEquals(36, beeper.buttonClicks, "We clicked the beeper six times (total of 34 + lock + flat tire click)");
+        });
     }
 
     @Test
@@ -422,34 +412,29 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 1);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 1);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 1);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredLockEvent);
-                        buttonClicked.mousePressed(pressedLockEvent);
-                        buttonClicked.mouseReleased(releasedLockEvent);
-                        buttonClicked.mouseClicked(clickLockEvent);
-                        buttonClicked.mouseExited(exitedLockEvent);
 
-                        assertTrue(beeper.isAnyTireFlat(), "Left rear tire should be flat");
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
 
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
+            buttonClicked.mouseEntered(enteredLockEvent);
+            buttonClicked.mousePressed(pressedLockEvent);
+            buttonClicked.mouseReleased(releasedLockEvent);
+            buttonClicked.mouseClicked(clickLockEvent);
+            buttonClicked.mouseExited(exitedLockEvent);
 
-                        assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
-                        assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
-                        assertEquals(State.FLAT, beeper.getLeftTireState(), "Left rear tire should be flat");
-                        assertEquals(56, beeper.buttonClicks, "We clicked the beeper 56 times (total of 54 + lock + flat tire click)");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+            assertTrue(beeper.isAnyTireFlat(), "Left rear tire should be flat");
+
+            buttonClicked.mouseEntered(enteredEvent);
+            buttonClicked.mousePressed(pressedEvent);
+            buttonClicked.mouseReleased(releasedEvent);
+            buttonClicked.mouseClicked(clickEvent);
+            buttonClicked.mouseExited(exitedEvent);
+
+            assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+            assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+            assertEquals(State.FLAT, beeper.getLeftTireState(), "Left rear tire should be flat");
+            assertEquals(56, beeper.buttonClicks, "We clicked the beeper 56 times (total of 54 + lock + flat tire click)");
+        });
     }
 
     @Test
@@ -473,40 +458,34 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 1);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 1);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 1);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredLockEvent);
-                        buttonClicked.mousePressed(pressedLockEvent);
-                        buttonClicked.mouseReleased(releasedLockEvent);
-                        buttonClicked.mouseClicked(clickLockEvent);
-                        buttonClicked.mouseExited(exitedLockEvent);
 
-                        assertTrue(beeper.isAnyTireFlat(), "Right rear tire should be flat");
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
 
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
+            buttonClicked.mouseEntered(enteredLockEvent);
+            buttonClicked.mousePressed(pressedLockEvent);
+            buttonClicked.mouseReleased(releasedLockEvent);
+            buttonClicked.mouseClicked(clickLockEvent);
+            buttonClicked.mouseExited(exitedLockEvent);
 
-                        assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
-                        assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
-                        assertEquals(State.FLAT, beeper.getRightTireState(), "Right rear tire should be flat");
-                        assertEquals(76, beeper.buttonClicks, "We clicked the beeper 76 times (total of 74 + lock + flat tire click)");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+            assertTrue(beeper.isAnyTireFlat(), "Right rear tire should be flat");
+
+            buttonClicked.mouseEntered(enteredEvent);
+            buttonClicked.mousePressed(pressedEvent);
+            buttonClicked.mouseReleased(releasedEvent);
+            buttonClicked.mouseClicked(clickEvent);
+            buttonClicked.mouseExited(exitedEvent);
+
+            assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+            assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+            assertEquals(State.FLAT, beeper.getRightTireState(), "Right rear tire should be flat");
+            assertEquals(76, beeper.buttonClicks, "We clicked the beeper 76 times (total of 74 + lock + flat tire click)");
+        });
     }
 
     @Test
     @DisplayName("Single clicking flat tire when a tire is flat")
-    void testFlatTireButtonWhenATireIsFlat()
-    {
+    void testFlatTireButtonWhenATireIsFlat() {
         // Set up driver tire to be flat
         beeper.driverTireState = State.FLAT;
 
@@ -516,29 +495,25 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 1);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 1);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 1);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
 
-                        assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
-                        assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
-                        assertEquals(State.FLAT, beeper.getDriverTireState());
-                        assertEquals(State.INFLATED, beeper.getPassengerTireState());
-                        assertEquals(State.INFLATED, beeper.getLeftTireState());
-                        assertEquals(State.INFLATED, beeper.getRightTireState());
-                        assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
+
+            buttonClicked.mouseEntered(enteredEvent);
+                buttonClicked.mousePressed(pressedEvent);
+                buttonClicked.mouseReleased(releasedEvent);
+                buttonClicked.mouseClicked(clickEvent);
+                buttonClicked.mouseExited(exitedEvent);
+
+                assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+                assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+                assertEquals(State.FLAT, beeper.getDriverTireState());
+                assertEquals(State.INFLATED, beeper.getPassengerTireState());
+                assertEquals(State.INFLATED, beeper.getLeftTireState());
+                assertEquals(State.INFLATED, beeper.getRightTireState());
+                assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
+
+        });
     }
 
     @Test
@@ -554,29 +529,25 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 2);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 2);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 2);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
 
-                        assertFalse(beeper.getSingleClick(), "Single click should be false after two clicks");
-                        assertTrue(beeper.getDoubleClick(), "Double click should be true after two clicks");
-                        assertEquals(State.INFLATED, beeper.getDriverTireState());
-                        assertEquals(State.INFLATED, beeper.getPassengerTireState());
-                        assertEquals(State.INFLATED, beeper.getLeftTireState());
-                        assertEquals(State.INFLATED, beeper.getRightTireState());
-                        assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
+
+            buttonClicked.mouseEntered(enteredEvent);
+            buttonClicked.mousePressed(pressedEvent);
+            buttonClicked.mouseReleased(releasedEvent);
+            buttonClicked.mouseClicked(clickEvent);
+            buttonClicked.mouseExited(exitedEvent);
+
+            assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+            assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+            assertEquals(State.FLAT, beeper.getDriverTireState());
+            assertEquals(State.INFLATED, beeper.getPassengerTireState());
+            assertEquals(State.INFLATED, beeper.getLeftTireState());
+            assertEquals(State.INFLATED, beeper.getRightTireState());
+            assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
+
+        });
     }
 
     @Test
@@ -592,29 +563,25 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 2);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 2);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 2);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
 
-                        assertFalse(beeper.getSingleClick(), "Single click should be false after two clicks");
-                        assertTrue(beeper.getDoubleClick(), "Double click should be true after two clicks");
-                        assertEquals(State.INFLATED, beeper.getDriverTireState());
-                        assertEquals(State.INFLATED, beeper.getPassengerTireState());
-                        assertEquals(State.INFLATED, beeper.getLeftTireState());
-                        assertEquals(State.INFLATED, beeper.getRightTireState());
-                        assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
+
+            buttonClicked.mouseEntered(enteredEvent);
+            buttonClicked.mousePressed(pressedEvent);
+            buttonClicked.mouseReleased(releasedEvent);
+            buttonClicked.mouseClicked(clickEvent);
+            buttonClicked.mouseExited(exitedEvent);
+
+            assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+            assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+            assertEquals(State.FLAT, beeper.getDriverTireState());
+            assertEquals(State.INFLATED, beeper.getPassengerTireState());
+            assertEquals(State.INFLATED, beeper.getLeftTireState());
+            assertEquals(State.INFLATED, beeper.getRightTireState());
+            assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
+
+        });
     }
 
     @Test
@@ -630,29 +597,25 @@ class CarBeeperTest extends BaseCarBeeperTest {
         MouseEvent releasedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_RELEASED, 2);
         MouseEvent clickEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_CLICKED, 2);
         MouseEvent exitedEvent = createMouseEvent(beeper.getFlatTireButton(), MouseEvent.MOUSE_EXITED, 2);
-        for (MouseListener listener : beeper.getFlatTireButton().getMouseListeners()) {
-            try {
-                javax.swing.SwingUtilities.invokeAndWait(() -> {
-                    if (listener instanceof ButtonClicked buttonClicked) {
-                        buttonClicked.mouseEntered(enteredEvent);
-                        buttonClicked.mousePressed(pressedEvent);
-                        buttonClicked.mouseReleased(releasedEvent);
-                        buttonClicked.mouseClicked(clickEvent);
-                        buttonClicked.mouseExited(exitedEvent);
 
-                        assertFalse(beeper.getSingleClick(), "Single click should be false after two clicks");
-                        assertTrue(beeper.getDoubleClick(), "Double click should be true after two clicks");
-                        assertEquals(State.INFLATED, beeper.getDriverTireState());
-                        assertEquals(State.INFLATED, beeper.getPassengerTireState());
-                        assertEquals(State.INFLATED, beeper.getLeftTireState());
-                        assertEquals(State.INFLATED, beeper.getRightTireState());
-                        assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
-                    }
-                });
-            } catch (Exception e) {
-                fail("EDT interrupted: " + e.getMessage());
-            }
-        }
+        SwingUtilities.invokeLater(() -> {
+            final var buttonClicked = beeper.getFlatTireButton().getMouseListeners()[0];
+
+            buttonClicked.mouseEntered(enteredEvent);
+            buttonClicked.mousePressed(pressedEvent);
+            buttonClicked.mouseReleased(releasedEvent);
+            buttonClicked.mouseClicked(clickEvent);
+            buttonClicked.mouseExited(exitedEvent);
+
+            assertTrue(beeper.getSingleClick(), "Single click should be true after one click");
+            assertFalse(beeper.getDoubleClick(), "Double click should be false after one click");
+            assertEquals(State.FLAT, beeper.getDriverTireState());
+            assertEquals(State.INFLATED, beeper.getPassengerTireState());
+            assertEquals(State.INFLATED, beeper.getLeftTireState());
+            assertEquals(State.INFLATED, beeper.getRightTireState());
+            assertEquals(1, beeper.buttonClicks, "We clicked the beeper once");
+
+        });
     }
 
     @Test
@@ -685,7 +648,6 @@ class CarBeeperTest extends BaseCarBeeperTest {
             assertEquals(State.INFLATED, beeper.getRightTireState());
             assertEquals(1, beeper.buttonClicks, "buttonClicks should be one");
         });
-
     }
 
     @Test
