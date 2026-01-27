@@ -66,6 +66,7 @@ CarBeeper is a Java Swing application that simulates a car key fob with various 
 
 ### Test Best Practices
 - Initialize mocks with `MockitoAnnotations.openMocks(this)` which returns an AutoCloseable that should be closed
+  - The newer `openMocks()` method provides better resource management than the deprecated `initMocks()`
   - Example with proper resource management:
     ```java
     private AutoCloseable mocks;
@@ -213,7 +214,8 @@ LOGGER.info("Action performed: {}", actionDescription);
 ### Random Number Generation
 - Flat tire functionality uses `Random` class
 - Random numbers determine tire state changes based on button click count
-- Logic: Tire becomes flat when `buttonClicks == randomNumber` or when `randomNumber > 10 && buttonClicks == randomNumber / 10`
+- Logic: Tire becomes flat when `buttonClicks == randomNumber` or when `randomNumber > 10 && buttonClicks == randomNumber / 10` (integer division)
+  - Example: If randomNumber is 50, a tire becomes flat when buttonClicks equals 50 or when buttonClicks equals 5
 - Different random number ranges (0-24, 25-49, 50-74, 75-100) determine which tire becomes flat
 
 ### Window Handler
