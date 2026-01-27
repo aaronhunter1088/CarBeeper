@@ -63,7 +63,8 @@ CarBeeper is a Java Swing application that simulates a car key fob with various 
 - Use descriptive test names that explain what is being tested
 
 ### Test Best Practices
-- Initialize mocks with `MockitoAnnotations.initMocks(this)`
+- Initialize mocks with `MockitoAnnotations.openMocks(this)` (returns AutoCloseable that should be closed)
+  - Note: Existing tests use deprecated `initMocks()` method
 - Create new CarBeeper instance in `@BeforeEach` setup
 - Use assertions that provide clear failure messages
 - Test both positive and negative cases
