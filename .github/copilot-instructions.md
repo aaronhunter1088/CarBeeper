@@ -50,7 +50,8 @@ CarBeeper is a Java Swing application that simulates a car key fob with various 
 ## Testing Requirements
 
 ### Test Structure
-- All test classes should extend `BaseCarBeeperTest` when appropriate
+- All test classes should extend `BaseCarBeeperTest` when you need to create mock MouseEvents for testing button interactions
+  - `BaseCarBeeperTest` provides a `createMouseEvent()` helper method
 - Use JUnit 5 annotations: `@Test`, `@BeforeEach`, `@DisplayName`
 - Use Mockito for mocking when necessary
 - Test file location: `src/test/java/carbeeper/`
@@ -63,7 +64,15 @@ CarBeeper is a Java Swing application that simulates a car key fob with various 
 - Use descriptive test names that explain what is being tested
 
 ### Test Best Practices
-- Initialize mocks with `MockitoAnnotations.openMocks(this)` (returns AutoCloseable that should be closed)
+- Initialize mocks with `MockitoAnnotations.openMocks(this)` which returns an AutoCloseable that should be closed
+  - Example:
+    ```java
+    @BeforeEach
+    void setUp() {
+        AutoCloseable mocks = MockitoAnnotations.openMocks(this);
+        // Store mocks if you need to close them in @AfterEach
+    }
+    ```
   - Note: Existing tests use deprecated `initMocks()` method
 - Create new CarBeeper instance in `@BeforeEach` setup
 - Use assertions that provide clear failure messages
