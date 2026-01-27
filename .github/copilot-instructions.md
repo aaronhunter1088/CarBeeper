@@ -50,8 +50,9 @@ CarBeeper is a Java Swing application that simulates a car key fob with various 
 ## Testing Requirements
 
 ### Test Structure
-- All test classes should extend `BaseCarBeeperTest` when you need to create mock MouseEvents for testing button interactions
+- Extend `BaseCarBeeperTest` when you need to create mock MouseEvents for testing button interactions
   - `BaseCarBeeperTest` provides a `createMouseEvent()` helper method
+  - Do not extend it for tests that don't require mouse event simulation
 - Use JUnit 5 annotations: `@Test`, `@BeforeEach`, `@DisplayName`
 - Use Mockito for mocking when necessary
 - Test file location: `src/test/java/carbeeper/`
@@ -65,15 +66,24 @@ CarBeeper is a Java Swing application that simulates a car key fob with various 
 
 ### Test Best Practices
 - Initialize mocks with `MockitoAnnotations.openMocks(this)` which returns an AutoCloseable that should be closed
-  - Example:
+  - Example with proper resource management:
     ```java
+    private AutoCloseable mocks;
+    
     @BeforeEach
     void setUp() {
-        AutoCloseable mocks = MockitoAnnotations.openMocks(this);
-        // Store mocks if you need to close them in @AfterEach
+        mocks = MockitoAnnotations.openMocks(this);
+        beeper = new CarBeeper();
+    }
+    
+    @AfterEach
+    void tearDown() throws Exception {
+        if (mocks != null) {
+            mocks.close();
+        }
     }
     ```
-  - Note: Existing tests use deprecated `initMocks()` method
+  - Note: Existing tests use deprecated `initMocks()` method and don't close resources
 - Create new CarBeeper instance in `@BeforeEach` setup
 - Use assertions that provide clear failure messages
 - Test both positive and negative cases
@@ -202,8 +212,9 @@ LOGGER.info("Action performed: {}", actionDescription);
 
 ### Random Number Generation
 - Flat tire functionality uses `Random` class
-- Random numbers determine tire state changes
-- Logic: number 1 = flat, number 5 = inflated
+- Random numbers determine tire state changes based on button click count
+- Logic: Tire becomes flat when `buttonClicks == randomNumber` or when `randomNumber > 10 && buttonClicks == randomNumber / 10`
+- Different random number ranges (0-24, 25-49, 50-74, 75-100) determine which tire becomes flat
 
 ### Window Handler
 - `WindowButtonHandler` is a complex class handling all window button scenarios
