@@ -235,7 +235,7 @@ LOGGER.info("Action performed: {}", actionDescription);
 2. **Maintain consistency**: Follow existing code style and patterns
 3. **Test thoroughly**: Add/update tests for any logic changes
 4. **Log appropriately**: Add logging for new functionality
-5. **Update documentation**: Update JavaDocs and version tags
+5. **Update documentation**: Update JavaDocs and version tags when appropriate
 6. **Build and verify**: Run `mvn clean install` before committing
 7. **Check logs**: Ensure logging works correctly with changes
 
