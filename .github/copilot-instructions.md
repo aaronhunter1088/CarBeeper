@@ -14,7 +14,7 @@ CarBeeper is a Java Swing application that simulates a car key fob with various 
 
 ## Technology Stack
 
-- **Language**: Java 21
+- **Language**: Java 25
 - **Build Tool**: Maven
 - **GUI Framework**: Swing
 - **Logging**: Apache Log4j2
