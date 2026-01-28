@@ -170,7 +170,7 @@ src/
 
 ### Version Updates
 - Update version in `pom.xml`
-- Update `@version since` tags in JavaDocs
+- Add `@version since` tags in JavaDocs in new files. Never update the tag.
 - Document changes in Main.java's extensive history section
 - Maintain backwards compatibility when possible
 
