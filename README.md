@@ -1,4 +1,6 @@
 # CarBeeper
+[![Dependabot Updates](https://github.com/aaronhunter1088/CarBeeper/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/aaronhunter1088/CarBeeper/actions/workflows/dependabot/dependabot-updates)
+
 This quick guide will inform you how the car beeper works.
 There are six buttons on the top. 
 Below is a text area which displays the results of the button clicks.
